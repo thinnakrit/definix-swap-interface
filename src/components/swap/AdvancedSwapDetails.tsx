@@ -1,6 +1,6 @@
 import React from 'react'
-import { Trade, TradeType } from '@pancakeswap-libs/sdk'
-import { Card, CardBody, Text } from '@pancakeswap-libs/uikit'
+import { Trade, TradeType } from 'definixswap-sdk'
+import { Card, CardBody, Text } from 'definixswap-uikit'
 import { Field } from '../../state/swap/actions'
 import { useUserSlippageTolerance } from '../../state/user/hooks'
 import { computeSlippageAdjustedAmounts, computeTradePriceBreakdown } from '../../utils/prices'
