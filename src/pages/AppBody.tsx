@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Card } from '@pancakeswap-libs/uikit'
+import { Card } from 'definixswap-uikit'
 
-export const BodyWrapper = styled(Card)`
+export const BodyWrapper = styled(Card).attrs((props)=>{
+  props.isRainbow = true
+})`
   position: relative;
   max-width: 436px;
   width: 100%;
