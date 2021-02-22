@@ -1,6 +1,6 @@
 import { Currency, CurrencyAmount, Fraction, Percent } from 'definixswap-sdk'
 import React from 'react'
-import { Button } from 'definixswap-uikit'
+import { Button } from 'uikit-dev'
 import { RowBetween, RowFixed } from '../../components/Row'
 import CurrencyLogo from '../../components/CurrencyLogo'
 import { Field } from '../../state/mint/actions'

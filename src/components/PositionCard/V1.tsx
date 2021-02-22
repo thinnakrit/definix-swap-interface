@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom'
 import { Token, TokenAmount, WETH } from 'definixswap-sdk'
-import { Button, Text } from 'definixswap-uikit'
+import { Button, Text } from 'uikit-dev'
 import { AutoColumn } from '../Column'
 import { RowBetween, RowFixed } from '../Row'
 import { FixedHeightRow, HoverCard } from './index'

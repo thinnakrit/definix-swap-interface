@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from 'definixswap-uikit'
+import { Text } from 'uikit-dev'
 import { ChainId, Currency, currencyEquals, ETHER, Token } from 'definixswap-sdk'
 import styled from 'styled-components'
 

@@ -1,4 +1,4 @@
-import { Text } from 'definixswap-uikit'
+import { Text } from 'uikit-dev'
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`

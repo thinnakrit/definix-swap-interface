@@ -1,6 +1,6 @@
 import React from 'react'
 import { Price } from 'definixswap-sdk'
-import { SyncAltIcon, Text } from 'definixswap-uikit'
+import { SyncAltIcon, Text } from 'uikit-dev'
 import { StyledBalanceMaxMini } from './styleds'
 
 interface TradePriceProps {

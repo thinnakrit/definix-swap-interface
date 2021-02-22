@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from 'react'
 import { ThemeContext } from 'styled-components'
 import { Pair } from 'definixswap-sdk'
-import { Button, CardBody, Text } from 'definixswap-uikit'
+import { Button, CardBody, Text } from 'uikit-dev'
 import { Link } from 'react-router-dom'
 import CardNav from 'components/CardNav'
 import Question from 'components/QuestionHelper'

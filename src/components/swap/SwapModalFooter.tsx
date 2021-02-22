@@ -1,6 +1,6 @@
 import { Trade, TradeType } from 'definixswap-sdk'
 import React, { useMemo, useState } from 'react'
-import { Text , Button } from 'definixswap-uikit'
+import { Text , Button } from 'uikit-dev'
 import { Repeat } from 'react-feather'
 
 import { Field } from '../../state/swap/actions'
