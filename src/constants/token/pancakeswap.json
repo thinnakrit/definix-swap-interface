@@ -11,6 +11,22 @@
   "keywords": ["pancake", "default"],
   "tokens": [
     {
+      "name": "GAS Token",
+      "symbol": "GAS",
+      "address": "0x71D6688fDc8FAf4b1Cdd1f790f40E7EE1814a1d8",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "/images/coins/gas.jpg"
+    },
+    {
+      "name": "SIX Token",
+      "symbol": "SIX",
+      "address": "0x9bDAF16122eB64E62757BDbBDc4d442495EA6C67",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "/images/coins/six.png"
+    },
+    {
       "name": "WBNB Token",
       "symbol": "WBNB",
       "address": "0xae13d989dac2f0debff460ac112a837c89baa7cd",
