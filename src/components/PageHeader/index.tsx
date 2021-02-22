@@ -1,9 +1,8 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import { Heading, IconButton, Text, Flex, useModal } from 'uikit-dev'
-import SettingsModal from './SettingsModal'
+import { CogIcon, Flex, Heading, IconButton, Text, useModal } from 'uikit-dev'
 import RecentTransactionsModal from './RecentTransactionsModal'
-import CogIcon from '../../assets/images/gear.svg'
+import SettingsModal from './SettingsModal'
 
 interface PageHeaderProps {
   title: ReactNode
@@ -22,8 +21,7 @@ const HistoryIcon = () => (
 )
 
 const StyledPageHeader = styled.div`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
-  padding: 24px;
+  padding: 24px 24px 0 24px;
 `
 
 const Details = styled.div`
@@ -46,7 +44,7 @@ const PageHeader = ({ title, description, children }: PageHeaderProps) => {
           )}
         </Details>
         <IconButton variant="text" onClick={onPresentSettings} title="Settings">
-          <img src={CogIcon} alt="" />
+          <CogIcon width={24} />
         </IconButton>
         {/* <IconButton variant="text" onClick={onPresentRecentTransactions} title="Recent transactions">
           <HistoryIcon />

@@ -10,7 +10,7 @@ import DoubleCurrencyLogo from '../DoubleLogo'
 import { RowBetween } from '../Row'
 import { Input as NumericalInput } from '../NumericalInput'
 import { useActiveWeb3React } from '../../hooks'
-import TranslatedText from "../TranslatedText"
+import TranslatedText from '../TranslatedText'
 import { TranslateString } from '../../utils/translateTextHelpers'
 
 const InputRow = styled.div<{ selected: boolean }>`
@@ -36,7 +36,7 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
 
   :focus,
   :hover {
-    background-color: ${({ theme }) => darken(0.05, theme.colors.input)};
+    background-color: ${({ theme }) => theme.colors.input};
   }
 `
 
@@ -70,9 +70,9 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
 `
 
 const Container = styled.div<{ hideInput: boolean }>`
-  border-radius: 16px;
-  background-color: ${({ theme }) => theme.colors.input};
-  box-shadow: ${({ theme }) => theme.shadows.inset};
+  border-radius: 6px;
+  background-color: ${({ theme }) => theme.colors.white};
+  border: 1px solid ${({ theme }) => theme.colors.border};
 `
 
 interface CurrencyInputPanelProps {
@@ -106,7 +106,7 @@ export default function CurrencyInputPanel({
   hideInput = false,
   otherCurrency,
   id,
-  showCommonBases
+  showCommonBases,
 }: CurrencyInputPanelProps) {
   const [modalOpen, setModalOpen] = useState(false)
   const { account } = useActiveWeb3React()
@@ -126,7 +126,7 @@ export default function CurrencyInputPanel({
               {account && (
                 <Text onClick={onMax} fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
                   {!hideBalance && !!currency && selectedCurrencyBalance
-                    ? `Balance: ${  selectedCurrencyBalance?.toSignificant(6)}`
+                    ? `Balance: ${selectedCurrencyBalance?.toSignificant(6)}`
                     : ' -'}
                 </Text>
               )}
@@ -139,7 +139,7 @@ export default function CurrencyInputPanel({
               <NumericalInput
                 className="token-amount-input"
                 value={value}
-                onUserInput={val => {
+                onUserInput={(val) => {
                   onUserInput(val)
                 }}
               />
@@ -172,10 +172,11 @@ export default function CurrencyInputPanel({
               ) : (
                 <Text>
                   {(currency && currency.symbol && currency.symbol.length > 20
-                    ? `${currency.symbol.slice(0, 4) 
-                      }...${ 
-                      currency.symbol.slice(currency.symbol.length - 5, currency.symbol.length)}`
-                    : currency?.symbol) || <TranslatedText translationId={82}>Select a currency</TranslatedText>}
+                    ? `${currency.symbol.slice(0, 4)}...${currency.symbol.slice(
+                        currency.symbol.length - 5,
+                        currency.symbol.length
+                      )}`
+                    : currency?.symbol) || <TranslatedText translationId={82}>Select a token</TranslatedText>}
                 </Text>
               )}
               {!disableCurrencySelect && <ChevronDownIcon />}

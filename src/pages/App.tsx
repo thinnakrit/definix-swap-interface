@@ -1,14 +1,13 @@
+import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
 import React, { Suspense, useEffect, useState } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
-import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
-import background from 'assets/svg/arch-light.svg'
-import leftPancakeSvg from 'assets/svg/left-pancake.svg'
-import rightPancakeSvg from 'assets/svg/right-pancake.svg'
-import groupPancakeSvg from 'assets/svg/group-pancake.svg'
+import Menu from '../components/Menu'
 import Popups from '../components/Popups'
-
 import Web3ReactManager from '../components/Web3ReactManager'
+import { allLanguages, EN } from '../constants/localisation/languageCodes'
+import { LanguageContext } from '../hooks/LanguageContext'
+import { TranslationsContext } from '../hooks/TranslationsContext'
 import AddLiquidity from './AddLiquidity'
 import {
   RedirectDuplicateTokenIds,
@@ -25,11 +24,6 @@ import RemoveLiquidity from './RemoveLiquidity'
 import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
 import Swap from './Swap'
 import { RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
-import { EN, allLanguages } from '../constants/localisation/languageCodes'
-import { LanguageContext } from '../hooks/LanguageContext'
-import { TranslationsContext } from '../hooks/TranslationsContext'
-
-import Menu from '../components/Menu'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -49,19 +43,6 @@ const BodyWrapper = styled.div`
   overflow-x: hidden;
   z-index: 1;
   justify-content: center;
-
-  background-image: url(${groupPancakeSvg});
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: 90%;
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url(${background}), url(${leftPancakeSvg}), url(${rightPancakeSvg});
-    background-repeat: no-repeat;
-    background-position: bottom, 10% center, 90% center;
-    background-size: contain, 20%, 20%;
-    min-height: 90vh;
-  }
 `
 
 const Marginer = styled.div`
