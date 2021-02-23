@@ -19,8 +19,8 @@ export const FadedSpan = styled(RowFixed)`
 `
 
 export const PaddedColumn = styled(AutoColumn)`
-  padding: 20px;
-  padding-bottom: 12px;
+  padding: 24px;
+  padding-bottom: 0;
 `
 
 export const MenuItem = styled(RowBetween)`
@@ -50,7 +50,7 @@ export const SearchInput = styled.input`
   border-radius: ${({ theme }) => theme.radii.default};
   color: ${({ theme }) => theme.colors.text};
   border-style: solid;
-  border: 1px solid ${({ theme }) => theme.colors.tertiary};
+  border: 1px solid ${({ theme }) => theme.colors.border};
   -webkit-appearance: none;
 
   font-size: 18px;

@@ -1,6 +1,6 @@
 import { Currency, ETHER, Token } from 'definixswap-sdk'
 import React, { KeyboardEvent, RefObject, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
-import { Text, CloseIcon } from 'uikit-dev'
+import { Text, CloseIcon, Heading } from 'uikit-dev'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { FixedSizeList } from 'react-window'
@@ -160,16 +160,18 @@ export function CurrencySearch({
 
   return (
     <Column style={{ width: '100%', flex: '1 1' }}>
-      <PaddedColumn gap="14px">
+      <PaddedColumn gap="16px">
         <RowBetween>
           <Text>
-            <TranslatedText translationId={82}>Select a token</TranslatedText>
-            <QuestionHelper
-              text={TranslateString(
-                130,
-                'Find a token by searching for its name or symbol or by pasting its address below.'
-              )}
-            />
+            <Heading>
+              <TranslatedText translationId={82}>Select a token</TranslatedText>
+              <QuestionHelper
+                text={TranslateString(
+                  130,
+                  'Find a token by searching for its name or symbol or by pasting its address below.'
+                )}
+              />
+            </Heading>
           </Text>
           <CloseIcon onClick={onDismiss} />
         </RowBetween>
@@ -189,9 +191,9 @@ export function CurrencySearch({
           <CommonBases chainId={chainId} onSelect={handleCurrencySelect} selectedCurrency={selectedCurrency} />
         )}
         <RowBetween>
-          <Text fontSize="14px">
+          <Heading>
             <TranslatedText translationId={126}>Token name</TranslatedText>
-          </Text>
+          </Heading>
           <SortButton ascending={invertSearchOrder} toggleSortOrder={() => setInvertSearchOrder((iso) => !iso)} />
         </RowBetween>
       </PaddedColumn>

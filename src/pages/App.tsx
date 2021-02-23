@@ -36,13 +36,14 @@ const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   padding: 32px 16px;
   align-items: center;
+  justify-content: center;
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 1;
-  justify-content: center;
 `
 
 const Marginer = styled.div`

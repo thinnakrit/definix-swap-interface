@@ -20,12 +20,12 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   height: 100%;
   z-index: 11;
   transition: padding-top 0.2s, width 0.2s;
-  border-right: ${({ isPushed }) => (isPushed ? '2px solid rgba(133, 133, 133, 0.1)' : 0)};
+  // border-right: ${({ isPushed }) => (isPushed ? `1px solid ${({ theme }) => theme.colors.border}` : 0)};
   overflow: ${({ isPushed }) => (isPushed ? 'initial' : 'hidden')};
   transform: translate3d(0, 0, 0);
-
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   ${({ theme }) => theme.mediaQueries.nav} {
-    border-right: 2px solid rgba(133, 133, 133, 0.1);
+    // border-right: 1px solid ${({ theme }) => theme.colors.border};
     width: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
   }
 `

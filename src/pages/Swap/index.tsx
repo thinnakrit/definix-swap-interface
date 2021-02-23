@@ -1,6 +1,5 @@
 import AddressInputPanel from 'components/AddressInputPanel'
 import Card, { GreyCard } from 'components/Card'
-import CardNav from 'components/CardNav'
 import { AutoColumn } from 'components/Column'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import CurrencyInputPanel from 'components/CurrencyInputPanel'
@@ -32,11 +31,12 @@ import { Field } from 'state/swap/actions'
 import { useDefaultsFromURLSearch, useDerivedSwapInfo, useSwapActionHandlers, useSwapState } from 'state/swap/hooks'
 import { useExpertModeManager, useUserDeadline, useUserSlippageTolerance } from 'state/user/hooks'
 import { ThemeContext } from 'styled-components'
-import { ArrowDownIcon, Button, CardBody, IconButton, Text } from 'uikit-dev'
+import { ArrowDownIcon, Button, CardBody, IconButton, Text, Heading } from 'uikit-dev'
 import { maxAmountSpend } from 'utils/maxAmountSpend'
 import { computeTradePriceBreakdown, warningSeverity } from 'utils/prices'
 import { TranslateString } from 'utils/translateTextHelpers'
 import AppBody from '../AppBody'
+// import CardNav from 'components/CardNav'
 
 const { main: Main } = TYPE
 
@@ -292,7 +292,12 @@ const Swap = () => {
         transactionType={syrupTransactionType}
         onConfirm={handleConfirmSyrupWarning}
       />
-      <CardNav />
+      {/* <CardNav /> */}
+
+      <Heading as="h1" fontSize="32px !important" className="my-6">
+        Swap
+      </Heading>
+
       <AppBody>
         <Wrapper id="swap-page">
           <ConfirmSwapModal
