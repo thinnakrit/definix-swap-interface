@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const ToggleElement = styled.span<{ isActive?: boolean; isOnSwitch?: boolean }>`
   padding: 0.25rem 0.5rem;
-  border-radius: 14px;
+  border-radius: ${({ theme }) => theme.radii.default};
   background: ${({ theme, isActive, isOnSwitch }) =>
     isActive ? (isOnSwitch ? theme.colors.primary : theme.colors.textDisabled) : 'none'};
   color: ${({ theme, isActive, isOnSwitch }) =>
@@ -13,7 +13,7 @@ const ToggleElement = styled.span<{ isActive?: boolean; isOnSwitch?: boolean }>`
 `
 
 const StyledToggle = styled.button<{ isActive?: boolean; activeElement?: boolean }>`
-  border-radius: 16px;
+  border-radius: ${({ theme }) => theme.radii.default};
   border: 1px solid ${({ theme, isActive }) => (isActive ? theme.colors.primaryDark : theme.colors.textDisabled)};
   display: flex;
   width: fit-content;

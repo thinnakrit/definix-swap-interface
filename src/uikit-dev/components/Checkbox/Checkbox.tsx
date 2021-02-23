@@ -1,17 +1,17 @@
-import styled from "styled-components";
-import { CheckboxProps, scales } from "./types";
+import styled from 'styled-components'
+import { CheckboxProps, scales } from './types'
 
 const getScale = ({ scale }: CheckboxProps) => {
   switch (scale) {
     case scales.SM:
-      return "24px";
+      return '24px'
     case scales.MD:
     default:
-      return "32px";
+      return '32px'
   }
-};
+}
 
-const Checkbox = styled.input.attrs({ type: "checkbox" })<CheckboxProps>`
+const Checkbox = styled.input.attrs({ type: 'checkbox' })<CheckboxProps>`
   appearance: none;
   overflow: hidden;
   cursor: pointer;
@@ -22,12 +22,12 @@ const Checkbox = styled.input.attrs({ type: "checkbox" })<CheckboxProps>`
   vertical-align: middle;
   transition: background-color 0.2s ease-in-out;
   border: 0;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.radii.default};
   background-color: ${({ theme }) => theme.colors.input};
   box-shadow: ${({ theme }) => theme.shadows.inset};
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     border-bottom: 2px solid;
     border-left: 2px solid;
@@ -62,10 +62,10 @@ const Checkbox = styled.input.attrs({ type: "checkbox" })<CheckboxProps>`
     cursor: default;
     opacity: 0.6;
   }
-`;
+`
 
 Checkbox.defaultProps = {
   scale: scales.MD,
-};
+}
 
-export default Checkbox;
+export default Checkbox

@@ -4,11 +4,11 @@ import { Text } from 'uikit-dev'
 
 const Card = styled.div<any>`
   width: 100%;
-  border-radius: 16px;
+  border-radius: ${({ theme }) => theme.radii.default};
   padding: 1.25rem;
   padding: ${({ padding }) => padding};
   border: ${({ border }) => border};
-  border-radius: ${({ borderRadius }) => borderRadius};
+  border-radius: ${({ borderRadius }) => borderRadius} || ${({ theme }) => theme.radii.default};
 `
 export default Card
 
@@ -40,7 +40,7 @@ export const PinkCard = styled(Card)`
 const BlueCardStyled = styled(Card)`
   background-color: ${({ theme }) => theme.colors.primaryDark};
   color: ${({ theme }) => theme.colors.primary};
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.radii.default};
   width: fit-content;
 `
 

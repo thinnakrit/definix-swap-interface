@@ -8,7 +8,7 @@ import { useActiveWeb3React } from '../../hooks'
 const StyledIdenticonContainer = styled.div`
   height: 1rem;
   width: 1rem;
-  border-radius: 1.125rem;
+  border-radius: ${({ theme }) => theme.radii.default};
   background-color: ${({ theme }) => theme.colors.backgroundDisabled};
 `
 

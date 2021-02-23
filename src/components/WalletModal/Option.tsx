@@ -7,7 +7,7 @@ const InfoCard = styled.button<{ active?: boolean }>`
   padding: 1rem;
   outline: none;
   border: 1px solid;
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.radii.default};
   width: 100% !important;
   &:focus {
     box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.primary};
@@ -51,7 +51,7 @@ const GreenCircle = styled.div`
     width: 8px;
     margin-right: 8px;
     background-color: ${({ theme }) => theme.colors.success};
-    border-radius: 50%;
+    border-radius: ${({ theme }) => theme.radii.circle};
   }
 `
 
@@ -65,7 +65,8 @@ const CircleWrapper = styled.div`
 const HeaderText = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  color: ${props => (props.color === 'blue' ? ({ theme }) => theme.colors.primary : ({ theme }) => theme.colors.text)};
+  color: ${(props) =>
+    props.color === 'blue' ? ({ theme }) => theme.colors.primary : ({ theme }) => theme.colors.text};
   font-size: 1rem;
   font-weight: 500;
 `
@@ -83,8 +84,8 @@ const IconWrapper = styled.div<{ size?: number | null }>`
   justify-content: center;
   & > img,
   span {
-    height: ${({ size }) => (size ? `${size  }px` : '24px')};
-    width: ${({ size }) => (size ? `${size  }px` : '24px')};
+    height: ${({ size }) => (size ? `${size}px` : '24px')};
+    width: ${({ size }) => (size ? `${size}px` : '24px')};
   }
   ${({ theme }) => theme.mediaQueries.lg} {
     align-items: flex-end;
@@ -101,7 +102,7 @@ export default function Option({
   subheader = null,
   icon,
   active = false,
-  id
+  id,
 }: {
   link?: string | null
   clickable?: boolean

@@ -1,9 +1,9 @@
-import styled, { DefaultTheme } from "styled-components";
-import { space } from "styled-system";
-import { CardProps } from "./types";
+import styled, { DefaultTheme } from 'styled-components'
+import { space } from 'styled-system'
+import { CardProps } from './types'
 
 interface StyledCardProps extends CardProps {
-  theme: DefaultTheme;
+  theme: DefaultTheme
 }
 
 /**
@@ -11,30 +11,30 @@ interface StyledCardProps extends CardProps {
  */
 const getBoxShadow = ({ isActive, isSuccess, isWarning, isRainbow, theme }: StyledCardProps) => {
   if (isWarning) {
-    return theme.card.boxShadowWarning;
+    return theme.card.boxShadowWarning
   }
 
   if (isSuccess) {
-    return theme.card.boxShadowSuccess;
+    return theme.card.boxShadowSuccess
   }
 
   if (isActive) {
-    return theme.card.boxShadowActive;
+    return theme.card.boxShadowActive
   }
 
   if (isRainbow) {
-    return theme.shadows.elevation1;
+    return theme.shadows.elevation1
   }
 
-  return theme.card.boxShadow;
-};
+  return theme.card.boxShadow
+}
 
 const StyledCard = styled.div<StyledCardProps>`
   background-color: ${({ theme }) => theme.card.background};
   border: ${({ theme }) => theme.card.boxShadow};
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.radii.default};
   box-shadow: ${getBoxShadow};
-  color: ${({ theme, isDisabled }) => theme.colors[isDisabled ? "textDisabled" : "text"]};
+  color: ${({ theme, isDisabled }) => theme.colors[isDisabled ? 'textDisabled' : 'text']};
   overflow: hidden;
   position: relative;
 
@@ -47,13 +47,13 @@ const StyledCard = styled.div<StyledCardProps>`
     width: 100%;
     height: 4px;
   }
-`;
+`
 
 StyledCard.defaultProps = {
   isActive: false,
   isSuccess: false,
   isWarning: false,
   isDisabled: false,
-};
+}
 
-export default StyledCard;
+export default StyledCard

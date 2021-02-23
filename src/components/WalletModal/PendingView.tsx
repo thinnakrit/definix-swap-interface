@@ -29,7 +29,7 @@ const LoadingMessage = styled.div<{ error?: boolean }>`
   flex-flow: row nowrap;
   align-items: center;
   justify-content: flex-start;
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.radii.default};
   margin-bottom: 20px;
   color: ${({ theme, error }) => (error ? theme.colors.failure : 'inherit')};
   border: 1px solid ${({ theme, error }) => (error ? theme.colors.failure : theme.colors.textDisabled)};
@@ -47,7 +47,7 @@ const ErrorGroup = styled.div`
 `
 
 const ErrorButton = styled.div`
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.radii.default};
   font-size: 12px;
   color: ${({ theme }) => theme.colors.text};
   background-color: ${({ theme }) => theme.colors.backgroundDisabled};

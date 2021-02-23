@@ -58,7 +58,7 @@ const UpperSection = styled.div`
 const InfoCard = styled.div`
   padding: 1rem;
   border: 1px solid ${({ theme }) => theme.colors.tertiary};
-  border-radius: 20px;
+  border-radius: ${({ theme }) => theme.radii.default};
   position: relative;
   display: grid;
   grid-row-gap: 12px;
@@ -321,7 +321,7 @@ export default function AccountDetails({
                     <WalletAction
                       style={{ fontSize: '.825rem', fontWeight: 400, marginRight: '8px' }}
                       onClick={() => {
-                        (connector as any).close()
+                        ;(connector as any).close()
                       }}
                     >
                       Disconnect

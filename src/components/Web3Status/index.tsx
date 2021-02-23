@@ -31,8 +31,8 @@ const IconWrapper = styled.div<{ size?: number }>`
   align-items: center;
   justify-content: center;
   & > * {
-    height: ${({ size }) => (size ? `${size  }px` : '32px')};
-    width: ${({ size }) => (size ? `${size  }px` : '32px')};
+    height: ${({ size }) => (size ? `${size}px` : '32px')};
+    width: ${({ size }) => (size ? `${size}px` : '32px')};
   }
 `
 
@@ -42,7 +42,7 @@ const Web3StatusGeneric = styled(Button)`
   width: 100%;
   align-items: center;
   padding: 0.5rem;
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.radii.default};
   cursor: pointer;
   user-select: none;
   :focus {
@@ -136,25 +136,29 @@ const SOCK = (
 function StatusIcon({ connector }: { connector: AbstractConnector }) {
   if (connector === injected || connector === bsc) {
     return <Identicon />
-  } if (connector === walletconnect) {
+  }
+  if (connector === walletconnect) {
     return (
       <IconWrapper size={16}>
         <img src={WalletConnectIcon} alt="" />
       </IconWrapper>
     )
-  } if (connector === walletlink) {
+  }
+  if (connector === walletlink) {
     return (
       <IconWrapper size={16}>
         <img src={CoinbaseWalletIcon} alt="" />
       </IconWrapper>
     )
-  } if (connector === fortmatic) {
+  }
+  if (connector === fortmatic) {
     return (
       <IconWrapper size={16}>
         <img src={FortmaticIcon} alt="" />
       </IconWrapper>
     )
-  } if (connector === portis) {
+  }
+  if (connector === portis) {
     return (
       <IconWrapper size={16}>
         <img src={PortisIcon} alt="" />
@@ -177,7 +181,7 @@ function Web3StatusInner() {
     return txs.filter(isTransactionRecent).sort(newTransactionsFirst)
   }, [allTransactions])
 
-  const pending = sortedRecentTransactions.filter(tx => !tx.receipt).map(tx => tx.hash)
+  const pending = sortedRecentTransactions.filter((tx) => !tx.receipt).map((tx) => tx.hash)
 
   const hasPendingTransactions = !!pending.length
   const hasSocks = useHasSocks()
@@ -199,20 +203,20 @@ function Web3StatusInner() {
         {!hasPendingTransactions && connector && <StatusIcon connector={connector} />}
       </Web3StatusConnected>
     )
-  } if (error) {
+  }
+  if (error) {
     return (
       <Web3StatusError onClick={toggleWalletModal}>
         <NetworkIcon />
         <Text>{error instanceof UnsupportedChainIdError ? 'Wrong Network' : 'Error'}</Text>
       </Web3StatusError>
     )
-  } 
-    return (
-      <Web3StatusConnect id="connect-wallet" onClick={toggleWalletModal} faded={!account}>
-        <Text>{t('Connect to a wallet')}</Text>
-      </Web3StatusConnect>
-    )
-  
+  }
+  return (
+    <Web3StatusConnect id="connect-wallet" onClick={toggleWalletModal} faded={!account}>
+      <Text>{t('Connect to a wallet')}</Text>
+    </Web3StatusConnect>
+  )
 }
 
 export default function Web3Status() {
@@ -228,8 +232,8 @@ export default function Web3Status() {
     return txs.filter(isTransactionRecent).sort(newTransactionsFirst)
   }, [allTransactions])
 
-  const pending = sortedRecentTransactions.filter(tx => !tx.receipt).map(tx => tx.hash)
-  const confirmed = sortedRecentTransactions.filter(tx => tx.receipt).map(tx => tx.hash)
+  const pending = sortedRecentTransactions.filter((tx) => !tx.receipt).map((tx) => tx.hash)
+  const confirmed = sortedRecentTransactions.filter((tx) => tx.receipt).map((tx) => tx.hash)
 
   if (!contextNetwork.active && !active) {
     return null

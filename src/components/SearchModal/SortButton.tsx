@@ -7,7 +7,7 @@ export const FilterWrapper = styled(RowFixed)`
   padding: 8px;
   background-color: ${({ theme }) => theme.colors.invertedContrast};
   color: ${({ theme }) => theme.colors.text};
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.radii.default};
   user-select: none;
   & > * {
     user-select: none;

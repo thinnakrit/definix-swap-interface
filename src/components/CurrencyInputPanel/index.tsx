@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react'
 import { Currency, Pair } from 'definixswap-sdk'
 import { Button, ChevronDownIcon, Text } from 'uikit-dev'
 import styled from 'styled-components'
-import { darken } from 'polished'
+import { border, darken } from 'polished'
 import { useCurrencyBalance } from '../../state/wallet/hooks'
 import CurrencySearchModal from '../SearchModal/CurrencySearchModal'
 import CurrencyLogo from '../CurrencyLogo'
@@ -27,7 +27,7 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
   font-weight: 500;
   background-color: transparent;
   color: ${({ selected, theme }) => (selected ? theme.colors.text : '#FFFFFF')};
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.radii.default};
   outline: none;
   cursor: pointer;
   user-select: none;
@@ -64,13 +64,14 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
-  border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
+  // border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
+  border-radius: ${({ theme }) => theme.radii.default};
   background-color: ${({ theme }) => theme.colors.background};
   z-index: 1;
 `
 
 const Container = styled.div<{ hideInput: boolean }>`
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.radii.default};
   background-color: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.border};
 `
@@ -144,7 +145,7 @@ export default function CurrencyInputPanel({
                 }}
               />
               {account && currency && showMaxButton && label !== 'To' && (
-                <Button onClick={onMax} size="sm" variant="text">
+                <Button onClick={onMax} size="sm" variant="text" style={{ borderRadius: '6px' }}>
                   MAX
                 </Button>
               )}

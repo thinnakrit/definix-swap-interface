@@ -5,10 +5,10 @@ import { darken } from 'polished'
 import { ArrowLeft, X } from 'react-feather'
 
 export const Button = styled.button.attrs<{ warning: boolean }, { backgroundColor: string }>(({ warning, theme }) => ({
-  backgroundColor: warning ? theme.colors.failure : theme.colors.primary
+  backgroundColor: warning ? theme.colors.failure : theme.colors.primary,
 }))`
   padding: 1rem 2rem 1rem 2rem;
-  border-radius: 3rem;
+  border-radius: ${({ theme }) => theme.radii.default};
   cursor: pointer;
   user-select: none;
   font-size: 1rem;

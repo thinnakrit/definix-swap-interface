@@ -12,7 +12,7 @@ const Tabs = styled.div`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  border-radius: 3rem;
+  border-radius: ${({ theme }) => theme.radii.default};
   justify-content: space-evenly;
 `
 
@@ -24,7 +24,7 @@ const StyledAbsoluteLink = styled.a`
   align-items: center;
   justify-content: center;
   height: 3rem;
-  border-radius: 3rem;
+  border-radius: ${({ theme }) => theme.radii.default};
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -32,7 +32,7 @@ const StyledAbsoluteLink = styled.a`
   font-size: 20px;
 
   &.${activeClassName} {
-    border-radius: 12px;
+    border-radius: ${({ theme }) => theme.radii.default};
     font-weight: 500;
     color: ${({ theme }) => theme.colors.text};
   }
@@ -44,14 +44,14 @@ const StyledAbsoluteLink = styled.a`
 `
 
 const StyledNavLink = styled(NavLink).attrs({
-  activeClassName
+  activeClassName,
 })`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
   height: 3rem;
-  border-radius: 3rem;
+  border-radius: ${({ theme }) => theme.radii.default};
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -59,7 +59,7 @@ const StyledNavLink = styled(NavLink).attrs({
   font-size: 20px;
 
   &.${activeClassName} {
-    border-radius: 12px;
+    border-radius: ${({ theme }) => theme.radii.default};
     font-weight: 500;
     color: ${({ theme }) => theme.colors.text};
   }
