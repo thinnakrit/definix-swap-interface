@@ -47,7 +47,7 @@ export const SearchInput = styled.input`
   background: none;
   border: none;
   outline: none;
-  border-radius: 20px;
+  border-radius: 6px;
   color: ${({ theme }) => theme.colors.text};
   border-style: solid;
   border: 1px solid ${({ theme }) => theme.colors.tertiary};
@@ -57,6 +57,7 @@ export const SearchInput = styled.input`
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.textDisabled};
+    font-size: 1rem;
   }
   transition: border 100ms;
   :focus {

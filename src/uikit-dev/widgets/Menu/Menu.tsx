@@ -1,25 +1,27 @@
-import React, { useState, useEffect, useRef } from 'react'
-import styled from 'styled-components'
 import throttle from 'lodash/throttle'
-import Overlay from '../../components/Overlay/Overlay'
+import React, { useEffect, useRef, useState } from 'react'
+import styled from 'styled-components'
+import Footer from 'uikit-dev/components/Footer'
 import { Flex } from '../../components/Flex'
+import Overlay from '../../components/Overlay/Overlay'
 import { useMatchBreakpoints } from '../../hooks'
+import Avatar from './Avatar'
+import { MENU_HEIGHT, SIDEBAR_WIDTH_FULL, SIDEBAR_WIDTH_REDUCED } from './config'
 import Logo from './Logo'
 import Panel from './Panel'
-import UserBlock from './UserBlock'
 import { NavProps } from './types'
-import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from './config'
-import Avatar from './Avatar'
+import UserBlock from './UserBlock'
 
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 `
 
 const StyledNav = styled.nav<{ showMenu: boolean }>`
-  position: fixed;
-  top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
-  left: 0;
+  flex-shrink: 0;
   transition: top 0.2s;
   display: flex;
   justify-content: space-between;
@@ -27,29 +29,31 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   padding-left: 8px;
   padding-right: 16px;
   width: 100%;
+  z-index: 20;
   height: ${MENU_HEIGHT}px;
   background-color: ${({ theme }) => theme.nav.background};
   border-bottom: solid 2px rgba(133, 133, 133, 0.1);
-  z-index: 20;
   transform: translate3d(0, 0, 0);
 `
 
 const BodyWrapper = styled.div`
   position: relative;
   display: flex;
+  flex-shrink: 0;
+  min-height: calc(100vh - 64px);
 `
 
 const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   flex-grow: 1;
-  margin-top: ${({ showMenu }) => (showMenu ? `${MENU_HEIGHT}px` : 0)};
+  // margin-top: ${({ showMenu }) => (showMenu ? `${MENU_HEIGHT}px` : 0)};
   transition: margin-top 0.2s;
   transform: translate3d(0, 0, 0);
   max-width: 100%;
 
-  ${({ theme }) => theme.mediaQueries.nav} {
-    margin-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
-    max-width: ${({ isPushed }) => `calc(100% - ${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px)`};
-  }
+  // ${({ theme }) => theme.mediaQueries.nav} {
+  //   margin-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
+  //   max-width: ${({ isPushed }) => `calc(100% - ${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px)`};
+  // }
 `
 
 const MobileOnlyOverlay = styled(Overlay)`
@@ -146,6 +150,7 @@ const Menu: React.FC<NavProps> = ({
         </Inner>
         <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
       </BodyWrapper>
+      <Footer />
     </Wrapper>
   )
 }

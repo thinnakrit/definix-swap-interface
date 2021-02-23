@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Flex from '../../components/Flex/Flex'
-import logo from '../../images/definix-black-logo.png'
+import logo from '../../images/Definix-advance-crypto-assets.png'
 import { HamburgerCloseIcon, HamburgerIcon } from './icons'
 import MenuButton from './MenuButton'
 
