@@ -21,5 +21,6 @@ export interface CardProps extends SpaceProps, HTMLAttributes<HTMLDivElement> {
   isSuccess?: boolean;
   isWarning?: boolean;
   isDisabled?: boolean;
+  isRainbow?: boolean;
   ribbon?: React.ReactNode;
 }
