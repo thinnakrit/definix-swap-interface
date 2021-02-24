@@ -3,8 +3,10 @@ import { AutoColumn } from 'components/Column'
 import PageHeader from 'components/PageHeader'
 import FullPositionCard from 'components/PositionCard'
 import Question from 'components/QuestionHelper'
+import { useTokenBalancesWithLoadingIndicator } from 'state/wallet/hooks'
+import { StyledInternalLink } from 'components/Shared'
+import { LightCard } from 'components/Card'
 import { RowBetween } from 'components/Row'
-import { StyledInternalLink, TYPE } from 'components/Shared'
 import { Dots } from 'components/swap/styleds'
 import TranslatedText from 'components/TranslatedText'
 import { usePairs } from 'data/Reserves'
@@ -14,13 +16,10 @@ import { useActiveWeb3React } from 'hooks'
 import React, { useContext, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { toV2LiquidityToken, useTrackedTokenPairs } from 'state/user/hooks'
-import { useTokenBalancesWithLoadingIndicator } from 'state/wallet/hooks'
 import { ThemeContext } from 'styled-components'
 import { Button, CardBody, Heading } from 'uikit-dev'
 import { TranslateString } from 'utils/translateTextHelpers'
 import AppBody from '../AppBody'
-
-const { body: Body } = TYPE
 
 export default function Pool() {
   const theme = useContext(ThemeContext)
@@ -54,8 +53,6 @@ export default function Pool() {
     fetchingV2PairBalances || v2Pairs?.length < liquidityTokensWithBalances.length || v2Pairs?.some((V2Pair) => !V2Pair)
 
   const allV2PairsWithLiquidity = v2Pairs.map(([, pair]) => pair).filter((v2Pair): v2Pair is Pair => Boolean(v2Pair))
-
-  const hasV1Liquidity = useUserHasLiquidityInAllTokens()
 
   return (
     <>
@@ -105,24 +102,18 @@ export default function Pool() {
                   ))}
                 </>
               ) : (
-                <BorderCard padding="24px">
-                  <Body color={theme.colors.textDisabled} textAlign="center">
-                    <TranslatedText translationId={104}>Connect to a wallet to view your liquidity.</TranslatedText>
-                  </Body>
-                </BorderCard>
+                <LightCard padding="40px">
+                  <Text color="textDisabled" textAlign="center">
+                    <TranslatedText translationId={104}>No liquidity found.</TranslatedText>
+                  </Text>
+                </LightCard>
               )}
 
               <div>
-                <Heading style={{ padding: '1.5rem 0' }}>
-                  {hasV1Liquidity
-                    ? 'Uniswap V1 liquidity found!'
-                    : TranslateString(106, "Don't see a pool you joined?")}{' '}
-                  <StyledInternalLink
-                    id="import-pool-link"
-                    to={hasV1Liquidity ? '/migrate/v1' : '/find'}
-                    style={{ fontWeight: 'bold' }}
-                  >
-                    {hasV1Liquidity ? 'Migrate now.' : TranslateString(108, 'Import it.')}
+                <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
+                  {TranslateString(106, "Don't see a pool you joined?")}{' '}
+                  <StyledInternalLink id="import-pool-link" to="/find">
+                    {TranslateString(108, 'Import it.')}
                   </StyledInternalLink>
                 </Heading>
                 {/* <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>

@@ -1,16 +1,16 @@
-import throttle from 'lodash/throttle'
-import React, { useEffect, useRef, useState } from 'react'
-import styled from 'styled-components'
 import Footer from 'uikit-dev/components/Footer'
-import { Flex } from '../../components/Flex'
-import Overlay from '../../components/Overlay/Overlay'
-import { useMatchBreakpoints } from '../../hooks'
-import Avatar from './Avatar'
-import { MENU_HEIGHT, SIDEBAR_WIDTH_FULL, SIDEBAR_WIDTH_REDUCED } from './config'
-import Logo from './Logo'
-import Panel from './Panel'
-import { NavProps } from './types'
-import UserBlock from './UserBlock'
+import React, { useState, useEffect, useRef } from "react";
+import styled from "styled-components";
+import throttle from "lodash/throttle";
+import Overlay from "../../components/Overlay/Overlay";
+import Flex from "../../components/Box/Flex";
+import { useMatchBreakpoints } from "../../hooks";
+import Logo from "./Logo";
+import Panel from "./Panel";
+import UserBlock from "./UserBlock";
+import { NavProps } from "./types";
+import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
+import Avatar from "./Avatar";
 
 const Wrapper = styled.div`
   position: relative;

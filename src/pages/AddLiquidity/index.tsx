@@ -33,8 +33,6 @@ import { Dots, Wrapper } from '../Pool/styleds'
 import { ConfirmAddModalBottom } from './ConfirmAddModalBottom'
 import { PoolPriceBar } from './PoolPriceBar'
 
-const { italic: Italic } = TYPE
-
 export default function AddLiquidity({
   match: {
     params: { currencyIdA, currencyIdB },
@@ -223,11 +221,11 @@ export default function AddLiquidity({
             {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol} Pool Tokens`}
           </UIKitText>
         </Row>
-        <Italic fontSize={12} textAlign="left" padding="8px 0 0 0 ">
+        <UIKitText small textAlign="left" padding="8px 0 0 0 " style={{ fontStyle: 'italic' }}>
           {`Output is estimated. If the price changes by more than ${
             allowedSlippage / 100
           }% your transaction will revert.`}
-        </Italic>
+        </UIKitText>
       </AutoColumn>
     )
   }

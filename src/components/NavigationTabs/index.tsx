@@ -70,45 +70,14 @@ const StyledNavLink = styled(NavLink).attrs({
   }
 `
 
+const ActiveText = styled.div`
+  font-weight: 500;
+  font-size: 20px;
+`
+
 const StyledArrowLeft = styled(ArrowLeft)`
   color: ${({ theme }) => theme.colors.text};
 `
-
-export function SwapPoolTabs({ active }: { active: 'swap' | 'pool' }) {
-  return (
-    <Tabs style={{ marginBottom: '20px' }}>
-      <StyledNavLink id="swap-nav-link" to="/swap" isActive={() => active === 'swap'}>
-        <TranslatedText translationId={8}>Swap</TranslatedText>
-      </StyledNavLink>
-      <StyledNavLink id="pool-nav-link" to="/pool" isActive={() => active === 'pool'}>
-        <TranslatedText translationId={74}>Pool</TranslatedText>
-      </StyledNavLink>
-      <StyledAbsoluteLink id="pool-nav-link" target="_blank" href="https://www.binance.org/en/panama">
-        Bridge
-      </StyledAbsoluteLink>
-    </Tabs>
-  )
-}
-
-export const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => (
-  <ButtonMenu activeIndex={activeIndex} size="sm" variant="subtle">
-    <ButtonMenuItem id="swap-nav-link" to="/swap" as={HistoryLink}>
-      <TranslatedText translationId={8}>Swap</TranslatedText>
-    </ButtonMenuItem>
-    <ButtonMenuItem id="pool-nav-link" to="/pool" as={HistoryLink}>
-      <TranslatedText translationId={74}>Liquidity</TranslatedText>
-    </ButtonMenuItem>
-    <ButtonMenuItem
-      id="pool-nav-link"
-      as="a"
-      href="https://www.binance.org/en/panama"
-      target="_blank"
-      rel="noreferrer noopener"
-    >
-      Bridge
-    </ButtonMenuItem>
-  </ButtonMenu>
-)
 
 export function FindPoolTabs() {
   return (
