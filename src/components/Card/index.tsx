@@ -37,6 +37,10 @@ export const PinkCard = styled(Card)`
   font-weight: 500;
 `
 
+export const BorderCard = styled(Card)`
+  border: 1px solid ${({ theme }) => theme.colors.border};
+`
+
 const BlueCardStyled = styled(Card)`
   background-color: ${({ theme }) => theme.colors.primaryDark};
   color: ${({ theme }) => theme.colors.primary};

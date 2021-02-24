@@ -1,26 +1,25 @@
-import { Currency, ETHER, JSBI, TokenAmount } from 'definixswap-sdk'
-import React, { useCallback, useEffect, useState } from 'react'
-import { Button, ChevronDownIcon, AddIcon, CardBody, Text } from 'uikit-dev'
-import CardNav from 'components/CardNav'
-import { LightCard } from 'components/Card'
+import { BorderCard } from 'components/Card'
 import { AutoColumn, ColumnCenter } from 'components/Column'
 import CurrencyLogo from 'components/CurrencyLogo'
 import { FindPoolTabs } from 'components/NavigationTabs'
 import { MinimalPositionCard } from 'components/PositionCard'
 import CurrencySearchModal from 'components/SearchModal/CurrencySearchModal'
+import { StyledInternalLink } from 'components/Shared'
+import TranslatedText from 'components/TranslatedText'
 import { PairState, usePair } from 'data/Reserves'
+import { Currency, ETHER, JSBI, TokenAmount } from 'definixswap-sdk'
 import { useActiveWeb3React } from 'hooks'
+import React, { useCallback, useEffect, useState } from 'react'
 import { usePairAdder } from 'state/user/hooks'
 import { useTokenBalance } from 'state/wallet/hooks'
-import { StyledInternalLink } from 'components/Shared'
+import { AddIcon, Button, CardBody, ChevronDownIcon, Heading, Text } from 'uikit-dev'
 import { currencyId } from 'utils/currencyId'
-import TranslatedText from 'components/TranslatedText'
 import AppBody from '../AppBody'
 import { Dots } from '../Pool/styleds'
 
 enum Fields {
   TOKEN0 = 0,
-  TOKEN1 = 1
+  TOKEN1 = 1,
 }
 
 export default function PoolFinder() {
@@ -68,16 +67,21 @@ export default function PoolFinder() {
   }, [setShowSearch])
 
   const prerequisiteMessage = (
-    <LightCard padding="45px 10px">
+    <BorderCard padding="24px">
       <Text style={{ textAlign: 'center' }}>
         {!account ? 'Connect to a wallet to find pools' : 'Select a token to find your liquidity.'}
       </Text>
-    </LightCard>
+    </BorderCard>
   )
 
   return (
     <>
-      <CardNav activeIndex={1} />
+      {/* <CardNav activeIndex={1} /> */}
+
+      <Heading as="h1" fontSize="32px !important" className="my-6">
+        Pool
+      </Heading>
+
       <AppBody>
         <FindPoolTabs />
         <CardBody>
@@ -103,6 +107,7 @@ export default function PoolFinder() {
                 setShowSearch(true)
                 setActiveField(Fields.TOKEN1)
               }}
+              className="mb-2"
               startIcon={currency1 ? <CurrencyLogo currency={currency1} style={{ marginRight: '.5rem' }} /> : null}
               endIcon={<ChevronDownIcon width="24px" color="white" />}
               fullWidth
@@ -123,7 +128,7 @@ export default function PoolFinder() {
                 hasPosition && pair ? (
                   <MinimalPositionCard pair={pair} />
                 ) : (
-                  <LightCard padding="45px 10px">
+                  <BorderCard padding="45px 10px">
                     <AutoColumn gap="sm" justify="center">
                       <Text style={{ textAlign: 'center' }}>You don’t have liquidity in this pool yet.</Text>
                       <StyledInternalLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
@@ -132,34 +137,34 @@ export default function PoolFinder() {
                         </Text>
                       </StyledInternalLink>
                     </AutoColumn>
-                  </LightCard>
+                  </BorderCard>
                 )
               ) : validPairNoLiquidity ? (
-                <LightCard padding="45px 10px">
+                <BorderCard padding="45px 10px">
                   <AutoColumn gap="sm" justify="center">
                     <Text style={{ textAlign: 'center' }}>No pool found.</Text>
                     <StyledInternalLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
                       Create pool.
                     </StyledInternalLink>
                   </AutoColumn>
-                </LightCard>
+                </BorderCard>
               ) : pairState === PairState.INVALID ? (
-                <LightCard padding="45px 10px">
+                <BorderCard padding="45px 10px">
                   <AutoColumn gap="sm" justify="center">
                     <Text style={{ textAlign: 'center' }}>
                       <TranslatedText translationId={136}>Invalid pair.</TranslatedText>
                     </Text>
                   </AutoColumn>
-                </LightCard>
+                </BorderCard>
               ) : pairState === PairState.LOADING ? (
-                <LightCard padding="45px 10px">
+                <BorderCard padding="45px 10px">
                   <AutoColumn gap="sm" justify="center">
                     <Text style={{ textAlign: 'center' }}>
                       Loading
                       <Dots />
                     </Text>
                   </AutoColumn>
-                </LightCard>
+                </BorderCard>
               ) : null
             ) : (
               prerequisiteMessage

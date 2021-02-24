@@ -1,4 +1,4 @@
-import { LightCard } from 'components/Card'
+import { BorderCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
 import PageHeader from 'components/PageHeader'
 import FullPositionCard from 'components/PositionCard'
@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom'
 import { toV2LiquidityToken, useTrackedTokenPairs } from 'state/user/hooks'
 import { useTokenBalancesWithLoadingIndicator } from 'state/wallet/hooks'
 import { ThemeContext } from 'styled-components'
-import { Button, CardBody, Heading, Text } from 'uikit-dev'
+import { Button, CardBody, Heading } from 'uikit-dev'
 import { TranslateString } from 'utils/translateTextHelpers'
 import AppBody from '../AppBody'
 
@@ -74,10 +74,10 @@ export default function Pool() {
         <AutoColumn gap="lg" justify="center">
           <CardBody>
             <AutoColumn gap="12px" style={{ width: '100%' }}>
-              <RowBetween padding="0 8px" className="flex justify-start">
-                <Text color={theme.colors.text}>
+              <RowBetween padding="0.5rem 0 1.5rem 0" className="flex justify-start">
+                <Heading>
                   <TranslatedText translationId={102}>Your Liquidity</TranslatedText>
-                </Text>
+                </Heading>
                 <Question
                   text={TranslateString(
                     130,
@@ -87,17 +87,17 @@ export default function Pool() {
               </RowBetween>
 
               {!account ? (
-                <LightCard padding="40px">
+                <BorderCard padding="40px">
                   <Body color={theme.colors.textDisabled} textAlign="center">
                     Connect to a wallet to view your liquidity.
                   </Body>
-                </LightCard>
+                </BorderCard>
               ) : v2IsLoading ? (
-                <LightCard padding="40px">
+                <BorderCard padding="40px">
                   <Body color={theme.colors.textDisabled} textAlign="center">
                     <Dots>Loading</Dots>
                   </Body>
-                </LightCard>
+                </BorderCard>
               ) : allV2PairsWithLiquidity?.length > 0 ? (
                 <>
                   {allV2PairsWithLiquidity.map((v2Pair) => (
@@ -105,25 +105,29 @@ export default function Pool() {
                   ))}
                 </>
               ) : (
-                <LightCard padding="40px">
+                <BorderCard padding="24px">
                   <Body color={theme.colors.textDisabled} textAlign="center">
-                    <TranslatedText translationId={104}>No liquidity found.</TranslatedText>
+                    <TranslatedText translationId={104}>Connect to a wallet to view your liquidity.</TranslatedText>
                   </Body>
-                </LightCard>
+                </BorderCard>
               )}
 
               <div>
-                <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
+                <Heading style={{ padding: '1.5rem 0' }}>
                   {hasV1Liquidity
                     ? 'Uniswap V1 liquidity found!'
                     : TranslateString(106, "Don't see a pool you joined?")}{' '}
-                  <StyledInternalLink id="import-pool-link" to={hasV1Liquidity ? '/migrate/v1' : '/find'}>
+                  <StyledInternalLink
+                    id="import-pool-link"
+                    to={hasV1Liquidity ? '/migrate/v1' : '/find'}
+                    style={{ fontWeight: 'bold' }}
+                  >
                     {hasV1Liquidity ? 'Migrate now.' : TranslateString(108, 'Import it.')}
                   </StyledInternalLink>
-                </Text>
-                <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
+                </Heading>
+                {/* <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
                   Or, if you staked your FLIP tokens in a farm, unstake them to see them here.
-                </Text>
+                </Text> */}
               </div>
             </AutoColumn>
           </CardBody>

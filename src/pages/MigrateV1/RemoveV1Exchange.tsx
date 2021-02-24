@@ -5,7 +5,7 @@ import { Button } from 'uikit-dev'
 import { Redirect, RouteComponentProps } from 'react-router'
 import { AddressZero } from '@ethersproject/constants'
 import { Contract } from '@ethersproject/contracts'
-import { LightCard } from '../../components/Card'
+import { BorderCard } from '../../components/Card'
 import { AutoColumn } from '../../components/Column'
 import QuestionHelper from '../../components/QuestionHelper'
 import { AutoRow } from '../../components/Row'
@@ -94,7 +94,7 @@ function V1PairRemoval({
         This tool will remove your V1 liquidity and send the underlying assets to your wallet.
       </Body>
 
-      <LightCard>
+      <BorderCard>
         <V1LiquidityInfo
           token={token}
           liquidityTokenAmount={liquidityTokenAmount}
@@ -111,7 +111,7 @@ function V1PairRemoval({
             {isSuccessfullyRemoved ? 'Success' : isRemovalPending ? <Dots>Removing</Dots> : 'Remove'}
           </Button>
         </div>
-      </LightCard>
+      </BorderCard>
       <DarkGray style={{ textAlign: 'center' }}>
         {`Your Uniswap V1 ${
           chainId && token.equals(WETH[chainId]) ? 'WETH' : token.symbol

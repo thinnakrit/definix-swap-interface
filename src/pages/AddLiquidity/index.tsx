@@ -1,40 +1,37 @@
-import React, { useCallback, useState } from 'react'
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from 'definixswap-sdk'
-import { Button, CardBody, AddIcon, Text as UIKitText } from 'uikit-dev'
-import { RouteComponentProps } from 'react-router-dom'
-import { LightCard } from 'components/Card'
+import { BorderCard } from 'components/Card'
 import { AutoColumn, ColumnCenter } from 'components/Column'
-import TransactionConfirmationModal, { ConfirmationModalContent } from 'components/TransactionConfirmationModal'
-import CardNav from 'components/CardNav'
+import ConnectWalletButton from 'components/ConnectWalletButton'
 import CurrencyInputPanel from 'components/CurrencyInputPanel'
 import DoubleCurrencyLogo from 'components/DoubleLogo'
 import { AddRemoveTabs } from 'components/NavigationTabs'
+import Pane from 'components/Pane'
 import { MinimalPositionCard } from 'components/PositionCard'
 import Row, { RowBetween, RowFlat } from 'components/Row'
-
+import { TYPE } from 'components/Shared'
+import TransactionConfirmationModal, { ConfirmationModalContent } from 'components/TransactionConfirmationModal'
 import { PairState } from 'data/Reserves'
+import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from 'definixswap-sdk'
 import { useActiveWeb3React } from 'hooks'
 import { useCurrency } from 'hooks/Tokens'
 import { ApprovalState, useApproveCallback } from 'hooks/useApproveCallback'
+import React, { useCallback, useState } from 'react'
+import { RouteComponentProps } from 'react-router-dom'
 import { Field } from 'state/mint/actions'
 import { useDerivedMintInfo, useMintActionHandlers, useMintState } from 'state/mint/hooks'
-
 import { useTransactionAdder } from 'state/transactions/hooks'
 import { useIsExpertMode, useUserDeadline, useUserSlippageTolerance } from 'state/user/hooks'
-import { TYPE } from 'components/Shared'
+import { AddIcon, Button, CardBody, Heading, Text as UIKitText } from 'uikit-dev'
 import { calculateGasMargin, calculateSlippageAmount, getRouterContract } from 'utils'
+import { currencyId } from 'utils/currencyId'
 import { maxAmountSpend } from 'utils/maxAmountSpend'
 import { wrappedCurrency } from 'utils/wrappedCurrency'
-import { currencyId } from 'utils/currencyId'
-import Pane from 'components/Pane'
-import ConnectWalletButton from 'components/ConnectWalletButton'
+import { ROUTER_ADDRESS } from '../../constants'
 import AppBody from '../AppBody'
 import { Dots, Wrapper } from '../Pool/styleds'
 import { ConfirmAddModalBottom } from './ConfirmAddModalBottom'
 import { PoolPriceBar } from './PoolPriceBar'
-import { ROUTER_ADDRESS } from '../../constants'
 
 const { italic: Italic } = TYPE
 
@@ -196,7 +193,7 @@ export default function AddLiquidity({
   const modalHeader = () => {
     return noLiquidity ? (
       <AutoColumn gap="20px">
-        <LightCard mt="20px" borderRadius="20px">
+        <BorderCard mt="20px" borderRadius="20px">
           <RowFlat>
             <UIKitText fontSize="48px" mr="8px">
               {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol}`}
@@ -207,7 +204,7 @@ export default function AddLiquidity({
               size={30}
             />
           </RowFlat>
-        </LightCard>
+        </BorderCard>
       </AutoColumn>
     ) : (
       <AutoColumn gap="20px">
@@ -290,7 +287,12 @@ export default function AddLiquidity({
 
   return (
     <>
-      <CardNav activeIndex={1} />
+      {/* <CardNav activeIndex={1} /> */}
+
+      <Heading as="h1" fontSize="32px !important" className="my-6">
+        Pool
+      </Heading>
+
       <AppBody>
         <AddRemoveTabs adding />
         <Wrapper>

@@ -417,7 +417,7 @@ const Swap = () => {
                   <Main mb="4px">Insufficient liquidity for this trade.</Main>
                 </GreyCard>
               ) : showApproveFlow ? (
-                <RowBetween>
+                <RowBetween className="mb-3">
                   <Button
                     onClick={approveCallback}
                     disabled={approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}

@@ -20,6 +20,7 @@ const Container = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   height: 100%;
+  padding-top: 1rem;
 `
 
 const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
@@ -32,7 +33,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
     <Container>
       {links.map((entry) => {
         const Icon = Icons[entry.icon]
-        const iconElement = <Icon width="24px" mr="8px" />
+        const iconElement = <Icon width="24px" mr="16px" />
         const calloutClass = entry.calloutClass ? entry.calloutClass : undefined
 
         if (entry.items) {

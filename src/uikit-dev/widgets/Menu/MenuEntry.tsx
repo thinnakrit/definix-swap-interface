@@ -18,7 +18,7 @@ const rainbowAnimation = keyframes`
 `
 
 const LinkLabel = styled.div<{ isPushed: boolean }>`
-  color: ${({ isPushed, theme }) => (isPushed ? theme.colors.textSubtle : 'transparent')};
+  color: inherit;
   transition: color 0.4s;
   flex-grow: 1;
 `
@@ -39,6 +39,19 @@ const MenuEntry = styled.div<Props>`
     align-items: center;
     width: 100%;
     height: 100%;
+
+    &.active {
+      color: ${({ theme }) => theme.colors.primary};
+
+      svg {
+        &,
+        path,
+        text,
+        g {
+          fill: ${({ theme }) => theme.colors.primary};
+        }
+      }
+    }
   }
 
   svg {

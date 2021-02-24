@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Flex from '../../components/Flex/Flex'
-import logo from '../../images/Definix-advance-crypto-assets.png'
+import logoMobile from '../../images/64x64.png'
+import logoDesktop from '../../images/Definix-advance-crypto-assets.png'
 import { HamburgerCloseIcon, HamburgerIcon } from './icons'
 import MenuButton from './MenuButton'
 
@@ -31,15 +32,14 @@ const StyledLink = styled(Link)`
   }
 `
 
-const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
+const Logo: React.FC<Props> = ({ isPushed, togglePush, href }) => {
   const isAbsoluteUrl = href.startsWith('http')
-  const InnerLogo = styled.img`
-    height: 28px;
-  `
-
-  InnerLogo.defaultProps = {
-    src: logo,
-  }
+  const innerLogo = (
+    <>
+      <img src={logoMobile} alt="" className="mobile-icon" />
+      <img src={logoDesktop} alt="" className="desktop-icon" />
+    </>
+  )
 
   return (
     <Flex>
@@ -52,11 +52,11 @@ const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
       </MenuButton>
       {isAbsoluteUrl ? (
         <StyledLink as="a" href={href} aria-label="Pancake home page">
-          <InnerLogo />
+          {innerLogo}
         </StyledLink>
       ) : (
         <StyledLink to={href} aria-label="Pancake home page">
-          <InnerLogo />
+          {innerLogo}
         </StyledLink>
       )}
     </Flex>

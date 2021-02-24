@@ -1,12 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
-import { ButtonMenu, ButtonMenuItem } from 'uikit-dev'
-import { darken } from 'polished'
-import { NavLink, Link as HistoryLink } from 'react-router-dom'
-import { ArrowLeft } from 'react-feather'
-import { RowBetween } from 'components/Row'
 import QuestionHelper from 'components/QuestionHelper'
+import { RowBetween } from 'components/Row'
 import TranslatedText from 'components/TranslatedText'
+import { darken } from 'polished'
+import React from 'react'
+import { ArrowLeft } from 'react-feather'
+import { Link as HistoryLink, NavLink } from 'react-router-dom'
+import styled from 'styled-components'
+import { ButtonMenu, ButtonMenuItem, Heading } from 'uikit-dev'
 
 const Tabs = styled.div`
   display: flex;
@@ -70,11 +70,6 @@ const StyledNavLink = styled(NavLink).attrs({
   }
 `
 
-const ActiveText = styled.div`
-  font-weight: 500;
-  font-size: 20px;
-`
-
 const StyledArrowLeft = styled(ArrowLeft)`
   color: ${({ theme }) => theme.colors.text};
 `
@@ -117,26 +112,26 @@ export const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => (
 
 export function FindPoolTabs() {
   return (
-    <Tabs>
-      <RowBetween style={{ padding: '1rem' }}>
-        <HistoryLink to="/pool">
-          <StyledArrowLeft />
-        </HistoryLink>
-        <ActiveText>Import Pool</ActiveText>
+    <Tabs className="flex flex-column pa-6 pb-0 align-start">
+      <HistoryLink to="/pool">
+        <StyledArrowLeft />
+      </HistoryLink>
+      <div className="flex align-center mt-4">
+        <Heading>Import Pool</Heading>
         <QuestionHelper text={"Use this tool to find pairs that don't automatically appear in the interface."} />
-      </RowBetween>
+      </div>
     </Tabs>
   )
 }
 
 export function AddRemoveTabs({ adding }: { adding: boolean }) {
   return (
-    <Tabs>
-      <RowBetween style={{ padding: '1rem' }}>
-        <HistoryLink to="/pool">
-          <StyledArrowLeft />
-        </HistoryLink>
-        <ActiveText>{adding ? 'Add' : 'Remove'} Liquidity</ActiveText>
+    <Tabs className="flex flex-column pa-6 pb-0 align-start">
+      <HistoryLink to="/pool">
+        <StyledArrowLeft />
+      </HistoryLink>
+      <div className="flex align-center mt-4">
+        <Heading>{adding ? 'Add' : 'Remove'} Liquidity</Heading>
         <QuestionHelper
           text={
             adding
@@ -144,7 +139,7 @@ export function AddRemoveTabs({ adding }: { adding: boolean }) {
               : 'Removing pool tokens converts your position back into underlying tokens at the current rate, proportional to your share of the pool. Accrued fees are included in the amounts you receive.'
           }
         />
-      </RowBetween>
+      </div>
     </Tabs>
   )
 }

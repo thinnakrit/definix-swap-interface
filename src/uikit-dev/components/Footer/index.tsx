@@ -19,9 +19,19 @@ import twitterNormal from '../../images/Footer-Icon/Twitter-Normal.png'
 
 function Footer() {
   const FooterStyled = styled.footer`
-    height: ${FOOTER_HEIGHT}px;
     position: relative;
-    padding: 22px 0 16px 0;
+    padding-top: 6px;
+    flex-shrink: 0;
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
 
     .color-stroke {
       position: absolute;
@@ -34,38 +44,40 @@ function Footer() {
 
     .logo {
       height: 28px;
+      margin: 8px;
     }
 
     .six-logo {
       width: 200px;
+      margin: 8px;
+      display: block;
     }
 
     .social {
       display: flex;
+      margin-top: 1rem;
+      margin: 8px;
 
       a {
         max-width: 4rem;
         cursor: pointer;
       }
     }
-  `
 
-  const ContainerStyled = styled.div`
-    max-width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
+    ${({ theme }) => theme.mediaQueries.lg} {
+      .container {
+        justify-content: space-between;
+      }
+    }
   `
 
   return (
     <FooterStyled>
       <img src={colorStrokeLong} alt="" className="color-stroke" />
-      <ContainerStyled>
+      <div className="container">
         <div className="flex align-center flex-wrap justify-center">
-          <img src={definixBlackLogo} alt="" className="logo mr-4" />
-          <p className="mt-2 mr-4">Advance your crypto assets</p>
+          <img src={definixBlackLogo} alt="" className="logo" />
+          <p className="pa-2">Advance your crypto assets</p>
           <a href="https://coinmarketcap.com/currencies/six/markets/" target="_blank" rel="noreferrer">
             <img src={poweredbySIX} alt="" className="six-logo" />
           </a>
@@ -91,7 +103,7 @@ function Footer() {
             <img src={redditNormal} alt="" />
           </a>
         </div>
-      </ContainerStyled>
+      </div>
     </FooterStyled>
   )
 }

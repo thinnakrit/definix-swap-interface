@@ -4,7 +4,7 @@ import { Currency, CurrencyAmount, Fraction, JSBI, Percent, Token, TokenAmount, 
 import { Button, Text } from 'uikit-dev'
 import React, { useCallback, useMemo, useState } from 'react'
 import { Redirect, RouteComponentProps } from 'react-router'
-import { LightCard, PinkCard, YellowCard } from '../../components/Card'
+import { BorderCard, PinkCard, YellowCard } from '../../components/Card'
 import { AutoColumn } from '../../components/Column'
 import CurrencyLogo from '../../components/CurrencyLogo'
 import QuestionHelper from '../../components/QuestionHelper'
@@ -263,7 +263,7 @@ function V1PairMigration({ liquidityTokenAmount, token }: { liquidityTokenAmount
         </PinkCard>
       )}
 
-      <LightCard>
+      <BorderCard>
         <V1LiquidityInfo
           token={token}
           liquidityTokenAmount={liquidityTokenAmount}
@@ -303,7 +303,7 @@ function V1PairMigration({ liquidityTokenAmount, token }: { liquidityTokenAmount
             </Button>
           </AutoColumn>
         </div>
-      </LightCard>
+      </BorderCard>
       <DarkDray style={{ textAlign: 'center' }}>
         {`Your Uniswap V1 ${token.symbol}/ETH liquidity will become Uniswap V2 ${token.symbol}/ETH liquidity.`}
       </DarkDray>

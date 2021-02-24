@@ -10,7 +10,7 @@ import { useAllTokens, useToken } from '../../hooks/Tokens'
 import { useSelectedTokenList } from '../../state/lists/hooks'
 import { useTokenBalancesWithLoadingIndicator } from '../../state/wallet/hooks'
 import { BackArrow, TYPE } from '../../components/Shared'
-import { LightCard } from '../../components/Card'
+import { BorderCard } from '../../components/Card'
 import { BodyWrapper } from '../AppBody'
 import { EmptyState } from './EmptyState'
 import V1PositionCard from '../../components/PositionCard/V1'
@@ -87,17 +87,17 @@ export default function MigrateV1() {
         </Body>
 
         {!account ? (
-          <LightCard padding="40px">
+          <BorderCard padding="40px">
             <Body color={theme.colors.textDisabled} textAlign="center">
               Connect to a wallet to view your V1 liquidity.
             </Body>
-          </LightCard>
+          </BorderCard>
         ) : isLoading ? (
-          <LightCard padding="40px">
+          <BorderCard padding="40px">
             <Body color={theme.colors.textDisabled} textAlign="center">
               <Dots>Loading</Dots>
             </Body>
-          </LightCard>
+          </BorderCard>
         ) : (
           <>
             <AutoRow>
