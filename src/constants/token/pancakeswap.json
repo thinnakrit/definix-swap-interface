@@ -11,12 +11,20 @@
   "keywords": ["pancake", "default"],
   "tokens": [
     {
-      "name": "GAS Token",
-      "symbol": "GAS",
-      "address": "0x71D6688fDc8FAf4b1Cdd1f790f40E7EE1814a1d8",
+      "name": "MUAY Token",
+      "symbol": "MUAY",
+      "address": "0xa029a0035Af34FB822C3f783BB273Efa85307fe9",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "/images/coins/gas.jpg"
+      "logoURI": "/images/coins/band.png"
+    },
+    {
+      "name": "GAS Token",
+      "symbol": "GAS",
+      "address": "0x5E23754935f607626b2417E568d18CB69eeE1639",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "/images/coins/STAX.png"
     },
     {
       "name": "SIX Token",
