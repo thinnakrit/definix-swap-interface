@@ -1,9 +1,10 @@
-export type Position = "top" | "top-right" | "bottom";
+export type Position = 'top' | 'top-right' | 'bottom' | 'bottom-right'
 
 export interface PositionProps {
-  position?: Position;
+  position?: Position
 }
 
 export interface DropdownProps extends PositionProps {
-  target: React.ReactElement;
+  target: React.ReactElement
+  isRainbow?: boolean
 }
