@@ -628,7 +628,8 @@
       "symbol": "BFI",
       "address": "0x81859801b01764D4f0Fa5E64729f5a6C3b91435b",
       "chainId": 56,
-      "decimals": 18
+      "decimals": 18,
+      "logoURI": "/images/coins/bearn.png"
     },
     {
       "name": "bDollar",
@@ -732,6 +733,34 @@
       "name": "anyMTLX",
       "symbol": "anyMTLX",
       "address": "0x5921dee8556c4593eefcfad3ca5e2f618606483b",
+      "chainId": 56,
+      "decimals": 18
+    },
+    {
+      "name": "ZeroSwapToken",
+      "symbol": "ZEE",
+      "address": "0x44754455564474a89358b2c2265883df993b12f0",
+      "chainId": 56,
+      "decimals": 18
+    },
+    {
+      "name": "Berry",
+      "symbol": "BRY",
+      "address": "0xf859Bf77cBe8699013d6Dbc7C2b926Aaf307F830",
+      "chainId": 56,
+      "decimals": 18
+    },
+    {
+      "name": "Swingby",
+      "symbol": "SWINGBY",
+      "address": "0x71DE20e0C4616E7fcBfDD3f875d568492cBE4739",
+      "chainId": 56,
+      "decimals": 18
+    },
+    {
+      "name": "Dodo",
+      "symbol": "DODO",
+      "address": "0x67ee3cb086f8a16f34bee3ca72fad36f7db929e2",
       "chainId": 56,
       "decimals": 18
     }

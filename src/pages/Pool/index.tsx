@@ -6,9 +6,8 @@ import { Link } from 'react-router-dom'
 import CardNav from 'components/CardNav'
 import Question from 'components/QuestionHelper'
 import FullPositionCard from 'components/PositionCard'
-import { useUserHasLiquidityInAllTokens } from 'data/V1'
 import { useTokenBalancesWithLoadingIndicator } from 'state/wallet/hooks'
-import { StyledInternalLink, TYPE } from 'components/Shared'
+import { StyledInternalLink } from 'components/Shared'
 import { LightCard } from 'components/Card'
 import { RowBetween } from 'components/Row'
 import { AutoColumn } from 'components/Column'
@@ -21,8 +20,6 @@ import TranslatedText from 'components/TranslatedText'
 import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
 import AppBody from '../AppBody'
-
-const { body: Body } = TYPE
 
 export default function Pool() {
   const theme = useContext(ThemeContext)
@@ -57,8 +54,6 @@ export default function Pool() {
 
   const allV2PairsWithLiquidity = v2Pairs.map(([, pair]) => pair).filter((v2Pair): v2Pair is Pair => Boolean(v2Pair))
 
-  const hasV1Liquidity = useUserHasLiquidityInAllTokens()
-
   return (
     <>
       <CardNav activeIndex={1} />
@@ -85,15 +80,15 @@ export default function Pool() {
 
               {!account ? (
                 <LightCard padding="40px">
-                  <Body color={theme.colors.textDisabled} textAlign="center">
+                  <Text color="textDisabled" textAlign="center">
                     Connect to a wallet to view your liquidity.
-                  </Body>
+                  </Text>
                 </LightCard>
               ) : v2IsLoading ? (
                 <LightCard padding="40px">
-                  <Body color={theme.colors.textDisabled} textAlign="center">
+                  <Text color="textDisabled" textAlign="center">
                     <Dots>Loading</Dots>
-                  </Body>
+                  </Text>
                 </LightCard>
               ) : allV2PairsWithLiquidity?.length > 0 ? (
                 <>
@@ -103,19 +98,17 @@ export default function Pool() {
                 </>
               ) : (
                 <LightCard padding="40px">
-                  <Body color={theme.colors.textDisabled} textAlign="center">
+                  <Text color="textDisabled" textAlign="center">
                     <TranslatedText translationId={104}>No liquidity found.</TranslatedText>
-                  </Body>
+                  </Text>
                 </LightCard>
               )}
 
               <div>
                 <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
-                  {hasV1Liquidity
-                    ? 'Uniswap V1 liquidity found!'
-                    : TranslateString(106, "Don't see a pool you joined?")}{' '}
-                  <StyledInternalLink id="import-pool-link" to={hasV1Liquidity ? '/migrate/v1' : '/find'}>
-                    {hasV1Liquidity ? 'Migrate now.' : TranslateString(108, 'Import it.')}
+                  {TranslateString(106, "Don't see a pool you joined?")}{' '}
+                  <StyledInternalLink id="import-pool-link" to="/find">
+                    {TranslateString(108, 'Import it.')}
                   </StyledInternalLink>
                 </Text>
                 <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
