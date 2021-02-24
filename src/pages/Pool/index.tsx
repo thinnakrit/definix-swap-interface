@@ -82,13 +82,13 @@ export default function Pool() {
               </RowBetween>
 
               {!account ? (
-                <BorderCard padding="40px">
+                <BorderCard padding="24px">
                   <Text color={theme.colors.textDisabled} textAlign="center">
                     Connect to a wallet to view your liquidity.
                   </Text>
                 </BorderCard>
               ) : v2IsLoading ? (
-                <BorderCard padding="40px">
+                <BorderCard padding="24px">
                   <Text color={theme.colors.textDisabled} textAlign="center">
                     <Dots>Loading</Dots>
                   </Text>
@@ -100,7 +100,7 @@ export default function Pool() {
                   ))}
                 </>
               ) : (
-                <LightCard padding="40px">
+                <LightCard padding="24px">
                   <Text color="textDisabled" textAlign="center">
                     <TranslatedText translationId={104}>No liquidity found.</TranslatedText>
                   </Text>
@@ -108,12 +108,12 @@ export default function Pool() {
               )}
 
               <div>
-                <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
+                <Heading style={{ padding: '1.5rem 0 .5rem 0' }}>
                   {TranslateString(106, "Don't see a pool you joined?")}{' '}
                   <StyledInternalLink id="import-pool-link" to="/find">
                     {TranslateString(108, 'Import it.')}
                   </StyledInternalLink>
-                </Text>
+                </Heading>
               </div>
             </AutoColumn>
           </CardBody>
