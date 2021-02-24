@@ -2,12 +2,19 @@ import throttle from 'lodash/throttle'
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import Footer from 'uikit-dev/components/Footer'
+import Button from '../../components/Button/Button'
+import Dropdown from '../../components/Dropdown/Dropdown'
 import { Flex } from '../../components/Flex'
 import Overlay from '../../components/Overlay/Overlay'
+import { SvgProps } from '../../components/Svg'
+import Text from '../../components/Text/Text'
 import { useMatchBreakpoints } from '../../hooks'
-import Avatar from './Avatar'
+import en from '../../images/en.png'
+import th from '../../images/th.png'
 import { MENU_HEIGHT, SIDEBAR_WIDTH_FULL, SIDEBAR_WIDTH_REDUCED } from './config'
+import * as IconModule from './icons'
 import Logo from './Logo'
+import MenuButton from './MenuButton'
 import Panel from './Panel'
 import { NavProps } from './types'
 import UserBlock from './UserBlock'
@@ -76,14 +83,38 @@ const Menu: React.FC<NavProps> = ({
   currentLang,
   cakePriceUsd,
   links,
-  profile,
   children,
+  // profile,
 }) => {
+  const Flag = styled.img`
+    width: 24px;
+    height: auto;
+    margin-right: 0.5rem;
+  `
   const { isXl } = useMatchBreakpoints()
   const isMobile = isXl === false
   const [isPushed, setIsPushed] = useState(!isMobile)
   const [showMenu, setShowMenu] = useState(true)
   const refPrevOffset = useRef(window.pageYOffset)
+  const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> }
+  const { LanguageIcon } = Icons
+  const IconFlag = () => {
+    if (currentLang === 'en') {
+      return <Flag src={en} alt="" />
+    }
+
+    if (currentLang === 'th') {
+      return <Flag src={th} alt="" />
+    }
+
+    return <LanguageIcon color="textSubtle" width="24px" />
+  }
+
+  const getLanguageName = (lang) => {
+    return langs.find((l) => {
+      return l.code === lang
+    })?.language
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -126,9 +157,29 @@ const Menu: React.FC<NavProps> = ({
           isDark={isDark}
           href={homeLink?.href ?? '/'}
         />
-        <Flex>
+        <Flex alignItems="center">
+          <Dropdown
+            position="bottom"
+            target={
+              <Button className="mr-4" variant="text" size="sm" startIcon={<IconFlag />}>
+                <Text color="textSubtle">{getLanguageName(currentLang)}</Text>
+              </Button>
+            }
+          >
+            {langs.map((lang) => (
+              <MenuButton
+                key={lang.code}
+                fullWidth
+                onClick={() => setLang(lang)}
+                // Safari fix
+                style={{ minHeight: '32px', height: 'auto' }}
+              >
+                {lang.language}
+              </MenuButton>
+            ))}
+          </Dropdown>
           <UserBlock account={account} login={login} logout={logout} />
-          {profile && <Avatar profile={profile} />}
+          {/* {profile && <Avatar profile={profile} />} */}
         </Flex>
       </StyledNav>
       <BodyWrapper>
