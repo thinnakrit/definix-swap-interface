@@ -42,7 +42,7 @@ import { useUserDeadline, useUserSlippageTolerance } from '../../state/user/hook
 
 const OutlineCard = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.borderColor};
-  border-radius: 16px;
+  border-radius: ${({ theme }) => theme.radii.default};
   padding: 24px;
 `
 

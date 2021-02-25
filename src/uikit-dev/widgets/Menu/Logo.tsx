@@ -3,14 +3,16 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { LogoIcon } from "../../components/Svg";
 import Flex from "../../components/Box/Flex";
-import { HamburgerIcon, HamburgerCloseIcon, LogoIcon as LogoWithText } from "./icons";
+import { HamburgerIcon, HamburgerCloseIcon } from "./icons";
 import MenuButton from "./MenuButton";
+import logoMobile from '../../images/64x64.png'
+import logoDesktop from '../../images/Definix-advance-crypto-assets.png'
 
 interface Props {
-  isPushed: boolean;
-  isDark: boolean;
-  togglePush: () => void;
-  href: string;
+  isPushed: boolean
+  isDark: boolean
+  togglePush: () => void
+  href: string
 }
 
 const StyledLink = styled(Link)`
@@ -29,16 +31,16 @@ const StyledLink = styled(Link)`
       display: block;
     }
   }
-`;
+`
 
-const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
-  const isAbsoluteUrl = href.startsWith("http");
+const Logo: React.FC<Props> = ({ isPushed, togglePush, href }) => {
+  const isAbsoluteUrl = href.startsWith('http')
   const innerLogo = (
     <>
-      <LogoIcon className="mobile-icon" />
-      <LogoWithText className="desktop-icon" isDark={isDark} />
+      <img src={logoMobile} alt="" className="mobile-icon" />
+      <img src={logoDesktop} alt="" className="desktop-icon" />
     </>
-  );
+  )
 
   return (
     <Flex>
@@ -59,7 +61,7 @@ const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
         </StyledLink>
       )}
     </Flex>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo

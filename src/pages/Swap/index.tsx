@@ -1,40 +1,39 @@
-import { CurrencyAmount, JSBI, Token, Trade } from 'definixswap-sdk'
-import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
-import { ArrowDown } from 'react-feather'
-import { CardBody, ArrowDownIcon, Button, IconButton, Text } from 'uikit-dev'
-import { ThemeContext } from 'styled-components'
 import AddressInputPanel from 'components/AddressInputPanel'
 import Card, { GreyCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
-import ConfirmSwapModal from 'components/swap/ConfirmSwapModal'
+import ConnectWalletButton from 'components/ConnectWalletButton'
 import CurrencyInputPanel from 'components/CurrencyInputPanel'
-import CardNav from 'components/CardNav'
+import Loader from 'components/Loader'
+import PageHeader from 'components/PageHeader'
+import ProgressSteps from 'components/ProgressSteps'
 import { AutoRow, RowBetween } from 'components/Row'
+import { LinkStyledButton } from 'components/Shared'
 import AdvancedSwapDetailsDropdown from 'components/swap/AdvancedSwapDetailsDropdown'
 import confirmPriceImpactWithoutFee from 'components/swap/confirmPriceImpactWithoutFee'
+import ConfirmSwapModal from 'components/swap/ConfirmSwapModal'
 import { ArrowWrapper, BottomGrouping, SwapCallbackError, Wrapper } from 'components/swap/styleds'
 import TradePrice from 'components/swap/TradePrice'
-import TokenWarningModal from 'components/TokenWarningModal'
 import SyrupWarningModal from 'components/SyrupWarningModal'
-import ProgressSteps from 'components/ProgressSteps'
-
+import TokenWarningModal from 'components/TokenWarningModal'
 import { INITIAL_ALLOWED_SLIPPAGE } from 'constants/index'
+import { CurrencyAmount, JSBI, Token, Trade } from 'definixswap-sdk'
 import { useActiveWeb3React } from 'hooks'
 import { useCurrency } from 'hooks/Tokens'
 import { ApprovalState, useApproveCallbackFromTrade } from 'hooks/useApproveCallback'
 import { useSwapCallback } from 'hooks/useSwapCallback'
 import useWrapCallback, { WrapType } from 'hooks/useWrapCallback'
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { ArrowDown } from 'react-feather'
 import { Field } from 'state/swap/actions'
 import { useDefaultsFromURLSearch, useDerivedSwapInfo, useSwapActionHandlers, useSwapState } from 'state/swap/hooks'
 import { useExpertModeManager, useUserDeadline, useUserSlippageTolerance } from 'state/user/hooks'
-import { LinkStyledButton } from 'components/Shared'
+import { ThemeContext } from 'styled-components'
+import { ArrowDownIcon, Button, CardBody, IconButton, Text, Heading } from 'uikit-dev'
 import { maxAmountSpend } from 'utils/maxAmountSpend'
 import { computeTradePriceBreakdown, warningSeverity } from 'utils/prices'
-import Loader from 'components/Loader'
 import { TranslateString } from 'utils/translateTextHelpers'
-import PageHeader from 'components/PageHeader'
-import ConnectWalletButton from 'components/ConnectWalletButton'
 import AppBody from '../AppBody'
+// import CardNav from 'components/CardNav'
 
 const Swap = () => {
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -267,7 +266,12 @@ const Swap = () => {
         transactionType={syrupTransactionType}
         onConfirm={handleConfirmSyrupWarning}
       />
-      <CardNav />
+      {/* <CardNav /> */}
+
+      <Heading as="h1" fontSize="32px !important" className="my-6">
+        Swap
+      </Heading>
+
       <AppBody>
         <Wrapper id="swap-page">
           <ConfirmSwapModal
@@ -283,7 +287,7 @@ const Swap = () => {
             swapErrorMessage={swapErrorMessage}
             onDismiss={handleConfirmDismiss}
           />
-          <PageHeader title="Exchange" description="Trade tokens in an instant" />
+          <PageHeader title="Trade tokens in an instant" />
           <CardBody>
             <AutoColumn gap="md">
               <CurrencyInputPanel
@@ -301,19 +305,19 @@ const Swap = () => {
                 otherCurrency={currencies[Field.OUTPUT]}
                 id="swap-currency-input"
               />
+
               <AutoColumn justify="space-between">
                 <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
                   <ArrowWrapper clickable>
                     <IconButton
-                      variant="tertiary"
+                      variant="text"
                       onClick={() => {
                         setApprovalSubmitted(false) // reset 2 step UI for approvals
                         onSwitchTokens()
                       }}
-                      style={{ borderRadius: '50%' }}
                       size="sm"
                     >
-                      <ArrowDownIcon color="primary" width="24px" />
+                      <ArrowDownIcon />
                     </IconButton>
                   </ArrowWrapper>
                   {recipient === null && !showWrap && isExpertMode ? (
@@ -323,6 +327,7 @@ const Swap = () => {
                   ) : null}
                 </AutoRow>
               </AutoColumn>
+
               <CurrencyInputPanel
                 value={formattedAmounts[Field.OUTPUT]}
                 onUserInput={handleTypeOutput}
@@ -386,7 +391,7 @@ const Swap = () => {
                   <Text mb="4px">Insufficient liquidity for this trade.</Text>
                 </GreyCard>
               ) : showApproveFlow ? (
-                <RowBetween>
+                <RowBetween className="mb-3">
                   <Button
                     onClick={approveCallback}
                     disabled={approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}

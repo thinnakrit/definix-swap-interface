@@ -17,7 +17,7 @@ const Circle = styled.div<{ confirmed?: boolean; disabled?: boolean }>`
   min-height: 20px;
   background-color: ${({ theme, confirmed, disabled }) =>
     disabled ? theme.colors.backgroundDisabled : confirmed ? theme.colors.success : theme.colors.primary};
-  border-radius: 50%;
+  border-radius: ${({ theme }) => theme.radii.circle};
   display: flex;
   align-items: center;
   justify-content: center;

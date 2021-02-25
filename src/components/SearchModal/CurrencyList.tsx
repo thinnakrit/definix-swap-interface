@@ -32,7 +32,7 @@ const Tag = styled.div`
   background-color: ${({ theme }) => theme.colors.tertiary};
   color: ${({ theme }) => theme.colors.textSubtle};
   font-size: 14px;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.radii.default};
   padding: 0.25rem 0.3rem 0.25rem 0.3rem;
   max-width: 6rem;
   overflow: hidden;

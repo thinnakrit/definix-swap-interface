@@ -1,29 +1,29 @@
-import React from "react";
-import styled from "styled-components";
-import { PancakeRoundIcon, CogIcon, SvgProps } from "../../components/Svg";
-import Text from "../../components/Text/Text";
-import Flex from "../../components/Box/Flex";
-import Dropdown from "../../components/Dropdown/Dropdown";
-import Link from "../../components/Link/Link";
-import Skeleton from "../../components/Skeleton/Skeleton";
-import Button from "../../components/Button/Button";
-import IconButton from "../../components/Button/IconButton";
-import MenuButton from "./MenuButton";
-import * as IconModule from "./icons";
-import { socials, MENU_ENTRY_HEIGHT } from "./config";
-import { PanelProps, PushedProps } from "./types";
+import React from 'react'
+import styled from 'styled-components'
+import Button from '../../components/Button/Button'
+import IconButton from '../../components/Button/IconButton'
+import Dropdown from '../../components/Dropdown/Dropdown'
+import Flex from '../../components/Box/Flex'
+import Link from '../../components/Link/Link'
+import Skeleton from '../../components/Skeleton/Skeleton'
+import { CogIcon, PancakeRoundIcon, SvgProps } from '../../components/Svg'
+import Text from '../../components/Text/Text'
+import { MENU_ENTRY_HEIGHT, socials } from './config'
+import * as IconModule from './icons'
+import MenuButton from './MenuButton'
+import { PanelProps, PushedProps } from './types'
 
 interface Props extends PanelProps, PushedProps {}
 
-const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
-const { MoonIcon, SunIcon, LanguageIcon } = Icons;
+const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> }
+const { MoonIcon, SunIcon, LanguageIcon } = Icons
 
 const Container = styled.div`
   flex: none;
   padding: 8px 4px;
   background-color: ${({ theme }) => theme.nav.background};
   border-top: solid 2px rgba(133, 133, 133, 0.1);
-`;
+`
 
 const PriceLink = styled.a`
   display: flex;
@@ -36,7 +36,7 @@ const PriceLink = styled.a`
       transform: scale(1.2);
     }
   }
-`;
+`
 
 const SettingsEntry = styled.div`
   display: flex;
@@ -44,7 +44,7 @@ const SettingsEntry = styled.div`
   justify-content: space-between;
   height: ${MENU_ENTRY_HEIGHT}px;
   padding: 0 8px;
-`;
+`
 
 const SocialEntry = styled.div`
   display: flex;
@@ -52,7 +52,7 @@ const SocialEntry = styled.div`
   justify-content: space-between;
   height: ${MENU_ENTRY_HEIGHT}px;
   padding: 0 16px;
-`;
+`
 
 const PanelFooter: React.FC<Props> = ({
   isPushed,
@@ -71,7 +71,7 @@ const PanelFooter: React.FC<Props> = ({
           <CogIcon />
         </IconButton>
       </Container>
-    );
+    )
   }
 
   return (
@@ -87,9 +87,9 @@ const PanelFooter: React.FC<Props> = ({
         )}
         <Flex>
           {socials.map((social, index) => {
-            const Icon = Icons[social.icon];
-            const iconProps = { width: "24px", color: "textSubtle", style: { cursor: "pointer" } };
-            const mr = index < socials.length - 1 ? "24px" : 0;
+            const Icon = Icons[social.icon]
+            const iconProps = { width: '24px', color: 'textSubtle', style: { cursor: 'pointer' } }
+            const mr = index < socials.length - 1 ? '24px' : 0
             if (social.items) {
               return (
                 <Dropdown key={social.label} position="top" target={<Icon {...iconProps} mr={mr} />}>
@@ -99,13 +99,13 @@ const PanelFooter: React.FC<Props> = ({
                     </Link>
                   ))}
                 </Dropdown>
-              );
+              )
             }
             return (
               <Link external key={social.label} href={social.href} aria-label={social.label} mr={mr}>
                 <Icon {...iconProps} />
               </Link>
-            );
+            )
           })}
         </Flex>
       </SocialEntry>
@@ -113,11 +113,11 @@ const PanelFooter: React.FC<Props> = ({
         <Button variant="text" onClick={() => toggleTheme(!isDark)}>
           {/* alignItems center is a Safari fix */}
           <Flex alignItems="center">
-            <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" />
+            <SunIcon color={isDark ? 'textDisabled' : 'text'} width="24px" />
             <Text color="textDisabled" mx="4px">
               /
             </Text>
-            <MoonIcon color={isDark ? "text" : "textDisabled"} width="24px" />
+            <MoonIcon color={isDark ? 'text' : 'textDisabled'} width="24px" />
           </Flex>
         </Button>
         <Dropdown
@@ -134,7 +134,7 @@ const PanelFooter: React.FC<Props> = ({
               fullWidth
               onClick={() => setLang(lang)}
               // Safari fix
-              style={{ minHeight: "32px", height: "auto" }}
+              style={{ minHeight: '32px', height: 'auto' }}
             >
               {lang.language}
             </MenuButton>
@@ -142,7 +142,7 @@ const PanelFooter: React.FC<Props> = ({
         </Dropdown>
       </SettingsEntry>
     </Container>
-  );
-};
+  )
+}
 
-export default PanelFooter;
+export default PanelFooter
