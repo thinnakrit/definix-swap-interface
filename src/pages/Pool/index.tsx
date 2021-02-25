@@ -1,11 +1,10 @@
-import { BorderCard, LightCard } from 'components/Card'
+import { BorderCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
 import PageHeader from 'components/PageHeader'
 import FullPositionCard from 'components/PositionCard'
 import Question from 'components/QuestionHelper'
-import { useTokenBalancesWithLoadingIndicator } from 'state/wallet/hooks'
-import { StyledInternalLink } from 'components/Shared'
 import { RowBetween } from 'components/Row'
+import { StyledInternalLink } from 'components/Shared'
 import { Dots } from 'components/swap/styleds'
 import TranslatedText from 'components/TranslatedText'
 import { usePairs } from 'data/Reserves'
@@ -14,6 +13,7 @@ import { useActiveWeb3React } from 'hooks'
 import React, { useContext, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { toV2LiquidityToken, useTrackedTokenPairs } from 'state/user/hooks'
+import { useTokenBalancesWithLoadingIndicator } from 'state/wallet/hooks'
 import { ThemeContext } from 'styled-components'
 import { Button, CardBody, Heading, Text } from 'uikit-dev'
 import { TranslateString } from 'utils/translateTextHelpers'
@@ -67,7 +67,7 @@ export default function Pool() {
           </Button>
         </PageHeader>
         <AutoColumn gap="lg" justify="center">
-          <CardBody>
+          <CardBody style={{ width: '100%' }}>
             <AutoColumn gap="12px" style={{ width: '100%' }}>
               <RowBetween padding="0.5rem 0 1.5rem 0" className="flex justify-start">
                 <Heading>
@@ -100,11 +100,11 @@ export default function Pool() {
                   ))}
                 </>
               ) : (
-                <LightCard padding="24px">
+                <BorderCard padding="24px">
                   <Text color="textDisabled" textAlign="center">
                     <TranslatedText translationId={104}>No liquidity found.</TranslatedText>
                   </Text>
-                </LightCard>
+                </BorderCard>
               )}
 
               <div>

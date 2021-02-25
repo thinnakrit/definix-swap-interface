@@ -1,15 +1,16 @@
-import React from "react";
-import Link from "./Link";
-import { LinkProps } from "./types";
-import OpenNewIcon from "../Svg/Icons/OpenNew";
+import React from 'react'
+import Link from './Link'
+import { LinkProps } from './types'
+import OpenNewIcon from '../Svg/Icons/OpenNew'
 
-const LinkExternal: React.FC<LinkProps> = ({ children, ...props }) => {
+const LinkExternal: React.FC<LinkProps> = ({ children, isIconLeft, ...props }) => {
   return (
     <Link external {...props}>
+      {isIconLeft && <OpenNewIcon color="primary" mr="8px" />}
       {children}
-      <OpenNewIcon color="primary" ml="4px" />
+      {!isIconLeft && <OpenNewIcon color="primary" ml="4px" />}
     </Link>
-  );
-};
+  )
+}
 
-export default LinkExternal;
+export default LinkExternal
