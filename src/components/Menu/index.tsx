@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
-import { Menu as UikitMenu, ConnectorId } from 'definixswap-uikit'
 import { useWeb3React } from '@web3-react/core'
+import { bsc, injected, walletconnect } from 'connectors'
 import { allLanguages } from 'constants/localisation/languageCodes'
 import { LanguageContext } from 'hooks/LanguageContext'
-import useTheme from 'hooks/useTheme'
-import useGetPriceData from 'hooks/useGetPriceData'
 import useGetLocalProfile from 'hooks/useGetLocalProfile'
-import { injected, bsc, walletconnect } from 'connectors'
+import useGetPriceData from 'hooks/useGetPriceData'
+import useTheme from 'hooks/useTheme'
+import React, { useContext } from 'react'
+import { ConnectorId, Menu as UikitMenu } from 'uikit-dev'
 import links from './config'
 
 const Menu: React.FC = (props) => {
@@ -35,7 +35,7 @@ const Menu: React.FC = (props) => {
       logout={deactivate}
       isDark={isDark}
       toggleTheme={toggleTheme}
-      currentLang={selectedLanguage?.code || ''}
+      currentLang={selectedLanguage?.code || 'en'}
       langs={allLanguages}
       setLang={setSelectedLanguage}
       cakePriceUsd={cakePriceUsd}

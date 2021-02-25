@@ -1,4 +1,4 @@
-import { Text } from 'definixswap-uikit'
+import { Text } from 'uikit-dev'
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
@@ -10,6 +10,28 @@ export const ClickableText = styled(Text)`
     cursor: pointer;
   }
   color: ${({ theme }) => theme.colors.primary};
+`
+export const MaxButton = styled.button<{ width: string }>`
+  padding: 0.5rem 1rem;
+  background-color: ${({ theme }) => theme.colors.primaryDark};
+  border: 1px solid ${({ theme }) => theme.colors.primaryDark};
+  border-radius: ${({ theme }) => theme.radii.default};
+  font-size: 1rem;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    padding: 0.25rem 0.5rem;
+  }
+  font-weight: 500;
+  cursor: pointer;
+  margin: 0.25rem;
+  overflow: hidden;
+  color: ${({ theme }) => theme.colors.primary};
+  :hover {
+    border: 1px solid ${({ theme }) => theme.colors.primary};
+  }
+  :focus {
+    border: 1px solid ${({ theme }) => theme.colors.primary};
+    outline: none;
+  }
 `
 
 export const Dots = styled.span`

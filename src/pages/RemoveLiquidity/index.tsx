@@ -4,7 +4,7 @@ import { splitSignature } from '@ethersproject/bytes'
 import { Contract } from '@ethersproject/contracts'
 import { TransactionResponse } from '@ethersproject/providers'
 import { Currency, currencyEquals, ETHER, Percent, WETH } from 'definixswap-sdk'
-import { Button, Flex, Text } from 'definixswap-uikit'
+import { Button, Flex, Text } from 'uikit-dev'
 import { ArrowDown, Plus } from 'react-feather'
 import { RouteComponentProps } from 'react-router'
 
@@ -42,7 +42,7 @@ import { useUserDeadline, useUserSlippageTolerance } from '../../state/user/hook
 
 const OutlineCard = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.borderColor};
-  border-radius: 16px;
+  border-radius: ${({ theme }) => theme.radii.default};
   padding: 24px;
 `
 

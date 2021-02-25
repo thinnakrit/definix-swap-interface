@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from 'react'
 import { Currency, Pair } from 'definixswap-sdk'
-import { Button, ChevronDownIcon, Text } from 'definixswap-uikit'
+import { Button, ChevronDownIcon, Text } from 'uikit-dev'
 import styled from 'styled-components'
-import { darken } from 'polished'
+import { border, darken } from 'polished'
 import { useCurrencyBalance } from '../../state/wallet/hooks'
 import CurrencySearchModal from '../SearchModal/CurrencySearchModal'
 import CurrencyLogo from '../CurrencyLogo'
@@ -10,7 +10,7 @@ import DoubleCurrencyLogo from '../DoubleLogo'
 import { RowBetween } from '../Row'
 import { Input as NumericalInput } from '../NumericalInput'
 import { useActiveWeb3React } from '../../hooks'
-import TranslatedText from "../TranslatedText"
+import TranslatedText from '../TranslatedText'
 import { TranslateString } from '../../utils/translateTextHelpers'
 
 const InputRow = styled.div<{ selected: boolean }>`
@@ -27,7 +27,7 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
   font-weight: 500;
   background-color: transparent;
   color: ${({ selected, theme }) => (selected ? theme.colors.text : '#FFFFFF')};
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.radii.default};
   outline: none;
   cursor: pointer;
   user-select: none;
@@ -36,7 +36,7 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
 
   :focus,
   :hover {
-    background-color: ${({ theme }) => darken(0.05, theme.colors.input)};
+    background-color: ${({ theme }) => theme.colors.input};
   }
 `
 
@@ -64,15 +64,16 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
-  border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
+  // border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
+  border-radius: ${({ theme }) => theme.radii.default};
   background-color: ${({ theme }) => theme.colors.background};
   z-index: 1;
 `
 
 const Container = styled.div<{ hideInput: boolean }>`
-  border-radius: 16px;
-  background-color: ${({ theme }) => theme.colors.input};
-  box-shadow: ${({ theme }) => theme.shadows.inset};
+  border-radius: ${({ theme }) => theme.radii.default};
+  background-color: ${({ theme }) => theme.colors.white};
+  border: 1px solid ${({ theme }) => theme.colors.border};
 `
 
 interface CurrencyInputPanelProps {
@@ -106,7 +107,7 @@ export default function CurrencyInputPanel({
   hideInput = false,
   otherCurrency,
   id,
-  showCommonBases
+  showCommonBases,
 }: CurrencyInputPanelProps) {
   const [modalOpen, setModalOpen] = useState(false)
   const { account } = useActiveWeb3React()
@@ -126,7 +127,7 @@ export default function CurrencyInputPanel({
               {account && (
                 <Text onClick={onMax} fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
                   {!hideBalance && !!currency && selectedCurrencyBalance
-                    ? `Balance: ${  selectedCurrencyBalance?.toSignificant(6)}`
+                    ? `Balance: ${selectedCurrencyBalance?.toSignificant(6)}`
                     : ' -'}
                 </Text>
               )}
@@ -139,12 +140,12 @@ export default function CurrencyInputPanel({
               <NumericalInput
                 className="token-amount-input"
                 value={value}
-                onUserInput={val => {
+                onUserInput={(val) => {
                   onUserInput(val)
                 }}
               />
               {account && currency && showMaxButton && label !== 'To' && (
-                <Button onClick={onMax} size="sm" variant="text">
+                <Button onClick={onMax} size="sm" variant="text" style={{ borderRadius: '6px' }}>
                   MAX
                 </Button>
               )}
@@ -172,10 +173,11 @@ export default function CurrencyInputPanel({
               ) : (
                 <Text>
                   {(currency && currency.symbol && currency.symbol.length > 20
-                    ? `${currency.symbol.slice(0, 4) 
-                      }...${ 
-                      currency.symbol.slice(currency.symbol.length - 5, currency.symbol.length)}`
-                    : currency?.symbol) || <TranslatedText translationId={82}>Select a currency</TranslatedText>}
+                    ? `${currency.symbol.slice(0, 4)}...${currency.symbol.slice(
+                        currency.symbol.length - 5,
+                        currency.symbol.length
+                      )}`
+                    : currency?.symbol) || <TranslatedText translationId={82}>Select a token</TranslatedText>}
                 </Text>
               )}
               {!disableCurrencySelect && <ChevronDownIcon />}

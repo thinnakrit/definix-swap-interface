@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import styled from 'styled-components'
-import { Text } from 'definixswap-uikit'
+import { Text } from 'uikit-dev'
 import useENS from '../../hooks/useENS'
 import { useActiveWeb3React } from '../../hooks'
 import { ExternalLink } from '../Shared'
@@ -12,7 +12,7 @@ const InputPanel = styled.div`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
-  border-radius: 1.25rem;
+  border-radius: ${({ theme }) => theme.radii.default};
   background-color: ${({ theme }) => theme.colors.invertedContrast};
   z-index: 1;
   width: 100%;
@@ -22,7 +22,7 @@ const ContainerRow = styled.div<{ error: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 1.25rem;
+  border-radius: ${({ theme }) => theme.radii.default};
   border: 1px solid ${({ error, theme }) => (error ? theme.colors.failure : theme.colors.invertedContrast)};
   transition: border-color 300ms ${({ error }) => (error ? 'step-end' : 'step-start')},
     color 500ms ${({ error }) => (error ? 'step-end' : 'step-start')};

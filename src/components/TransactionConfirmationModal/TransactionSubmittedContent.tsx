@@ -1,7 +1,7 @@
 import { ChainId } from 'definixswap-sdk'
 import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
-import { Button, LinkExternal } from 'definixswap-uikit'
+import { Button, LinkExternal } from 'uikit-dev'
 import { ArrowUpCircle } from 'react-feather'
 import { AutoColumn } from '../Column'
 import { getBscScanLink } from '../../utils'

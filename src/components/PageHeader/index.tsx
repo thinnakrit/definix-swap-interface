@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import { Heading, IconButton, Text, Flex, useModal, CogIcon, Svg } from 'definixswap-uikit'
-import SettingsModal from './SettingsModal'
+import { CogIcon, Flex, Heading, IconButton, Text, useModal, Svg } from 'uikit-dev'
 import RecentTransactionsModal from './RecentTransactionsModal'
+import SettingsModal from './SettingsModal'
 
 interface PageHeaderProps {
   title: ReactNode
@@ -20,8 +20,7 @@ const HistoryIcon = () => (
 )
 
 const StyledPageHeader = styled.div`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
-  padding: 24px;
+  padding: 24px 24px 0 24px;
 `
 
 const Details = styled.div`
@@ -36,19 +35,19 @@ const PageHeader = ({ title, description, children }: PageHeaderProps) => {
     <StyledPageHeader>
       <Flex alignItems="center">
         <Details>
-          <Heading mb="8px">{title}</Heading>
+          <Heading fontSize="18px">{title}</Heading>
           {description && (
-            <Text color="textSubtle" fontSize="14px">
+            <Text mt="8px" color="textSubtle" fontSize="14px">
               {description}
             </Text>
           )}
         </Details>
         <IconButton variant="text" onClick={onPresentSettings} title="Settings">
-          <CogIcon width="24px" color="currentColor" />
+          <CogIcon width={24} />
         </IconButton>
-        <IconButton variant="text" onClick={onPresentRecentTransactions} title="Recent transactions">
+        {/* <IconButton variant="text" onClick={onPresentRecentTransactions} title="Recent transactions">
           <HistoryIcon />
-        </IconButton>
+        </IconButton> */}
       </Flex>
       {children && <Text mt="16px">{children}</Text>}
     </StyledPageHeader>

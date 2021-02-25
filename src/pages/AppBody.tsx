@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Card } from 'definixswap-uikit'
+import { Card } from 'uikit-dev'
 
 export const BodyWrapper = styled(Card)`
   position: relative;
@@ -13,5 +13,5 @@ export const BodyWrapper = styled(Card)`
  * The styled container element that wraps the content of most pages and the tabs.
  */
 export default function AppBody({ children }: { children: React.ReactNode }) {
-  return <BodyWrapper>{children}</BodyWrapper>
+  return <BodyWrapper isRainbow>{children}</BodyWrapper>
 }

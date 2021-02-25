@@ -2,7 +2,7 @@ import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from 'definixs
 import React, { CSSProperties, MutableRefObject, useCallback, useMemo } from 'react'
 import { FixedSizeList } from 'react-window'
 import styled from 'styled-components'
-import { Text } from 'definixswap-uikit'
+import { Text } from 'uikit-dev'
 import { useActiveWeb3React } from '../../hooks'
 import { useSelectedTokenList, WrappedTokenInfo } from '../../state/lists/hooks'
 import { useAddUserToken, useRemoveUserAddedToken } from '../../state/user/hooks'
@@ -32,7 +32,7 @@ const Tag = styled.div`
   background-color: ${({ theme }) => theme.colors.tertiary};
   color: ${({ theme }) => theme.colors.textSubtle};
   font-size: 14px;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.radii.default};
   padding: 0.25rem 0.3rem 0.25rem 0.3rem;
   max-width: 6rem;
   overflow: hidden;

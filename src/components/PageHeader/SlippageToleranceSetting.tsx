@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Button, Flex, Input, Text } from 'definixswap-uikit'
+import { Button, Flex, Input, Text } from 'uikit-dev'
 import { useUserSlippageTolerance } from 'state/user/hooks'
 import QuestionHelper from '../QuestionHelper'
 import TranslatedText from '../TranslatedText'

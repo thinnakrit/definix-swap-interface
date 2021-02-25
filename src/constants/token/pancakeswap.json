@@ -11,6 +11,46 @@
   "keywords": ["pancake", "default"],
   "tokens": [
     {
+      "name": "PLOY Token",
+      "symbol": "PLOY",
+      "address": "0x8fb723E93263d0d83fb6FF00c7904Bf848F940E1",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "/images/coins/band.png"
+    },
+    {
+      "name": "TUNG Token",
+      "symbol": "TUNG",
+      "address": "0xa184d03E8c692aA91175F64d8Ae15bE992b4a5f1",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "/images/coins/band.png"
+    },
+    {
+      "name": "BANK Token",
+      "symbol": "BANK",
+      "address": "0x62A9198532FF14025bF787a1364a66CFCC625cd7",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "/images/coins/band.png"
+    },
+    {
+      "name": "MUAY Token",
+      "symbol": "MUAY",
+      "address": "0xa029a0035Af34FB822C3f783BB273Efa85307fe9",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "/images/coins/band.png"
+    },
+    {
+      "name": "GAS Token",
+      "symbol": "GAS",
+      "address": "0x5E23754935f607626b2417E568d18CB69eeE1639",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "/images/coins/STAX.png"
+    },
+    {
       "name": "SIX Token",
       "symbol": "SIX",
       "address": "0x9bDAF16122eB64E62757BDbBDc4d442495EA6C67",

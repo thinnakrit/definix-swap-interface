@@ -1,9 +1,13 @@
+import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
 import React, { Suspense, useEffect, useState } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
-import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
+import Menu from '../components/Menu'
 import Popups from '../components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
+import { allLanguages, EN } from '../constants/localisation/languageCodes'
+import { LanguageContext } from '../hooks/LanguageContext'
+import { TranslationsContext } from '../hooks/TranslationsContext'
 import { RedirectDuplicateTokenIds, RedirectOldAddLiquidityPathStructure } from './AddLiquidity/redirects'
 import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
 import AddLiquidity from './AddLiquidity'
@@ -12,11 +16,6 @@ import PoolFinder from './PoolFinder'
 import RemoveLiquidity from './RemoveLiquidity'
 import Swap from './Swap'
 import { RedirectPathToSwapOnly } from './Swap/redirects'
-import { EN, allLanguages } from '../constants/localisation/languageCodes'
-import { LanguageContext } from '../hooks/LanguageContext'
-import { TranslationsContext } from '../hooks/TranslationsContext'
-
-import Menu from '../components/Menu'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -29,30 +28,32 @@ const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   padding: 32px 16px;
   align-items: center;
+  justify-content: center;
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 1;
   justify-content: center;
-  background-image: url('/images/group-pancake.svg');
-  background-repeat: no-repeat;
-  background-position: bottom 24px center;
-  background-size: 90%;
+  // background-image: url('/images/group-pancake.svg');
+  // background-repeat: no-repeat;
+  // background-position: bottom 24px center;
+  // background-size: 90%;
 
   ${({ theme }) => theme.mediaQueries.xs} {
     background-size: auto;
   }
 
-  ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/arch-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg'),
-      url('/images/left-pancake.svg'), url('/images/right-pancake.svg');
-    background-repeat: no-repeat;
-    background-position: center 420px, 10% 230px, 90% 230px;
-    background-size: contain, 266px, 266px;
-    min-height: 90vh;
-  }
+  // ${({ theme }) => theme.mediaQueries.lg} {
+  //   background-image: url('/images/arch-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg'),
+  //     url('/images/left-pancake.svg'), url('/images/right-pancake.svg');
+  //   background-repeat: no-repeat;
+  //   background-position: center 420px, 10% 230px, 90% 230px;
+  //   background-size: contain, 266px, 266px;
+  //   min-height: 90vh;
+  // }
 `
 
 const Marginer = styled.div`

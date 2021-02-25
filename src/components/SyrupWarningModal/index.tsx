@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
-import { Button, Text } from 'definixswap-uikit'
+import { Button, Text } from 'uikit-dev'
 import { AlertTriangle } from 'react-feather'
 import Modal from '../Modal'
 import { AutoRow, RowBetween } from '../Row'
@@ -12,7 +12,7 @@ const WarningContainer = styled.div`
   padding: 1rem;
   background: rgba(242, 150, 2, 0.05);
   border: 1px solid #f3841e;
-  border-radius: 20px;
+  border-radius: ${({ theme }) => theme.radii.default};
   overflow: auto;
 `
 

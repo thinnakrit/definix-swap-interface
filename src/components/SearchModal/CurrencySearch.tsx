@@ -1,10 +1,10 @@
 import { Currency, ETHER, Token } from 'definixswap-sdk'
 import React, { KeyboardEvent, RefObject, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
-import { Text, CloseIcon } from 'definixswap-uikit'
+import { Text, CloseIcon, Heading } from 'uikit-dev'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { FixedSizeList } from 'react-window'
-import { ThemeContext } from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 import AutoSizer from 'react-virtualized-auto-sizer'
 import { useActiveWeb3React } from '../../hooks'
 import { AppState } from '../../state'
@@ -25,6 +25,7 @@ import { useTokenComparator } from './sorting'
 import { PaddedColumn, SearchInput, Separator } from './styleds'
 import TranslatedText from '../TranslatedText'
 import { TranslateString } from '../../utils/translateTextHelpers'
+import searchIcon from '../../assets/svg/search.svg'
 
 interface CurrencySearchProps {
   isOpen: boolean
@@ -138,37 +139,59 @@ export function CurrencySearch({
 
   const selectedListInfo = useSelectedListInfo()
 
+  const SearchInputWithIcon = styled.div`
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 56px;
+      height: 56px;
+      padding: 16px;
+    }
+
+    input {
+      padding-right: 56px;
+    }
+  `
+
   return (
     <Column style={{ width: '100%', flex: '1 1' }}>
-      <PaddedColumn gap="14px">
+      <PaddedColumn gap="16px">
         <RowBetween>
           <Text>
-            <TranslatedText translationId={82}>Select a token</TranslatedText>
-            <QuestionHelper
-              text={TranslateString(
-                130,
-                'Find a token by searching for its name or symbol or by pasting its address below.'
-              )}
-            />
+            <Heading>
+              <TranslatedText translationId={82}>Select a token</TranslatedText>
+              <QuestionHelper
+                text={TranslateString(
+                  130,
+                  'Find a token by searching for its name or symbol or by pasting its address below.'
+                )}
+              />
+            </Heading>
           </Text>
           <CloseIcon onClick={onDismiss} />
         </RowBetween>
-        <SearchInput
-          type="text"
-          id="token-search-input"
-          placeholder={t('tokenSearchPlaceholder')}
-          value={searchQuery}
-          ref={inputRef as RefObject<HTMLInputElement>}
-          onChange={handleInput}
-          onKeyDown={handleEnter}
-        />
+        <SearchInputWithIcon>
+          <SearchInput
+            type="text"
+            id="token-search-input"
+            placeholder={t('tokenSearchPlaceholder')}
+            value={searchQuery}
+            ref={inputRef as RefObject<HTMLInputElement>}
+            onChange={handleInput}
+            onKeyDown={handleEnter}
+          />
+          <img src={searchIcon} alt="" />
+        </SearchInputWithIcon>
         {showCommonBases && (
           <CommonBases chainId={chainId} onSelect={handleCurrencySelect} selectedCurrency={selectedCurrency} />
         )}
         <RowBetween>
-          <Text fontSize="14px">
+          <Heading>
             <TranslatedText translationId={126}>Token name</TranslatedText>
-          </Text>
+          </Heading>
           <SortButton ascending={invertSearchOrder} toggleSortOrder={() => setInvertSearchOrder((iso) => !iso)} />
         </RowBetween>
       </PaddedColumn>

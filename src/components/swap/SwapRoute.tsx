@@ -1,7 +1,7 @@
 import { Trade } from 'definixswap-sdk'
 import React, { Fragment, memo, useContext } from 'react'
 import { ChevronRight } from 'react-feather'
-import { Flex, Text } from 'definixswap-uikit'
+import { Flex, Text } from 'uikit-dev'
 import { ThemeContext } from 'styled-components'
 import CurrencyLogo from '../CurrencyLogo'
 

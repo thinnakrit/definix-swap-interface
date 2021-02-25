@@ -1,6 +1,6 @@
 import { Token } from 'definixswap-sdk'
 import { transparentize } from 'polished'
-import { Button, Text } from 'definixswap-uikit'
+import { Button, Text } from 'uikit-dev'
 import React, { useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { AlertTriangle } from 'react-feather'
@@ -16,7 +16,7 @@ import { AutoColumn } from '../Column'
 const Wrapper = styled.div<{ error: boolean }>`
   background: ${({ theme }) => transparentize(0.6, theme.colors.tertiary)};
   padding: 0.75rem;
-  border-radius: 20px;
+  border-radius: ${({ theme }) => theme.radii.default};
 `
 
 const WarningContainer = styled.div`
@@ -25,7 +25,7 @@ const WarningContainer = styled.div`
   padding: 1rem;
   background: rgba(242, 150, 2, 0.05);
   border: 1px solid #f3841e;
-  border-radius: 20px;
+  border-radius: ${({ theme }) => theme.radii.default};
   overflow: auto;
 `
 

@@ -2,7 +2,7 @@ import React, { memo, useCallback, useMemo, useRef, useState } from 'react'
 import { ArrowLeft } from 'react-feather'
 import { usePopper } from 'react-popper'
 import { useDispatch, useSelector } from 'react-redux'
-import { Button, Text, ChevronDownIcon, CloseIcon } from 'definixswap-uikit'
+import { Button, Text, ChevronDownIcon, CloseIcon } from 'uikit-dev'
 import styled from 'styled-components'
 import { useFetchListCallback } from '../../hooks/useFetchListCallback'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
@@ -36,7 +36,7 @@ const PopoverContainer = styled.div<{ show: boolean }>`
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
     0px 24px 32px rgba(0, 0, 0, 0.01);
   color: ${({ theme }) => theme.colors.textSubtle};
-  border-radius: 0.5rem;
+  border-radius: ${({ theme }) => theme.radii.default};
   padding: 1rem;
   display: grid;
   grid-template-rows: 1fr;

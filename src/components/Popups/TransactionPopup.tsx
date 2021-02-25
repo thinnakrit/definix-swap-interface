@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { AlertCircle, CheckCircle } from 'react-feather'
-import { Text } from 'definixswap-uikit'
+import { Text } from 'uikit-dev'
 import styled, { ThemeContext } from 'styled-components'
 import { useActiveWeb3React } from '../../hooks'
 import { getBscScanLink } from '../../utils'

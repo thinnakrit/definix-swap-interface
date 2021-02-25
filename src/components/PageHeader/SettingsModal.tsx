@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal } from 'definixswap-uikit'
+import { Modal } from 'uikit-dev'
 import SlippageToleranceSetting from './SlippageToleranceSetting'
 import TransactionDeadlineSetting from './TransactionDeadlineSetting'
 
