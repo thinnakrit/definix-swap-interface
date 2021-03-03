@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import Heading from '../../components/Heading/Heading'
 import Flex from '../../components/Box/Flex'
-import { ArrowBackIcon, CloseIcon } from '../../components/Svg'
 import { IconButton } from '../../components/Button'
+import Heading from '../../components/Heading/Heading'
+import { ArrowBackIcon, CloseIcon } from '../../components/Svg'
 import colorStroke from '../../images/Color-stroke.png'
 import { InjectedProps } from './types'
 
