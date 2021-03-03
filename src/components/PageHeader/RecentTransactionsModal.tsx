@@ -40,7 +40,7 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss }: RecentTransac
   }, [allTransactions])
 
   return (
-    <Modal title="Recent Transactions" onDismiss={onDismiss}>
+    <Modal title="Recent Transactions" onDismiss={onDismiss} isRainbow>
       {!account && (
         <Flex justifyContent="center" flexDirection="column" alignItems="center">
           <Text mb="8px" bold>

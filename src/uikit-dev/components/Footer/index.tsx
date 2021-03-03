@@ -18,7 +18,7 @@ import twitterNormal from '../../images/Footer-Icon/Twitter-Normal.png'
 
 const FooterStyled = styled.footer`
   position: relative;
-  padding-top: 6px;
+  padding-top: 4px;
   flex-shrink: 0;
 
   .container {
@@ -36,7 +36,7 @@ const FooterStyled = styled.footer`
     top: 0;
     left: 50%;
     transform: translate(-50%);
-    height: 6px;
+    height: 4px;
     width: 100%;
   }
 

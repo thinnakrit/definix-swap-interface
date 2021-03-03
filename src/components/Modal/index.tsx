@@ -1,10 +1,11 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
-import { animated, useTransition } from 'react-spring'
-import { DialogOverlay, DialogContent } from '@reach/dialog'
-import { isMobile } from 'react-device-detect'
+import { DialogContent, DialogOverlay } from '@reach/dialog'
 import '@reach/dialog/styles.css'
 import { transparentize } from 'polished'
+import React from 'react'
+import { isMobile } from 'react-device-detect'
+import { animated, useTransition } from 'react-spring'
+import styled, { css } from 'styled-components'
+import colorStroke from '../../uikit-dev/images/Color-stroke.png'
 
 const AnimatedDialogOverlay = animated(DialogOverlay)
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -32,7 +33,6 @@ const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, ...r
 })`
   &[data-reach-dialog-content] {
     margin: 0 0 2rem 0;
-    border: 1px solid ${({ theme }) => theme.colors.invertedContrast};
     background-color: ${({ theme }) => theme.colors.invertedContrast};
     box-shadow: 0 4px 8px 0 ${transparentize(0.95, '#191326')};
     padding: 0px;
@@ -61,11 +61,23 @@ const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, ...r
     ${({ theme }) => theme.mediaQueries.sm} {
       width: 85vw;
     }
+
+    position: relative;
+
+    .color-stroke {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%);
+      height: 4px;
+      width: 100%;
+    }
   }
 `
 
 interface ModalProps {
   isOpen: boolean
+  isRainbow: boolean
   onDismiss: () => void
   minHeight?: number | false
   maxHeight?: number
@@ -75,6 +87,7 @@ interface ModalProps {
 
 export default function Modal({
   isOpen,
+  isRainbow,
   onDismiss,
   minHeight = false,
   maxHeight = 50,
@@ -105,6 +118,7 @@ export default function Modal({
                 {!initialFocusRef && isMobile ? <div tabIndex={1} /> : null}
                 {/* eslint-enable */}
                 {children}
+                {isRainbow && <img className="color-stroke" alt="" src={colorStroke} />}
               </StyledDialogContent>
             </StyledDialogOverlay>
           )
