@@ -3,12 +3,12 @@ import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import Heading from '../../components/Heading/Heading'
 import { SvgProps } from '../../components/Svg'
+import { Login } from '../WalletModal/types'
 import * as IconModule from './icons'
 import { LinkLabel, MenuEntry } from './MenuEntry'
 import MenuLink from './MenuLink'
 import { PanelProps, PushedProps } from './types'
 import UserBlock from './UserBlock'
-import { Login } from '../WalletModal/types'
 // import Accordion from './Accordion'
 
 interface Props extends PanelProps, PushedProps {
@@ -66,9 +66,8 @@ const PanelBody: React.FC<Props> = (props) => {
       <BorderBox>
         <Heading fontSize="14px">DEX</Heading>
         {links.map((entry) => {
-          const Icon = Icons[entry.icon]
-          const iconElement = <Icon width="20px" mr="16px" />
           const calloutClass = entry.calloutClass ? entry.calloutClass : undefined
+          const isActive = entry.href === location.pathname
 
           // if (entry.items) {
           //   const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname)
@@ -94,9 +93,9 @@ const PanelBody: React.FC<Props> = (props) => {
           //   )
           // }
           return (
-            <MenuEntry key={entry.label} isActive={entry.href === location.pathname} className={calloutClass}>
+            <MenuEntry key={entry.label} isActive={isActive} className={calloutClass}>
               <MenuLink href={entry.href} onClick={handleClick}>
-                {iconElement}
+                <img src={isActive ? entry.iconActive : entry.icon} alt="" width="24" className="mr-3" />
                 <LinkLabel isPushed={isPushed}>{entry.label}</LinkLabel>
               </MenuLink>
             </MenuEntry>
