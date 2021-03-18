@@ -14,6 +14,9 @@ interface Props extends PanelProps, PushedProps {
 }
 
 const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -39,7 +42,7 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   // box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   ${({ theme }) => theme.mediaQueries.nav} {
     // width: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
-    width: ${SIDEBAR_WIDTH_FULL};
+    width: ${SIDEBAR_WIDTH_FULL}px;
   }
 `
 

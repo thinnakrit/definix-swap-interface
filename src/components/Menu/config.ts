@@ -7,6 +7,11 @@ const config: MenuEntry[] = [
     href: '/swap',
   },
   {
+    label: 'Liquidity',
+    icon: 'LiquidityIcon',
+    href: '/syrup',
+  },
+  {
     label: 'Pool',
     icon: 'PoolIcon',
     href: '/pool',

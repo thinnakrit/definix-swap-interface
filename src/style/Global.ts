@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100vh;
 
     ${({ theme }) => theme.mediaQueries.md} {
-      padding: 1.5rem 4rem;
+      padding: 1.5rem 4rem !important;
     }
 
     img {

@@ -19,6 +19,7 @@ function Footer() {
   const FooterStyled = styled.footer`
     flex-shrink: 0;
     background: ${({ theme }) => theme.colors.white};
+    z-index: 10;
 
     ${({ theme }) => theme.mediaQueries.md} {
       height: 56px;
