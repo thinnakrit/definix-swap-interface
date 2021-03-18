@@ -15,67 +15,67 @@ import redditNormal from '../../images/Footer-Icon/without-text/Reddit-Normal.pn
 import telegramNormal from '../../images/Footer-Icon/without-text/Telegram-Normal.png'
 import twitterNormal from '../../images/Footer-Icon/without-text/Twitter-Normal.png'
 
-function Footer() {
-  const FooterStyled = styled.footer`
-    flex-shrink: 0;
-    background: ${({ theme }) => theme.colors.white};
-    z-index: 10;
+const FooterStyled = styled.footer`
+  flex-shrink: 0;
+  background: ${({ theme }) => theme.colors.white};
+  z-index: 10;
 
-    ${({ theme }) => theme.mediaQueries.md} {
-      height: 56px;
-    }
+  ${({ theme }) => theme.mediaQueries.md} {
+    height: 56px;
+  }
 
-    .container {
-      max-width: 1280px;
-      height: 100%;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-    }
+  .container {
+    max-width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
 
-    p {
-      font-size: 0.75rem;
-    }
+  p {
+    font-size: 0.75rem;
+  }
 
-    .logo {
-      height: 16px;
-      margin: 0.5rem;
-    }
+  .logo {
+    height: 16px;
+    margin: 0.5rem;
+  }
 
-    .six-logo {
-      width: 120px;
+  .six-logo {
+    width: 120px;
+    display: block;
+
+    img {
       display: block;
+    }
+  }
 
-      img {
-        display: block;
-      }
+  .social {
+    display: flex;
+    margin-top: 1rem;
+    margin: 0.5rem;
+
+    a {
+      cursor: pointer;
+      margin: 0 4px;
     }
 
-    .social {
-      display: flex;
-      margin-top: 1rem;
-      margin: 0.5rem;
-
-      a {
-        cursor: pointer;
-        margin: 0 4px;
-      }
-
-      img {
-        width: 28px;
-        display: block;
-      }
+    img {
+      width: 28px;
+      display: block;
     }
+  }
 
-    ${({ theme }) => theme.mediaQueries.lg} {
-      .container {
-        justify-content: space-between;
-      }
+  ${({ theme }) => theme.mediaQueries.lg} {
+    .container {
+      justify-content: space-between;
     }
-  `
+  }
+`
 
+function Footer() {
   return (
     <FooterStyled>
       <div className="container">

@@ -92,6 +92,11 @@ const Price = styled.div`
   }
 `
 
+const Flag = styled.img`
+  width: 24px;
+  height: auto;
+`
+
 const Menu: React.FC<NavProps> = ({
   account,
   login,
@@ -106,10 +111,6 @@ const Menu: React.FC<NavProps> = ({
   children,
   // profile,
 }) => {
-  const Flag = styled.img`
-    width: 24px;
-    height: auto;
-  `
   const { isXl } = useMatchBreakpoints()
   const isMobile = isXl === false
   const [isPushed, setIsPushed] = useState(!isMobile)

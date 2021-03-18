@@ -27,7 +27,6 @@ const StyledModal = styled.div`
     min-width: 360px;
     max-width: 100%;
   }
-
   position: relative;
 
   .color-stroke {
