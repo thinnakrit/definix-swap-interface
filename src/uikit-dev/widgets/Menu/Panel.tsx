@@ -3,10 +3,14 @@ import styled from 'styled-components'
 import { SIDEBAR_WIDTH_FULL, SIDEBAR_WIDTH_REDUCED } from './config'
 import PanelBody from './PanelBody'
 import { PanelProps, PushedProps } from './types'
+import { Login } from '../WalletModal/types'
 
 interface Props extends PanelProps, PushedProps {
   showMenu: boolean
   isMobile: boolean
+  account?: string
+  login: Login
+  logout: () => void
 }
 
 const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
@@ -34,7 +38,8 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   transform: translate3d(0, 0, 0);
   // box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   ${({ theme }) => theme.mediaQueries.nav} {
-    width: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
+    // width: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
+    width: ${SIDEBAR_WIDTH_FULL};
   }
 `
 

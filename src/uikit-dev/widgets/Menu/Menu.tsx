@@ -93,6 +93,9 @@ const Price = styled.div`
 `
 
 const Menu: React.FC<NavProps> = ({
+  account,
+  login,
+  logout,
   isDark,
   toggleTheme,
   langs,
@@ -223,6 +226,9 @@ const Menu: React.FC<NavProps> = ({
           cakePriceUsd={cakePriceUsd}
           pushNav={setIsPushed}
           links={links}
+          account={account}
+          login={login}
+          logout={logout}
         />
         <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}

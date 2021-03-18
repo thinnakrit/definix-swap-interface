@@ -7,11 +7,15 @@ import * as IconModule from './icons'
 import { LinkLabel, MenuEntry } from './MenuEntry'
 import MenuLink from './MenuLink'
 import { PanelProps, PushedProps } from './types'
-// import UserBlock from './UserBlock'
+import UserBlock from './UserBlock'
+import { Login } from '../WalletModal/types'
 // import Accordion from './Accordion'
 
 interface Props extends PanelProps, PushedProps {
   isMobile: boolean
+  account?: string
+  login: Login
+  logout: () => void
 }
 
 const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> }
@@ -43,8 +47,10 @@ const BorderBox = styled.div`
   }
 `
 
-const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
+const PanelBody: React.FC<Props> = (props) => {
   const location = useLocation()
+
+  const { isPushed, pushNav, isMobile, links, account, login, logout } = props
 
   // Close the menu when a user clicks a link on mobile
   const handleClick = isMobile ? () => pushNav(false) : undefined
@@ -52,8 +58,10 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
   return (
     <Container>
       <BorderBox>
-        <Heading fontSize="14px">Wallet</Heading>
-        {/* <UserBlock account={account} login={login} logout={logout} /> */}
+        <Heading fontSize="14px" className="mb-4">
+          Wallet
+        </Heading>
+        <UserBlock account={account} login={login} logout={logout} />
       </BorderBox>
       <BorderBox>
         <Heading fontSize="14px">DEX</Heading>
