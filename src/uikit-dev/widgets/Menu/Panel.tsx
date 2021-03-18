@@ -14,9 +14,6 @@ interface Props extends PanelProps, PushedProps {
 }
 
 const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -24,7 +21,13 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
 
   background-color: ${({ theme }) => theme.colors.white};
 
+  position: absolute;
+  top: 0;
+  left: 0;
+
   ${({ theme }) => theme.mediaQueries.nav} {
+    position: relative;
+
     background-color: rgba(255, 255, 255, 0.7);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);

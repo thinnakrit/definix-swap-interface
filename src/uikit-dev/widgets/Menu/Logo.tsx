@@ -33,7 +33,7 @@ const StyledLink = styled(Link)`
 `
 
 const StyledTogglePanel = styled(MenuButton)`
-  ${({ theme }) => theme.mediaQueries.lg} {
+  ${({ theme }) => theme.mediaQueries.md} {
     display: none;
   }
 `
