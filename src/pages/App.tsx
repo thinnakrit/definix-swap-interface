@@ -23,10 +23,6 @@ const AppWrapper = styled.div`
   align-items: flex-start;
   // overflow-x: hidden;
   height: 100%;
-
-  background: rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
 `
 
 const BodyWrapper = styled.div`
