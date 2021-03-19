@@ -82,7 +82,7 @@ const StyledArrowLeft = styled(ArrowLeft)`
 export function FindPoolTabs() {
   return (
     <Tabs className="flex flex-column pa-6 pb-0 align-start">
-      <HistoryLink to="/pool">
+      <HistoryLink to="/liquidity">
         <StyledArrowLeft />
       </HistoryLink>
       <div className="flex align-center mt-4">
@@ -96,7 +96,7 @@ export function FindPoolTabs() {
 export function AddRemoveTabs({ adding }: { adding: boolean }) {
   return (
     <Tabs className="flex flex-column pa-6 pb-0 align-start">
-      <HistoryLink to="/pool">
+      <HistoryLink to="/liquidity">
         <StyledArrowLeft />
       </HistoryLink>
       <div className="flex align-center mt-4">

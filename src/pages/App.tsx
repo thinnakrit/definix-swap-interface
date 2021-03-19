@@ -21,30 +21,33 @@ const AppWrapper = styled.div`
   display: flex;
   flex-flow: column;
   align-items: flex-start;
-  overflow-x: hidden;
+  // overflow-x: hidden;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 `
 
 const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
   padding: 32px 16px;
   align-items: center;
   justify-content: center;
   flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
   z-index: 1;
   justify-content: center;
+
   // background-image: url('/images/group-pancake.svg');
   // background-repeat: no-repeat;
   // background-position: bottom 24px center;
   // background-size: 90%;
 
-  ${({ theme }) => theme.mediaQueries.xs} {
-    background-size: auto;
-  }
+  // ${({ theme }) => theme.mediaQueries.xs} {
+  //   background-size: auto;
+  // }
 
   // ${({ theme }) => theme.mediaQueries.lg} {
   //   background-image: url('/images/arch-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg'),
@@ -129,7 +132,7 @@ export default function App() {
                     <Switch>
                       <Route exact strict path="/swap" component={Swap} />
                       <Route exact strict path="/find" component={PoolFinder} />
-                      <Route exact strict path="/pool" component={Pool} />
+                      <Route exact strict path="/liquidity" component={Pool} />
                       <Route exact path="/add" component={AddLiquidity} />
                       <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
 

@@ -79,7 +79,7 @@ export default function PoolFinder() {
       {/* <CardNav activeIndex={1} /> */}
 
       <Heading as="h1" fontSize="32px !important" className="my-6">
-        Pool
+        Liquidity
       </Heading>
 
       <AppBody>

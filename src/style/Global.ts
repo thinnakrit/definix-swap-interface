@@ -2,13 +2,24 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: ${({ theme }) => theme.colors.background};
+    background-color: #EBEBEB;
+    background-image: url('/images/abstract.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+
+    ${({ theme }) => theme.mediaQueries.md} {
+      padding: 1.5rem 4rem !important;
+    }
 
     img {
       height: auto;
       max-width: 100%;
     }
   }
+
+  #root { height: 100%; }
 
   .flex {
     display: flex !important;
