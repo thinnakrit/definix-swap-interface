@@ -1,5 +1,6 @@
 import { ChainId, JSBI, Percent, Token, WETH } from 'definixswap-sdk'
 
+export const SIX_TOKEN = '0x9bDAF16122eB64E62757BDbBDc4d442495EA6C67'
 export const ROUTER_ADDRESS = '0xde2F8DC59A48699C2B353c5fF7b1a1Fa03bF9989'
 
 // a list of tokens by chain

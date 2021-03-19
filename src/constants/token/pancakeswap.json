@@ -16,15 +16,7 @@
       "address": "0x2B272DE1Dc9B42128f145D91E4a2dC3755C867CE",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "/images/coins/finix.png"
-    },
-    {
-      "name": "Ethereum Token",
-      "symbol": "ETH",
-      "address": "0xd66c6b4f0be8ce5b39d52e0fd1344c389929b378",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "/images/coins/ETH.png"
+      "logoURI": "/images/coins/FINIX.png"
     },
     {
       "name": "PLOY Token",
@@ -32,7 +24,7 @@
       "address": "0x8fb723E93263d0d83fb6FF00c7904Bf848F940E1",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "/images/coins/ploy.png"
+      "logoURI": "/images/coins/PLOY.png"
     },
     {
       "name": "TUNG Token",
@@ -40,7 +32,7 @@
       "address": "0xa184d03E8c692aA91175F64d8Ae15bE992b4a5f1",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "/images/coins/tung.png"
+      "logoURI": "/images/coins/TUNG.png"
     },
     {
       "name": "BANK Token",
@@ -48,7 +40,7 @@
       "address": "0x62A9198532FF14025bF787a1364a66CFCC625cd7",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "/images/coins/bank.png"
+      "logoURI": "/images/coins/BANK.png"
     },
     {
       "name": "MUAY Token",
@@ -56,7 +48,7 @@
       "address": "0xa029a0035Af34FB822C3f783BB273Efa85307fe9",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "/images/coins/muay.png"
+      "logoURI": "/images/coins/MUAY.png"
     },
     {
       "name": "GAS Token",
@@ -64,7 +56,7 @@
       "address": "0x5E23754935f607626b2417E568d18CB69eeE1639",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "/images/coins/gas.png"
+      "logoURI": "/images/coins/GAS.png"
     },
     {
       "name": "SIX Token",
@@ -72,15 +64,7 @@
       "address": "0x9bDAF16122eB64E62757BDbBDc4d442495EA6C67",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "/images/coins/six.png"
-    },
-    {
-      "name": "WBNB Token",
-      "symbol": "WBNB",
-      "address": "0xae13d989dac2f0debff460ac112a837c89baa7cd",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "/images/coins/BUSD.png"
+      "logoURI": "/images/coins/SIX.png"
     },
     {
       "name": "WBNB Token",
