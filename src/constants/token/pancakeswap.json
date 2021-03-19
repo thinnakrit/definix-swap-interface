@@ -32,7 +32,7 @@
       "address": "0x8fb723E93263d0d83fb6FF00c7904Bf848F940E1",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "/images/coins/band.png"
+      "logoURI": "/images/coins/ploy.png"
     },
     {
       "name": "TUNG Token",
@@ -40,7 +40,7 @@
       "address": "0xa184d03E8c692aA91175F64d8Ae15bE992b4a5f1",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "/images/coins/band.png"
+      "logoURI": "/images/coins/tung.png"
     },
     {
       "name": "BANK Token",
@@ -48,7 +48,7 @@
       "address": "0x62A9198532FF14025bF787a1364a66CFCC625cd7",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "/images/coins/band.png"
+      "logoURI": "/images/coins/bank.png"
     },
     {
       "name": "MUAY Token",
@@ -56,7 +56,7 @@
       "address": "0xa029a0035Af34FB822C3f783BB273Efa85307fe9",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "/images/coins/band.png"
+      "logoURI": "/images/coins/muay.png"
     },
     {
       "name": "GAS Token",
@@ -64,7 +64,7 @@
       "address": "0x5E23754935f607626b2417E568d18CB69eeE1639",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "/images/coins/STAX.png"
+      "logoURI": "/images/coins/gas.png"
     },
     {
       "name": "SIX Token",
@@ -88,14 +88,6 @@
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
       "chainId": 56,
       "decimals": 18
-    },
-    {
-      "name": "LP3 Token",
-      "symbol": "LP3",
-      "address": "0xe70b7523f4bffa1f2e88d2ba709afd026030f412",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "/images/coins/ETH.png"
     },
     {
       "name": "BUSD Token",
