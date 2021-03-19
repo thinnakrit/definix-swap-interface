@@ -66,7 +66,7 @@ export function CurrencySearch({
 
   const tokenComparator = useTokenComparator(invertSearchOrder)
 
-  const audioPlay = useSelector<AppState, AppState['user']['audioPlay']>((state) => state.user.audioPlay)
+  // const audioPlay = useSelector<AppState, AppState['user']['audioPlay']>((state) => state.user.audioPlay)
 
   const filteredTokens: Token[] = useMemo(() => {
     if (isAddressSearch) return searchToken ? [searchToken] : []
@@ -94,14 +94,14 @@ export function CurrencySearch({
     (currency: Currency) => {
       onCurrencySelect(currency)
       onDismiss()
-      if (audioPlay) {
-        const audio = document.getElementById('bgMusic') as HTMLAudioElement
-        if (audio) {
-          audio.play()
-        }
-      }
+      // if (audioPlay) {
+      //   const audio = document.getElementById('bgMusic') as HTMLAudioElement
+      //   if (audio) {
+      //     audio.play()
+      //   }
+      // }
     },
-    [onDismiss, onCurrencySelect, audioPlay]
+    [onDismiss, onCurrencySelect] // , audioPlay]
   )
 
   // clear the input on open
