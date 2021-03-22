@@ -25,13 +25,13 @@ const config: MenuEntry[] = [
     label: 'Pool',
     icon: poolClick,
     iconActive: pool,
-    href: '/syrup',
+    href: 'https://youngprofit.definix.com/pool',
   },
   {
     label: 'Farm',
     icon: farmClick,
     iconActive: farm,
-    href: 'farm',
+    href: 'https://youngprofit.definix.com/farm',
   },
   // {
   //   label: 'Investment',
