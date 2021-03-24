@@ -1,4 +1,6 @@
 import { MenuEntry } from 'uikit-dev'
+import dashboardClick from 'uikit-dev/images/Menu-Icon/dashboard-click.png'
+import dashboard from 'uikit-dev/images/Menu-Icon/dashboard.png'
 import farmClick from 'uikit-dev/images/Menu-Icon/farm-click.png'
 import farm from 'uikit-dev/images/Menu-Icon/farm.png'
 import liquidityClick from 'uikit-dev/images/Menu-Icon/liquidity-click.png'
@@ -9,6 +11,12 @@ import swapClick from 'uikit-dev/images/Menu-Icon/swap-click.png'
 import swap from 'uikit-dev/images/Menu-Icon/swap.png'
 
 const config: MenuEntry[] = [
+  {
+    label: 'Dashboard',
+    icon: dashboardClick,
+    iconActive: dashboard,
+    href: '/dashboard',
+  },
   {
     label: 'Swap',
     icon: swapClick,
