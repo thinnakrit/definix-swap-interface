@@ -7,6 +7,41 @@ type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
 }
 
+export const multicallAdress = {
+  [ChainId.MAINNET]: '0x1ee38d535d541c55c9dae27b12edf090c608e6fb',
+  [ChainId.BSCTESTNET]: '0x67ADCB4dF3931b0C5Da724058ADC2174a9844412',
+}
+
+export const SIX_ADDRESS = {
+  [ChainId.MAINNET]: '',
+  [ChainId.BSCTESTNET]: '0x9bDAF16122eB64E62757BDbBDc4d442495EA6C67',
+}
+
+export const FINIX_ADDRESS = {
+  [ChainId.MAINNET]: '',
+  [ChainId.BSCTESTNET]: '0x2B272DE1Dc9B42128f145D91E4a2dC3755C867CE',
+}
+
+export const BUSD_ADDRESS = {
+  [ChainId.MAINNET]: '',
+  [ChainId.BSCTESTNET]: '0xed24fc36d5ee211ea25a80239fb8c4cfd80f12ee',
+}
+
+export const SIX_BUSD_LP = {
+  [ChainId.MAINNET]: '',
+  [ChainId.BSCTESTNET]: '0x5AcD166086f0Dc3f2A747f08f09f2103bD5220B3',
+}
+
+export const FINIX_BUSD_LP = {
+  [ChainId.MAINNET]: '',
+  [ChainId.BSCTESTNET]: '0x1ECE46216AD3AEE81380e08955794d0B67c58CA0',
+}
+
+export const MASTERCHEF_ADDRESS = {
+  [ChainId.MAINNET]: '',
+  [ChainId.BSCTESTNET]: '0xb20ED2192a949388173630fD03FC1e98D0036847',
+}
+
 export const DAI = new Token(ChainId.MAINNET, '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3', 18, 'DAI', 'Dai Stablecoin')
 export const BUSD = new Token(ChainId.MAINNET, '0xe9e7cea3dedca5984780bafc599bd69add087d56', 18, 'BUSD', 'Binance USD')
 export const USDT = new Token(ChainId.MAINNET, '0x55d398326f99059ff775485246999027b3197955', 18, 'USDT', 'Tether USD')
