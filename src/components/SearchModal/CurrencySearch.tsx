@@ -37,6 +37,23 @@ interface CurrencySearchProps {
   onChangeList: () => void
 }
 
+const SearchInputWithIcon = styled.div`
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 56px;
+    height: 56px;
+    padding: 16px;
+  }
+
+  input {
+    padding-right: 56px;
+  }
+`
+
 export function CurrencySearch({
   selectedCurrency,
   onCurrencySelect,
@@ -138,23 +155,6 @@ export function CurrencySearch({
   )
 
   const selectedListInfo = useSelectedListInfo()
-
-  const SearchInputWithIcon = styled.div`
-    position: relative;
-
-    img {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 56px;
-      height: 56px;
-      padding: 16px;
-    }
-
-    input {
-      padding-right: 56px;
-    }
-  `
 
   return (
     <Column style={{ width: '100%', flex: '1 1' }}>
