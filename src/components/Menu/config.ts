@@ -15,7 +15,7 @@ const config: MenuEntry[] = [
     label: 'Dashboard',
     icon: dashboardClick,
     iconActive: dashboard,
-    href: '/dashboard',
+    href: 'https://youngprofits.definix.com/dashboard',
   },
   {
     label: 'Swap',

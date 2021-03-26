@@ -35,7 +35,7 @@
     "ajv": "^6.12.3",
     "cids": "^1.0.0",
     "copy-to-clipboard": "^3.2.0",
-    "definixswap-sdk": "0.0.3-testnet-env",
+    "definixswap-sdk": "0.0.5-testnet-env",
     "definixswap-uikit": "0.0.1",
     "ethers": "^5.0.7",
     "i18next": "^15.0.9",
@@ -89,6 +89,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:development": "NODE_ENV=development react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
