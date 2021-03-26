@@ -10,7 +10,7 @@ const RISKY_SLIPPAGE_LOW = 50
 const RISKY_SLIPPAGE_HIGH = 500
 
 const StyledSlippageToleranceSettings = styled.div`
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 `
 
 const Option = styled.div`
@@ -44,7 +44,7 @@ const Label = styled.div`
 const predefinedValues = [
   { label: '0.1%', value: 0.1 },
   { label: '0.5%', value: 0.5 },
-  { label: '1%', value: 1 }
+  { label: '1%', value: 1 },
 ]
 
 const SlippageToleranceSettings = () => {
@@ -84,7 +84,7 @@ const SlippageToleranceSettings = () => {
   return (
     <StyledSlippageToleranceSettings>
       <Label>
-        <Text style={{ fontWeight: 600 }}>
+        <Text small style={{ fontWeight: 600 }}>
           <TranslatedText translationId={88}>Slippage tolerance</TranslatedText>
         </Text>
         <QuestionHelper text="Your transaction will revert if the price changes unfavorably by more than this percentage." />
@@ -122,7 +122,7 @@ const SlippageToleranceSettings = () => {
         </Flex>
       </Options>
       {error && (
-        <Text mt="8px" color="failure">
+        <Text small mt="8px" color="failure">
           {error}
         </Text>
       )}
