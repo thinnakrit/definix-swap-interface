@@ -350,13 +350,8 @@ export default function AddLiquidity({
               />
               {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
                 <div>
-                  <UIKitText
-                    style={{ textTransform: 'uppercase', fontWeight: 600 }}
-                    color="textSubtle"
-                    fontSize="12px"
-                    mb="2px"
-                  >
-                    {noLiquidity ? 'Initial prices and pool share' : 'Prices and pool share'}
+                  <UIKitText style={{ fontWeight: 600 }} color="textSubtle" fontSize="12px" mb="2px">
+                    {noLiquidity ? 'Initial Prices and Pool Share' : 'Prices and Pool Share'}
                   </UIKitText>
                   <Pane>
                     <PoolPriceBar

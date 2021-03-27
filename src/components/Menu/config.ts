@@ -18,6 +18,12 @@ const config: MenuEntry[] = [
     href: '/dashboard',
   },
   {
+    label: 'Pool',
+    icon: poolClick,
+    iconActive: pool,
+    href: '/syrup',
+  },
+  {
     label: 'Swap',
     icon: swapClick,
     iconActive: swap,
@@ -28,12 +34,6 @@ const config: MenuEntry[] = [
     icon: liquidityClick,
     iconActive: liquidity,
     href: '/liquidity',
-  },
-  {
-    label: 'Pool',
-    icon: poolClick,
-    iconActive: pool,
-    href: '/syrup',
   },
   {
     label: 'Farm',
