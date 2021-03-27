@@ -15,13 +15,13 @@ const config: MenuEntry[] = [
     label: 'Dashboard',
     icon: dashboardClick,
     iconActive: dashboard,
-    href: '/dashboard',
+    href: 'https://youngprofits.definix.com/dashboard',
   },
   {
     label: 'Pool',
     icon: poolClick,
     iconActive: pool,
-    href: '/syrup',
+    href: 'https://youngprofits.definix.com/pool',
   },
   {
     label: 'Swap',
@@ -39,7 +39,7 @@ const config: MenuEntry[] = [
     label: 'Farm',
     icon: farmClick,
     iconActive: farm,
-    href: '/farm',
+    href: 'https://youngprofits.definix.com/farm',
   },
   // {
   //   label: 'Investment',
