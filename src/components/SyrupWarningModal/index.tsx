@@ -39,7 +39,9 @@ export default function SyrupWarningModal({
         <AutoColumn gap="lg">
           <AutoRow gap="6px">
             <StyledWarningIcon />
-            <Text color="failure">Syrup Warning</Text>
+            <Text small color="failure">
+              Syrup Warning
+            </Text>
           </AutoRow>
           {transactionType !== '' && (
             <>

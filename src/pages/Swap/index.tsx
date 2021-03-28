@@ -269,7 +269,7 @@ const Swap = () => {
       />
       {/* <CardNav /> */}
 
-      <Heading as="h1" fontSize="32px !important" className="my-6">
+      <Heading as="h1" fontSize="32px !important" className="mb-6 mt-2">
         Swap
       </Heading>
 

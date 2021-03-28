@@ -21,19 +21,19 @@ export function PoolPriceBar({
     <AutoColumn gap="md">
       <AutoRow justify="space-around" gap="4px">
         <AutoColumn justify="center">
-          <Text>{price?.toSignificant(6) ?? '-'}</Text>
+          <Text fontWeight="bold">{price?.toSignificant(6) ?? '-'}</Text>
           <Text fontSize="14px" color="textSubtle" pt={1}>
             {currencies[Field.CURRENCY_B]?.symbol} per {currencies[Field.CURRENCY_A]?.symbol}
           </Text>
         </AutoColumn>
         <AutoColumn justify="center">
-          <Text>{price?.invert()?.toSignificant(6) ?? '-'}</Text>
+          <Text fontWeight="bold">{price?.invert()?.toSignificant(6) ?? '-'}</Text>
           <Text fontSize="14px" color="textSubtle" pt={1}>
             {currencies[Field.CURRENCY_A]?.symbol} per {currencies[Field.CURRENCY_B]?.symbol}
           </Text>
         </AutoColumn>
         <AutoColumn justify="center">
-          <Text>
+          <Text fontWeight="bold">
             {noLiquidity && price
               ? '100'
               : (poolTokenPercentage?.lessThan(ONE_BIPS) ? '<0.01' : poolTokenPercentage?.toFixed(2)) ?? '0'}

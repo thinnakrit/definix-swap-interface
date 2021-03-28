@@ -18,6 +18,12 @@ const config: MenuEntry[] = [
     href: 'https://youngprofits.definix.com/dashboard',
   },
   {
+    label: 'Pool',
+    icon: poolClick,
+    iconActive: pool,
+    href: 'https://youngprofits.definix.com/pool',
+  },
+  {
     label: 'Swap',
     icon: swapClick,
     iconActive: swap,
@@ -28,12 +34,6 @@ const config: MenuEntry[] = [
     icon: liquidityClick,
     iconActive: liquidity,
     href: '/liquidity',
-  },
-  {
-    label: 'Pool',
-    icon: poolClick,
-    iconActive: pool,
-    href: 'https://youngprofits.definix.com/pool',
   },
   {
     label: 'Farm',
