@@ -16,6 +16,7 @@ import PoolFinder from './PoolFinder'
 import RemoveLiquidity from './RemoveLiquidity'
 import Swap from './Swap'
 import { RedirectPathToSwapOnly } from './Swap/redirects'
+// import WaitingPage from 'uikit-dev/components/WaitingPage'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -29,7 +30,7 @@ const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 32px 16px;
+  padding: 24px;
   align-items: center;
   justify-content: center;
   flex: 1;
@@ -131,6 +132,10 @@ export default function App() {
                       <Route exact strict path="/liquidity" component={Pool} />
                       <Route exact path="/add" component={AddLiquidity} />
                       <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
+
+                      {/* <Route path="/xxx">
+                        <WaitingPage pageName="XXX" openDate="Tue Mar 30 2021 08:00:00 GMT+0700 (Indochina Time)" />
+                      </Route> */}
 
                       {/* Redirection: These old routes are still used in the code base */}
                       <Route exact path="/add/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />

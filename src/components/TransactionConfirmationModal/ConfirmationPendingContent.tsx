@@ -22,11 +22,11 @@ const ConfirmationPendingContent = ({ onDismiss, pendingText }: ConfirmationPend
         </ConfirmedIcon>
         <AutoColumn gap="12px" justify="center">
           <AutoColumn gap="12px" justify="center">
-            <Text fontSize="14px">
+            <Text small>
               <strong>{pendingText}</strong>
             </Text>
           </AutoColumn>
-          <Text fontSize="14px">Confirm this transaction in your wallet</Text>
+          <Text small>Confirm this transaction in your wallet</Text>
         </AutoColumn>
       </Section>
     </Wrapper>
