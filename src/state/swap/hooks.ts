@@ -13,7 +13,7 @@ import { AppDispatch, AppState } from '../index'
 import { useCurrencyBalances } from '../wallet/hooks'
 import { Field, replaceSwapState, selectCurrency, setRecipient, switchCurrencies, typeInput } from './actions'
 import { SwapState } from './reducer'
-import { SIX_TOKEN } from '../../constants'
+import { SIX_ADDRESS } from '../../constants'
 
 import { useUserSlippageTolerance } from '../user/hooks'
 import { computeSlippageAdjustedAmounts } from '../../utils/prices'
@@ -199,13 +199,14 @@ export function useDerivedSwapInfo(): {
 }
 
 function parseCurrencyFromURLParameter(urlParam: any): string {
+  const { chainId } = useActiveWeb3React()
   if (typeof urlParam === 'string') {
     const valid = isAddress(urlParam)
     if (valid) return valid
     if (urlParam.toUpperCase() === 'ETH') return 'ETH'
     if (valid === false) return 'ETH'
   }
-  return SIX_TOKEN ?? ''
+  return SIX_ADDRESS[chainId] ?? ''
 }
 
 function parseTokenAmountURLParameter(urlParam: any): string {

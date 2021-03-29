@@ -1,7 +1,6 @@
 import { ChainId, JSBI, Percent, Token, WETH } from 'definixswap-sdk'
 
-export const SIX_TOKEN = '0x1FD5a30570b384f03230595E31a4214C9bEdC964'
-export const ROUTER_ADDRESS = '0x831717DaEE712a892ea8a0D7583F29D8aBC0d6d9'
+export const ROUTER_ADDRESS = process.env.REACT_APP_ROUTER_ADDRESS
 
 // a list of tokens by chain
 type ChainTokenList = {
@@ -9,43 +8,63 @@ type ChainTokenList = {
 }
 
 export const multicallAdress = {
-  [ChainId.MAINNET]: '0x1ee38d535d541c55c9dae27b12edf090c608e6fb',
-  [ChainId.BSCTESTNET]: '0x67ADCB4dF3931b0C5Da724058ADC2174a9844412',
+  [ChainId.MAINNET]: process.env.REACT_APP_MULTICALL_ADDRESS_MAINNET,
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_MULTICALL_ADDRESS_TESTNET,
 }
 
 export const SIX_ADDRESS = {
-  [ChainId.MAINNET]: '0x1FD5a30570b384f03230595E31a4214C9bEdC964', // ==================
-  [ChainId.BSCTESTNET]: '0x1FD5a30570b384f03230595E31a4214C9bEdC964',
+  [ChainId.MAINNET]: process.env.REACT_APP_SIX_ADDRESS_MAINNET,
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_SIX_ADDRESS_TESTNET,
 }
 
 export const FINIX_ADDRESS = {
-  [ChainId.MAINNET]: '0x2ee2CEa14F245b0Bdb32EE3E4251fA50B6fc811b', // ==================
-  [ChainId.BSCTESTNET]: '0x2ee2CEa14F245b0Bdb32EE3E4251fA50B6fc811b',
+  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_ADDRESS_MAINNET,
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_ADDRESS_TESTNET,
 }
 
 export const BUSD_ADDRESS = {
-  [ChainId.MAINNET]: '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3', // ==================
-  [ChainId.BSCTESTNET]: '0xed24fc36d5ee211ea25a80239fb8c4cfd80f12ee',
+  [ChainId.MAINNET]: process.env.REACT_APP_BUSD_ADDRESS_MAINNET,
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_BUSD_ADDRESS_TESTNET,
 }
 
 export const WBNB_ADDRESS = {
-  [ChainId.MAINNET]: '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3', // ==================
-  [ChainId.BSCTESTNET]: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
+  [ChainId.MAINNET]: process.env.REACT_APP_WBNB_ADDRESS_MAINNET,
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_WBNB_ADDRESS_TESTNET,
 }
 
-export const SIX_BUSD_LP = {
-  [ChainId.MAINNET]: '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3', // ==================
-  [ChainId.BSCTESTNET]: '0xa8f6F143427546E414B41D7Bd57365df914f002c',
+export const FINIX_SIX_LP = {
+  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_SIX_LP_MAINNET,
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_SIX_LP_TESTNET,
 }
 
 export const FINIX_BUSD_LP = {
-  [ChainId.MAINNET]: '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3', // ==================
-  [ChainId.BSCTESTNET]: '0xF68e6a099D891e4A127C2E661bCd3307ed7c6cbB',
+  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_BUSD_LP_MAINNET,
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_BUSD_LP_TESTNET,
+}
+
+export const FINIX_BNB_LP = {
+  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_BNB_LP_MAINNET,
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_BNB_LP_TESTNET,
+}
+
+export const SIX_BUSD_LP = {
+  [ChainId.MAINNET]: process.env.REACT_APP_SIX_BUSD_LP_MAINNET,
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_SIX_BUSD_LP_TESTNET,
+}
+
+export const PANCAKE_BNB_BUSD_LP = {
+  [ChainId.MAINNET]: process.env.REACT_APP_PANCAKE_BNB_BUSD_LP_MAINNET,
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_PANCAKE_BNB_BUSD_LP_TESTNET,
 }
 
 export const MASTERCHEF_ADDRESS = {
-  [ChainId.MAINNET]: '0x678F6e18DC51dE5061afE422C87101C75276c30E', // ==================
-  [ChainId.BSCTESTNET]: '0x678F6e18DC51dE5061afE422C87101C75276c30E',
+  [ChainId.MAINNET]: process.env.REACT_APP_MASTER_CHEF_MAINNET, // ==================
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_MASTER_CHEF_TESTNET,
+}
+
+export const PANCAKE_MASTERCHEF_ADDRESS = {
+  [ChainId.MAINNET]: process.env.REACT_APP_PANCAKE_MASTER_CHEF_MAINNET, // ==================
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_PANCAKE_MASTER_CHEF_TESTNET,
 }
 
 export const DAI = new Token(ChainId.MAINNET, '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3', 18, 'DAI', 'Dai Stablecoin')

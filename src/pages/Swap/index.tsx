@@ -33,7 +33,7 @@ import { maxAmountSpend } from 'utils/maxAmountSpend'
 import { computeTradePriceBreakdown, warningSeverity } from 'utils/prices'
 import { TranslateString } from 'utils/translateTextHelpers'
 import AppBody from '../AppBody'
-import { SIX_TOKEN } from '../../constants'
+import { SIX_ADDRESS } from '../../constants'
 // import CardNav from 'components/CardNav'
 
 const Swap = () => {
@@ -60,7 +60,7 @@ const Swap = () => {
     setSyrupTransactionType('')
   }, [])
 
-  const { account } = useActiveWeb3React()
+  const { account, chainId } = useActiveWeb3React()
   const theme = useContext(ThemeContext)
 
   const [isExpertMode] = useExpertModeManager()
@@ -258,7 +258,7 @@ const Swap = () => {
   return (
     <>
       <TokenWarningModal
-        isOpen={urlLoadedTokens.filter(x => x.address !== SIX_TOKEN).length > 0 && !dismissTokenWarning }
+        isOpen={urlLoadedTokens.filter(x => x.address !== SIX_ADDRESS[chainId]).length > 0 && !dismissTokenWarning }
         tokens={urlLoadedTokens}
         onConfirm={handleConfirmTokenWarning}
       />
