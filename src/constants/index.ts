@@ -1,7 +1,7 @@
 import { ChainId, JSBI, Percent, Token, WETH } from 'definixswap-sdk'
 
 export const SIX_TOKEN = '0x1FD5a30570b384f03230595E31a4214C9bEdC964'
-export const ROUTER_ADDRESS = '0x4392e765E36dAA3782e95f91565f081066D13e78'
+export const ROUTER_ADDRESS = '0x831717DaEE712a892ea8a0D7583F29D8aBC0d6d9'
 
 // a list of tokens by chain
 type ChainTokenList = {
@@ -14,13 +14,13 @@ export const multicallAdress = {
 }
 
 export const SIX_ADDRESS = {
-  [ChainId.MAINNET]: '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3', // ==================
+  [ChainId.MAINNET]: '0x1FD5a30570b384f03230595E31a4214C9bEdC964', // ==================
   [ChainId.BSCTESTNET]: '0x1FD5a30570b384f03230595E31a4214C9bEdC964',
 }
 
 export const FINIX_ADDRESS = {
-  [ChainId.MAINNET]: '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3', // ==================
-  [ChainId.BSCTESTNET]: '0x136aF56aA2E2bF6114DA5F659B24456c60dDCB8e',
+  [ChainId.MAINNET]: '0x2ee2CEa14F245b0Bdb32EE3E4251fA50B6fc811b', // ==================
+  [ChainId.BSCTESTNET]: '0x2ee2CEa14F245b0Bdb32EE3E4251fA50B6fc811b',
 }
 
 export const BUSD_ADDRESS = {
@@ -40,12 +40,12 @@ export const SIX_BUSD_LP = {
 
 export const FINIX_BUSD_LP = {
   [ChainId.MAINNET]: '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3', // ==================
-  [ChainId.BSCTESTNET]: '0x2bCbe27465A98B6F2E6A4b097Db6dce0A87F92A6',
+  [ChainId.BSCTESTNET]: '0xF68e6a099D891e4A127C2E661bCd3307ed7c6cbB',
 }
 
 export const MASTERCHEF_ADDRESS = {
-  [ChainId.MAINNET]: '0x2Ac7c92c59dd3CAd6CF009BcAFBc8C6D48F9bA99', // ==================
-  [ChainId.BSCTESTNET]: '0x2Ac7c92c59dd3CAd6CF009BcAFBc8C6D48F9bA99',
+  [ChainId.MAINNET]: '0x678F6e18DC51dE5061afE422C87101C75276c30E', // ==================
+  [ChainId.BSCTESTNET]: '0x678F6e18DC51dE5061afE422C87101C75276c30E',
 }
 
 export const DAI = new Token(ChainId.MAINNET, '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3', 18, 'DAI', 'Dai Stablecoin')

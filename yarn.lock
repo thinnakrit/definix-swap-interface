@@ -4097,7 +4097,7 @@
   dependencies:
     "@web3-react/types" "^6.0.7"
 
-"@web3-react/core@^6.0.9":
+"@web3-react/core@^6.1.1":
   version "6.1.9"
   resolved "https://registry.yarnpkg.com/@web3-react/core/-/core-6.1.9.tgz#5f5daa0545a8ea07770a699580ced552583afc97"
   integrity sha512-P877DslsbAkWIlMANpWiK7pCvNwlz0kJC0EGckuVh0wlA23J4UnFxq6xyOaxkxaDCu14rA/tAO0NbwjcXTQgSA==
@@ -4127,7 +4127,7 @@
     "@web3-react/types" "^6.0.7"
     tiny-warning "^1.0.3"
 
-"@web3-react/portis-connector@^6.0.9":
+"@web3-react/portis-connector@^6.1.1":
   version "6.1.9"
   resolved "https://registry.yarnpkg.com/@web3-react/portis-connector/-/portis-connector-6.1.9.tgz#33216ce320d2c6d6e75d0c42c6e977b7a157ad4a"
   integrity sha512-dYP1b6a1Y91t9xEu1NrlGvLwuAqYEuVfAerZtVkVf3JZ3O5TiQyVt7O7KWPPg4WsqQ8JEqOrZcE/2bmozP47mA==
@@ -4142,7 +4142,7 @@
   resolved "https://registry.yarnpkg.com/@web3-react/types/-/types-6.0.7.tgz#34a6204224467eedc6123abaf55fbb6baeb2809f"
   integrity sha512-ofGmfDhxmNT1/P/MgVa8IKSkCStFiyvXe+U5tyZurKdrtTDFU+wJ/LxClPDtFerWpczNFPUSrKcuhfPX1sI6+A==
 
-"@web3-react/walletconnect-connector@^6.1.1":
+"@web3-react/walletconnect-connector@^6.1.4":
   version "6.1.9"
   resolved "https://registry.yarnpkg.com/@web3-react/walletconnect-connector/-/walletconnect-connector-6.1.9.tgz#3459ccf2a2ac7ae8f155645d29a517712afeb731"
   integrity sha512-gPtcFFRAnRgqhmBjhH+dtuG3cx23X+JOX+mRO1D7dN+8yxLZhLhjOZlJFECH5hkC20KMM/sk+rq2yy6Vqp76PQ==
@@ -4152,7 +4152,7 @@
     "@web3-react/types" "^6.0.7"
     tiny-invariant "^1.0.6"
 
-"@web3-react/walletlink-connector@^6.0.9":
+"@web3-react/walletlink-connector@^6.1.1":
   version "6.1.9"
   resolved "https://registry.yarnpkg.com/@web3-react/walletlink-connector/-/walletlink-connector-6.1.9.tgz#3b27b79057ea3865b447a2ecdd3807d094f34061"
   integrity sha512-0kgb28CsUp5k0MVdl3bk5FUSvgDl5psXyRLrXi2WFeHToOJTQnmMstVo9/1Mj36zaYHuSUcdcyLKnLGoabSivQ==
@@ -8120,10 +8120,10 @@ defined@~1.0.0:
   resolved "https://registry.yarnpkg.com/defined/-/defined-1.0.0.tgz#c98d9bcef75674188e110969151199e39b1fa693"
   integrity sha1-yY2bzvdWdBiOEQlpFRGZ45sfppM=
 
-definixswap-sdk@0.0.5-testnet-env:
-  version "0.0.5-testnet-env"
-  resolved "https://registry.yarnpkg.com/definixswap-sdk/-/definixswap-sdk-0.0.5-testnet-env.tgz#2e9339f38d117d5a2ac38d5e4588fd62c62646d8"
-  integrity sha512-+n8rM2O7duaHiXDCv4lxtfsRp2xoFdxKn5HSMSBelqyCso9eQiUSNLEKLzcbjggRfDl4JaS+rncITzzoOi9k9Q==
+definixswap-sdk@0.0.6-testnet-env:
+  version "0.0.6-testnet-env"
+  resolved "https://registry.yarnpkg.com/definixswap-sdk/-/definixswap-sdk-0.0.6-testnet-env.tgz#2feb68002eb9da9ca98844e5249aae561a228bff"
+  integrity sha512-B45BkVK+HwKxiAEseKX1vNOB+tHcY/5uD2rNDc1SB/dBusrdunR8pDjFEMJrGGC0xahgWaOQLZbbSctauO3FoQ==
   dependencies:
     "@pancakeswap-libs/pancake-swap-core" "^0.1.0"
     big.js "^5.2.2"
