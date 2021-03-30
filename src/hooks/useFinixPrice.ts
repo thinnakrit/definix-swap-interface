@@ -107,7 +107,7 @@ export default function useFinixPrice(): number {
         [totalFinixDefinixFinixBusdPair, totalBusdDefinixFinixBusdPair],
         [totalFinixDefinixFinixBnbPair, totalBnbDefinixFinixBnbPair],
         [totalSixDefinixSixBusdPair, totalBnbDefinixSixBusdPair],
-        [totalBnbInPancakeBnbBusdPair, totalBusdInPancakeBnbBusdPair]
+        [totalBnbInDefinixBnbBusdPair, totalBusdInDefinixBnbBusdPair]
       ] = response
       // const totalFinixDefinixFinixSixPair = 10000000.0
       // const totalSixDefinixFinixSixPair = 12820512.82
@@ -125,9 +125,9 @@ export default function useFinixPrice(): number {
       // const totalBnbDefinixSixBusdPair = 500000.0
       const sixBusdRatio = totalBnbDefinixSixBusdPair / totalSixDefinixSixBusdPair || 0
       // PANCAKE BNB-BUSD
-      // const totalBnbInPancakeBnbBusdPair = 557985
-      // const totalBusdInPancakeBnbBusdPair = 152220163
-      const definixBnbBusdRatio = totalBusdInPancakeBnbBusdPair / totalBnbInPancakeBnbBusdPair || 0
+      // const totalBnbInDefinixBnbBusdPair = 557985
+      // const totalBusdInDefinixBnbBusdPair = 152220163
+      const definixBnbBusdRatio = totalBusdInDefinixBnbBusdPair / totalBnbInDefinixBnbBusdPair || 0
       // Price cal
       const finixSixPrice = finixSixRatio * sixBusdRatio
       const finixBnbPrice = finixBnbRatio * definixBnbBusdRatio
@@ -157,11 +157,11 @@ export default function useFinixPrice(): number {
       // console.log('Total SIX in SIX-BUSD pair : ', totalSixDefinixSixBusdPair)
       // console.log('BUSD Address : ', getBusdAddress())
       // console.log('Total BUSD in SIX-BUSD pair : ', totalBnbDefinixSixBusdPair)
-      // console.log('Pancake BNB-BUSD LP Address : ', getPancakeBnbBusdLPAddress())
+      // console.log('Definix BNB-BUSD LP Address : ', getDefinixBnbBusdLPAddress())
       // console.log('WBNB Address : ', getWbnbAddress())
-      // console.log('Total WBNB in Pancake BNB-BUSD pair : ', totalBnbInPancakeBnbBusdPair)
+      // console.log('Total WBNB in Definix BNB-BUSD pair : ', totalBnbInDefinixBnbBusdPair)
       // console.log('BUSD Address : ', getBusdAddress())
-      // console.log('Total BUSD in Pancake BNB-BUSD pair : ', totalBusdInPancakeBnbBusdPair)
+      // console.log('Total BUSD in Definix BNB-BUSD pair : ', totalBusdInDefinixBnbBusdPair)
       setCurrentPrice(averageFinixPrice)
     })
   }, [chainId, multicallContractAddress, account])
