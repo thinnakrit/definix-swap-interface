@@ -97,7 +97,7 @@ export default function useFinixPrice(): number {
         lpAddress: PANCAKE_BNB_BUSD_LP[chainId],
         pair1: WBNB_ADDRESS[chainId],
         pair2: BUSD_ADDRESS[chainId],
-        masterChefAddress: PANCAKE_HERODOTUS_ADDRESS[chainId],
+        masterChefAddress: PANCAKE_MASTER_CHEF_ADDRESS[chainId],
         multicallAddress: multicallContractAddress
       })
     ]
