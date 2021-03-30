@@ -17,7 +17,7 @@ const Menu: React.FC = (props) => {
   const { isDark, toggleTheme } = useTheme()
   const priceData = useGetPriceData()
   const finixPrice = useFinixPrice()
-  const cakePriceUsd = priceData ? Number(priceData.prices.Finix) : undefined
+  const finixPriceUsd = priceData ? Number(priceData.prices.Finix) : undefined
   const profile = useGetLocalProfile()
 
   return (
@@ -41,7 +41,7 @@ const Menu: React.FC = (props) => {
       currentLang={selectedLanguage?.code || 'en'}
       langs={allLanguages}
       setLang={setSelectedLanguage}
-      cakePriceUsd={cakePriceUsd}
+      finixPriceUsd={finixPriceUsd}
       profile={profile}
       price={numeral(finixPrice).format('0,0.0000')}
       {...props}
