@@ -1,5 +1,5 @@
 export default {
-  name: 'pancakeswap',
+  name: 'definixswap',
   timestamp: '2020-08-25T15:41:29.665Z',
   version: {
     major: 1,
@@ -8,7 +8,7 @@ export default {
   },
   tags: {},
   logoURI: '/images/coins/wbnb.png',
-  keywords: ['pancake', 'default'],
+  keywords: ['definix', 'default'],
   tokens: [
     {
       name: 'FINIX Token',

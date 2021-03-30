@@ -127,10 +127,10 @@ export default function useFinixPrice(): number {
       // PANCAKE BNB-BUSD
       // const totalBnbInPancakeBnbBusdPair = 557985
       // const totalBusdInPancakeBnbBusdPair = 152220163
-      const pancakeBnbBusdRatio = totalBusdInPancakeBnbBusdPair / totalBnbInPancakeBnbBusdPair || 0
+      const definixBnbBusdRatio = totalBusdInPancakeBnbBusdPair / totalBnbInPancakeBnbBusdPair || 0
       // Price cal
       const finixSixPrice = finixSixRatio * sixBusdRatio
-      const finixBnbPrice = finixBnbRatio * pancakeBnbBusdRatio
+      const finixBnbPrice = finixBnbRatio * definixBnbBusdRatio
       const averageFinixPrice =
         (finixBusdRatio * totalFinixDefinixFinixBusdPair +
           finixBnbPrice * totalFinixDefinixFinixBnbPair +
