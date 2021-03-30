@@ -17,7 +17,7 @@ const Menu: React.FC = (props) => {
   const { isDark, toggleTheme } = useTheme()
   const priceData = useGetPriceData()
   const finixPrice = useFinixPrice()
-  const cakePriceUsd = priceData ? Number(priceData.prices.Cake) : undefined
+  const cakePriceUsd = priceData ? Number(priceData.prices.Finix) : undefined
   const profile = useGetLocalProfile()
 
   return (
