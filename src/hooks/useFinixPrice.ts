@@ -13,8 +13,8 @@ import {
   SIX_ADDRESS,
   WBNB_ADDRESS,
   BUSD_ADDRESS,
-  MASTERCHEF_ADDRESS,
-  PANCAKE_MASTERCHEF_ADDRESS
+  HERODOTUS_ADDRESS,
+  PANCAKE_MASTER_CHEF_ADDRESS
 } from '../constants'
 import erc20 from '../constants/abis/erc20.json'
 
@@ -69,35 +69,35 @@ export default function useFinixPrice(): number {
         lpAddress: FINIX_SIX_LP[chainId],
         pair1: FINIX_ADDRESS[chainId],
         pair2: SIX_ADDRESS[chainId],
-        masterChefAddress: MASTERCHEF_ADDRESS[chainId],
+        masterChefAddress: HERODOTUS_ADDRESS[chainId],
         multicallAddress: multicallContractAddress
       }),
       getTotalBalanceLp({
         lpAddress: FINIX_BUSD_LP[chainId],
         pair1: FINIX_ADDRESS[chainId],
         pair2: BUSD_ADDRESS[chainId],
-        masterChefAddress: MASTERCHEF_ADDRESS[chainId],
+        masterChefAddress: HERODOTUS_ADDRESS[chainId],
         multicallAddress: multicallContractAddress
       }),
       getTotalBalanceLp({
         lpAddress: FINIX_BNB_LP[chainId],
         pair1: FINIX_ADDRESS[chainId],
         pair2: WBNB_ADDRESS[chainId],
-        masterChefAddress: MASTERCHEF_ADDRESS[chainId],
+        masterChefAddress: HERODOTUS_ADDRESS[chainId],
         multicallAddress: multicallContractAddress
       }),
       getTotalBalanceLp({
         lpAddress: SIX_BUSD_LP[chainId],
         pair1: SIX_ADDRESS[chainId],
         pair2: BUSD_ADDRESS[chainId],
-        masterChefAddress: MASTERCHEF_ADDRESS[chainId],
+        masterChefAddress: HERODOTUS_ADDRESS[chainId],
         multicallAddress: multicallContractAddress
       }),
       getTotalBalanceLp({
         lpAddress: PANCAKE_BNB_BUSD_LP[chainId],
         pair1: WBNB_ADDRESS[chainId],
         pair2: BUSD_ADDRESS[chainId],
-        masterChefAddress: PANCAKE_MASTERCHEF_ADDRESS[chainId],
+        masterChefAddress: PANCAKE_HERODOTUS_ADDRESS[chainId],
         multicallAddress: multicallContractAddress
       })
     ]

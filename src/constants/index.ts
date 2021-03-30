@@ -57,12 +57,12 @@ export const PANCAKE_BNB_BUSD_LP = {
   [ChainId.BSCTESTNET]: process.env.REACT_APP_PANCAKE_BNB_BUSD_LP_TESTNET || "",
 }
 
-export const MASTERCHEF_ADDRESS = {
+export const HERODOTUS_ADDRESS = {
   [ChainId.MAINNET]: process.env.REACT_APP_HERODOTUS_MAINNET || "", // ==================
   [ChainId.BSCTESTNET]: process.env.REACT_APP_HERODOTUS_TESTNET || "",
 }
 
-export const PANCAKE_MASTERCHEF_ADDRESS = {
+export const PANCAKE_MASTER_CHEF_ADDRESS = {
   [ChainId.MAINNET]: process.env.REACT_APP_PANCAKE_MASTER_CHEF_MAINNET || "", // ==================
   [ChainId.BSCTESTNET]: process.env.REACT_APP_PANCAKE_MASTER_CHEF_TESTNET || "",
 }
