@@ -58,8 +58,8 @@ export const PANCAKE_BNB_BUSD_LP = {
 }
 
 export const MASTERCHEF_ADDRESS = {
-  [ChainId.MAINNET]: process.env.REACT_APP_MASTER_CHEF_MAINNET || "", // ==================
-  [ChainId.BSCTESTNET]: process.env.REACT_APP_MASTER_CHEF_TESTNET || "",
+  [ChainId.MAINNET]: process.env.REACT_APP_HERODOTUS_MAINNET || "", // ==================
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_HERODOTUS_TESTNET || "",
 }
 
 export const PANCAKE_MASTERCHEF_ADDRESS = {
