@@ -8,63 +8,63 @@ type ChainTokenList = {
 }
 
 export const multicallAdress = {
-  [ChainId.MAINNET]: process.env.REACT_APP_MULTICALL_ADDRESS_MAINNET,
-  [ChainId.BSCTESTNET]: process.env.REACT_APP_MULTICALL_ADDRESS_TESTNET,
+  [ChainId.MAINNET]: process.env.REACT_APP_MULTICALL_ADDRESS_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_MULTICALL_ADDRESS_TESTNET || "",
 }
 
 export const SIX_ADDRESS = {
-  [ChainId.MAINNET]: process.env.REACT_APP_SIX_ADDRESS_MAINNET,
-  [ChainId.BSCTESTNET]: process.env.REACT_APP_SIX_ADDRESS_TESTNET,
+  [ChainId.MAINNET]: process.env.REACT_APP_SIX_ADDRESS_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_SIX_ADDRESS_TESTNET || "",
 }
 
 export const FINIX_ADDRESS = {
-  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_ADDRESS_MAINNET,
-  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_ADDRESS_TESTNET,
+  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_ADDRESS_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_ADDRESS_TESTNET || "",
 }
 
 export const BUSD_ADDRESS = {
-  [ChainId.MAINNET]: process.env.REACT_APP_BUSD_ADDRESS_MAINNET,
-  [ChainId.BSCTESTNET]: process.env.REACT_APP_BUSD_ADDRESS_TESTNET,
+  [ChainId.MAINNET]: process.env.REACT_APP_BUSD_ADDRESS_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_BUSD_ADDRESS_TESTNET || "",
 }
 
 export const WBNB_ADDRESS = {
-  [ChainId.MAINNET]: process.env.REACT_APP_WBNB_ADDRESS_MAINNET,
-  [ChainId.BSCTESTNET]: process.env.REACT_APP_WBNB_ADDRESS_TESTNET,
+  [ChainId.MAINNET]: process.env.REACT_APP_WBNB_ADDRESS_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_WBNB_ADDRESS_TESTNET || "",
 }
 
 export const FINIX_SIX_LP = {
-  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_SIX_LP_MAINNET,
-  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_SIX_LP_TESTNET,
+  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_SIX_LP_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_SIX_LP_TESTNET || "",
 }
 
 export const FINIX_BUSD_LP = {
-  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_BUSD_LP_MAINNET,
-  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_BUSD_LP_TESTNET,
+  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_BUSD_LP_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_BUSD_LP_TESTNET || "",
 }
 
 export const FINIX_BNB_LP = {
-  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_BNB_LP_MAINNET,
-  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_BNB_LP_TESTNET,
+  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_BNB_LP_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_BNB_LP_TESTNET || "",
 }
 
 export const SIX_BUSD_LP = {
-  [ChainId.MAINNET]: process.env.REACT_APP_SIX_BUSD_LP_MAINNET,
-  [ChainId.BSCTESTNET]: process.env.REACT_APP_SIX_BUSD_LP_TESTNET,
+  [ChainId.MAINNET]: process.env.REACT_APP_SIX_BUSD_LP_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_SIX_BUSD_LP_TESTNET || "",
 }
 
 export const PANCAKE_BNB_BUSD_LP = {
-  [ChainId.MAINNET]: process.env.REACT_APP_PANCAKE_BNB_BUSD_LP_MAINNET,
-  [ChainId.BSCTESTNET]: process.env.REACT_APP_PANCAKE_BNB_BUSD_LP_TESTNET,
+  [ChainId.MAINNET]: process.env.REACT_APP_PANCAKE_BNB_BUSD_LP_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_PANCAKE_BNB_BUSD_LP_TESTNET || "",
 }
 
 export const MASTERCHEF_ADDRESS = {
-  [ChainId.MAINNET]: process.env.REACT_APP_MASTER_CHEF_MAINNET, // ==================
-  [ChainId.BSCTESTNET]: process.env.REACT_APP_MASTER_CHEF_TESTNET,
+  [ChainId.MAINNET]: process.env.REACT_APP_MASTER_CHEF_MAINNET || "", // ==================
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_MASTER_CHEF_TESTNET || "",
 }
 
 export const PANCAKE_MASTERCHEF_ADDRESS = {
-  [ChainId.MAINNET]: process.env.REACT_APP_PANCAKE_MASTER_CHEF_MAINNET, // ==================
-  [ChainId.BSCTESTNET]: process.env.REACT_APP_PANCAKE_MASTER_CHEF_TESTNET,
+  [ChainId.MAINNET]: process.env.REACT_APP_PANCAKE_MASTER_CHEF_MAINNET || "", // ==================
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_PANCAKE_MASTER_CHEF_TESTNET || "",
 }
 
 export const DAI = new Token(ChainId.MAINNET, '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3', 18, 'DAI', 'Dai Stablecoin')

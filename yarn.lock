@@ -8120,10 +8120,10 @@ defined@~1.0.0:
   resolved "https://registry.yarnpkg.com/defined/-/defined-1.0.0.tgz#c98d9bcef75674188e110969151199e39b1fa693"
   integrity sha1-yY2bzvdWdBiOEQlpFRGZ45sfppM=
 
-definixswap-sdk@0.0.6-testnet-env:
-  version "0.0.6-testnet-env"
-  resolved "https://registry.yarnpkg.com/definixswap-sdk/-/definixswap-sdk-0.0.6-testnet-env.tgz#2feb68002eb9da9ca98844e5249aae561a228bff"
-  integrity sha512-B45BkVK+HwKxiAEseKX1vNOB+tHcY/5uD2rNDc1SB/dBusrdunR8pDjFEMJrGGC0xahgWaOQLZbbSctauO3FoQ==
+definixswap-sdk@0.0.7-testnet-env:
+  version "0.0.7-testnet-env"
+  resolved "https://registry.yarnpkg.com/definixswap-sdk/-/definixswap-sdk-0.0.7-testnet-env.tgz#12dc3bce470887cd79055a8fc5e580462340a4d8"
+  integrity sha512-6PJ4A3Jqfbe6NYHzOvqK4zv6i9Qk0zMkWLs4BcjH/cvQqLSZ9RFCK1dwk1oOMA2g85NrZ10zCoXx4nD3xCCZEA==
   dependencies:
     "@pancakeswap-libs/pancake-swap-core" "^0.1.0"
     big.js "^5.2.2"
@@ -14437,6 +14437,11 @@ number-to-bn@1.7.0:
   dependencies:
     bn.js "4.11.6"
     strip-hex-prefix "1.0.0"
+
+numeral@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/numeral/-/numeral-2.0.6.tgz#4ad080936d443c2561aed9f2197efffe25f4e506"
+  integrity sha1-StCAk21EPCVhrtnyGX7//iX05QY=
 
 "nwmatcher@>= 1.3.7 < 2.0.0":
   version "1.4.4"

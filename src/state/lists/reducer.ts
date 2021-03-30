@@ -10,7 +10,7 @@ import DEFAULT_LIST from '../../constants/token/pancakeswap'
 export interface ListsState {
   readonly byUrl: {
     readonly [url: string]: {
-      readonly current: TokenList | null
+      readonly current: any
       readonly pendingUpdate: TokenList | null
       readonly loadingRequestId: string | null
       readonly error: string | null
@@ -51,7 +51,7 @@ export default createReducer(initialState, (builder) =>
   builder
     .addCase(fetchTokenList.pending, (state, { payload: { requestId, url } }) => {
       state.byUrl[url] = {
-        current: null,
+        // current: null,
         pendingUpdate: null,
         ...state.byUrl[url],
         loadingRequestId: requestId,

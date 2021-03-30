@@ -7,6 +7,7 @@ import useGetPriceData from 'hooks/useGetPriceData'
 import useTheme from 'hooks/useTheme'
 import React, { useContext } from 'react'
 import { ConnectorId, Menu as UikitMenu } from 'uikit-dev'
+import numeral from 'numeral'
 import links from './config'
 import useFinixPrice from '../../hooks/useFinixPrice'
 
@@ -42,7 +43,7 @@ const Menu: React.FC = (props) => {
       setLang={setSelectedLanguage}
       cakePriceUsd={cakePriceUsd}
       profile={profile}
-      price={finixPrice}
+      price={numeral(finixPrice).format('0,0.0000')}
       {...props}
     />
   )

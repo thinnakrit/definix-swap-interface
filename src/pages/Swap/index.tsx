@@ -60,7 +60,7 @@ const Swap = () => {
     setSyrupTransactionType('')
   }, [])
 
-  const { account, chainId } = useActiveWeb3React()
+  const { account, chainId = '' } = useActiveWeb3React()
   const theme = useContext(ThemeContext)
 
   const [isExpertMode] = useExpertModeManager()
