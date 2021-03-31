@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { useActiveWeb3React } from 'hooks'
 
 const initialState = {
-  profileLink: 'https://pancakeswap.finance/profile',
-  noProfileLink: 'https://pancakeswap.finance/profile',
+  profileLink: 'https://definixswap.finance/profile',
+  noProfileLink: 'https://definixswap.finance/profile',
 }
 
 /**

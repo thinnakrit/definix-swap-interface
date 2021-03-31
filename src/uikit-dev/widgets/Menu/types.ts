@@ -31,7 +31,8 @@ export interface MenuSubEntry {
 
 export interface MenuEntry {
   label: string
-  icon: string
+  icon: any
+  iconActive: any
   items?: MenuSubEntry[]
   href?: string
   calloutClass?: string
@@ -41,7 +42,7 @@ export interface MenuEntry {
 export interface PanelProps {
   isDark: boolean
   toggleTheme: (isDark: boolean) => void
-  cakePriceUsd?: number
+  finixPriceUsd?: number
   currentLang: string
   langs: LangType[]
   setLang: (lang: LangType) => void
@@ -52,5 +53,6 @@ export interface NavProps extends PanelProps {
   account?: string
   login: Login
   profile?: Profile
+  price?: number
   logout: () => void
 }

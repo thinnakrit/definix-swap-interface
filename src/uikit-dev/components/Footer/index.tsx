@@ -6,80 +6,121 @@
 
 import React from 'react'
 import styled from 'styled-components'
-import { FOOTER_HEIGHT } from '../../widgets/Menu/config'
-import colorStrokeLong from '../../images/Color-stroke-long.png'
 import definixBlackLogo from '../../images/Definix-advance-crypto-assets.png'
-import facebookNormal from '../../images/Footer-Icon/Facebook-Normal.png'
-import githubNormal from '../../images/Footer-Icon/Github-Normal.png'
-import kakaoNormal from '../../images/Footer-Icon/Kakao-Normal.png'
 import poweredbySIX from '../../images/Footer-Icon/Powered-by-SIX.png'
-import redditNormal from '../../images/Footer-Icon/Reddit-Normal.png'
-import telegramNormal from '../../images/Footer-Icon/Telegram-Normal.png'
-import twitterNormal from '../../images/Footer-Icon/Twitter-Normal.png'
+import facebookNormal from '../../images/Footer-Icon/without-text/Facebook-Normal.png'
+import githubNormal from '../../images/Footer-Icon/without-text/Github-Normal.png'
+import kakaoNormal from '../../images/Footer-Icon/without-text/Kakao-Normal.png'
+import redditNormal from '../../images/Footer-Icon/without-text/Reddit-Normal.png'
+import telegramNormal from '../../images/Footer-Icon/without-text/Telegram-Normal.png'
+import twitterNormal from '../../images/Footer-Icon/without-text/Twitter-Normal.png'
 
-function Footer() {
-  const FooterStyled = styled.footer`
-    position: relative;
-    padding-top: 6px;
-    flex-shrink: 0;
+const FooterStyled = styled.footer`
+  flex-shrink: 0;
+  background: ${({ theme }) => theme.colors.white};
+  z-index: 10;
 
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 8px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
+  .container {
+    height: 100%;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .g1 {
+    display: flex;
+  }
+
+  .g2 {
+    text-align: center;
+    margin-right: 1rem;
+  }
+
+  .logo {
+    height: 14px;
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: 6px;
+  }
+
+  .six-logo {
+    display: block;
+    width: 100px;
+    img {
+      display: block;
+    }
+  }
+
+  .social {
+    display: flex;
+    margin-top: 1rem;
+
+    a {
+      cursor: pointer;
+      margin: 0 4px;
     }
 
-    .color-stroke {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%);
-      height: 6px;
-      width: 100%;
+    img {
+      width: 28px;
+      display: block;
+    }
+  }
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    .container {
+      justify-content: space-between;
+      padding: 1rem 24px;
+    }
+
+    .g2 {
+      display: flex;
+      align-items: center;
     }
 
     .logo {
-      height: 28px;
-      margin: 8px;
+      margin: 0 1rem 0 0;
     }
 
-    .six-logo {
-      width: 200px;
-      margin: 8px;
-      display: block;
+    p {
+      font-size: 14px;
     }
 
     .social {
-      display: flex;
-      margin-top: 1rem;
-      margin: 8px;
-
-      a {
-        max-width: 4rem;
-        cursor: pointer;
-      }
+      margin: 0;
     }
+  }
 
-    ${({ theme }) => theme.mediaQueries.lg} {
-      .container {
-        justify-content: space-between;
-      }
+  ${({ theme }) => theme.mediaQueries.md} {
+    height: 60px;
+
+    .logo {
+      height: 20px;
     }
-  `
+  }
+`
 
+function Footer() {
   return (
     <FooterStyled>
-      <img src={colorStrokeLong} alt="" className="color-stroke" />
       <div className="container">
-        <div className="flex align-center flex-wrap justify-center">
-          <img src={definixBlackLogo} alt="" className="logo" />
-          <p className="pa-2">Advance your crypto assets</p>
-          <a href="https://coinmarketcap.com/currencies/six/markets/" target="_blank" rel="noreferrer">
-            <img src={poweredbySIX} alt="" className="six-logo" />
+        <div className="g1">
+          <div className="g2">
+            <img src={definixBlackLogo} alt="" className="logo" />
+            <p>Advance your crypto assets</p>
+          </div>
+
+          <a
+            href="https://coinmarketcap.com/currencies/six/markets/"
+            target="_blank"
+            rel="noreferrer"
+            className="six-logo"
+          >
+            <img src={poweredbySIX} alt="" />
           </a>
         </div>
 

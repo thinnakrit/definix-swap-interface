@@ -7,7 +7,7 @@ import uriToHttp from './uriToHttp'
 
 // bakeryswap defaultTokenJson
 import { DEFAULT_TOKEN_LIST_URL } from '../constants/lists'
-import defaultTokenJson from '../constants/token/pancakeswap.json'
+import defaultTokenJson from '../constants/token/definixswap'
 
 const tokenListValidator = new Ajv({ allErrors: true }).compile(schema)
 
@@ -19,7 +19,7 @@ const tokenListValidator = new Ajv({ allErrors: true }).compile(schema)
 export default async function getTokenList(
   listUrl: string,
   resolveENSContentHash: (ensName: string) => Promise<string>
-): Promise<TokenList> {
+): Promise<any> {
   if (listUrl === DEFAULT_TOKEN_LIST_URL) {
     return defaultTokenJson
   }

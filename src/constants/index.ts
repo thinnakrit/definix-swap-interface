@@ -1,10 +1,80 @@
 import { ChainId, JSBI, Percent, Token, WETH } from 'definixswap-sdk'
 
-export const ROUTER_ADDRESS = '0xde2F8DC59A48699C2B353c5fF7b1a1Fa03bF9989'
+export const ROUTER_ADDRESS = process.env.REACT_APP_ROUTER_ADDRESS
 
 // a list of tokens by chain
 type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
+}
+
+export const multicallAdress = {
+  [ChainId.MAINNET]: process.env.REACT_APP_MULTICALL_ADDRESS_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_MULTICALL_ADDRESS_TESTNET || "",
+}
+
+export const SIX_ADDRESS = {
+  [ChainId.MAINNET]: process.env.REACT_APP_SIX_ADDRESS_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_SIX_ADDRESS_TESTNET || "",
+}
+
+export const FINIX_ADDRESS = {
+  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_ADDRESS_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_ADDRESS_TESTNET || "",
+}
+
+export const BUSD_ADDRESS = {
+  [ChainId.MAINNET]: process.env.REACT_APP_BUSD_ADDRESS_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_BUSD_ADDRESS_TESTNET || "",
+}
+
+export const USDT_ADDRESS = {
+  [ChainId.MAINNET]: process.env.REACT_APP_USDT_ADDRESS_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_USDT_ADDRESS_TESTNET || "",
+}
+
+export const WBNB_ADDRESS = {
+  [ChainId.MAINNET]: process.env.REACT_APP_WBNB_ADDRESS_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_WBNB_ADDRESS_TESTNET || "",
+}
+
+export const FINIX_SIX_LP = {
+  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_SIX_LP_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_SIX_LP_TESTNET || "",
+}
+
+export const FINIX_BUSD_LP = {
+  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_BUSD_LP_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_BUSD_LP_TESTNET || "",
+}
+
+export const FINIX_BNB_LP = {
+  [ChainId.MAINNET]: process.env.REACT_APP_FINIX_BNB_LP_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_FINIX_BNB_LP_TESTNET || "",
+}
+
+export const SIX_BUSD_LP = {
+  [ChainId.MAINNET]: process.env.REACT_APP_SIX_BUSD_LP_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_SIX_BUSD_LP_TESTNET || "",
+}
+
+export const USDT_BUSD_LP = {
+  [ChainId.MAINNET]: process.env.REACT_APP_USDT_BUSD_LP_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_USDT_BUSD_LP_TESTNET || "",
+}
+
+export const PANCAKE_BNB_BUSD_LP = {
+  [ChainId.MAINNET]: process.env.REACT_APP_PANCAKE_BNB_BUSD_LP_MAINNET || "",
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_PANCAKE_BNB_BUSD_LP_TESTNET || "",
+}
+
+export const HERODOTUS_ADDRESS = {
+  [ChainId.MAINNET]: process.env.REACT_APP_HERODOTUS_MAINNET || "", // ==================
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_HERODOTUS_TESTNET || "",
+}
+
+export const PANCAKE_MASTER_CHEF_ADDRESS = {
+  [ChainId.MAINNET]: process.env.REACT_APP_PANCAKE_MASTER_CHEF_MAINNET || "", // ==================
+  [ChainId.BSCTESTNET]: process.env.REACT_APP_PANCAKE_MASTER_CHEF_TESTNET || "",
 }
 
 export const DAI = new Token(ChainId.MAINNET, '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3', 18, 'DAI', 'Dai Stablecoin')
@@ -50,13 +120,73 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
-  [ChainId.MAINNET]: [
+  // [ChainId.MAINNET]: [
+  //   [
+  //     new Token(ChainId.MAINNET, SIX_ADDRESS[ChainId.MAINNET], 18, 'SIX', 'SIX Token'),
+  //     new Token(ChainId.MAINNET, SIX_ADDRESS[ChainId.MAINNET], 18, 'FINIX', 'FINIX Token'),
+  //   ],
+  //   [
+  //     new Token(ChainId.MAINNET, SIX_ADDRESS[ChainId.MAINNET], 18, 'SIX', 'SIX Token'),
+  //     new Token(ChainId.MAINNET, BUSD_ADDRESS[ChainId.MAINNET], 18, 'BUSD', 'BUSD Token'),
+  //   ],
+  //   [
+  //     new Token(ChainId.MAINNET, FINIX_ADDRESS[ChainId.MAINNET], 18, 'FINIX', 'FINIX Token'),
+  //     new Token(ChainId.MAINNET, BUSD_ADDRESS[ChainId.MAINNET], 18, 'BUSD', 'BUSD Token'),
+  //   ],
+  //   [
+  //     new Token(ChainId.MAINNET, SIX_ADDRESS[ChainId.MAINNET], 18, 'SIX', 'SIX Token'),
+  //     new Token(ChainId.MAINNET, WBNB_ADDRESS[ChainId.MAINNET], 18, 'WBNB', 'Wrapped BNB'),
+  //   ],
+  //   [
+  //     new Token(ChainId.MAINNET, FINIX_ADDRESS[ChainId.MAINNET], 18, 'FINIX', 'FINIX Token'),
+  //     new Token(ChainId.MAINNET, WBNB_ADDRESS[ChainId.MAINNET], 18, 'WBNB', 'Wrapped BNB'),
+  //   ],
+  //   [
+  //     new Token(ChainId.MAINNET, WBNB_ADDRESS[ChainId.MAINNET], 18, 'WBNB', 'Wrapped BNB'),
+  //     new Token(ChainId.MAINNET, BUSD_ADDRESS[ChainId.MAINNET], 18, 'BUSD', 'BUSD Token'),
+  //   ],
+  // ],
+  [ChainId.BSCTESTNET]: [
     [
-      new Token(ChainId.MAINNET, '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82', 18, 'CAKE', 'PancakeSwap Token'),
-      new Token(ChainId.MAINNET, '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c', 18, 'WBNB', 'Wrapped BNB'),
+      new Token(ChainId.BSCTESTNET, SIX_ADDRESS[ChainId.BSCTESTNET], 18, 'SIX', 'SIX Token'),
+      new Token(ChainId.BSCTESTNET, FINIX_ADDRESS[ChainId.BSCTESTNET], 18, 'FINIX', 'FINIX Token'),
     ],
-    [BUSD, USDT],
-    [DAI, USDT],
+    [
+      new Token(ChainId.BSCTESTNET, SIX_ADDRESS[ChainId.BSCTESTNET], 18, 'SIX', 'SIX Token'),
+      new Token(ChainId.BSCTESTNET, BUSD_ADDRESS[ChainId.BSCTESTNET], 18, 'BUSD', 'BUSD Token'),
+    ],
+    [
+      new Token(ChainId.BSCTESTNET, SIX_ADDRESS[ChainId.BSCTESTNET], 18, 'SIX', 'SIX Token'),
+      new Token(ChainId.BSCTESTNET, USDT_ADDRESS[ChainId.BSCTESTNET], 18, 'USDT', 'USDT Token'),
+    ],
+    [
+      new Token(ChainId.BSCTESTNET, SIX_ADDRESS[ChainId.BSCTESTNET], 18, 'SIX', 'SIX Token'),
+      new Token(ChainId.BSCTESTNET, WBNB_ADDRESS[ChainId.BSCTESTNET], 18, 'WBNB', 'Wrapped BNB'),
+    ],
+    [
+      new Token(ChainId.BSCTESTNET, FINIX_ADDRESS[ChainId.BSCTESTNET], 18, 'FINIX', 'FINIX Token'),
+      new Token(ChainId.BSCTESTNET, BUSD_ADDRESS[ChainId.BSCTESTNET], 18, 'BUSD', 'BUSD Token'),
+    ],
+    [
+      new Token(ChainId.BSCTESTNET, FINIX_ADDRESS[ChainId.BSCTESTNET], 18, 'FINIX', 'FINIX Token'),
+      new Token(ChainId.BSCTESTNET, USDT_ADDRESS[ChainId.BSCTESTNET], 18, 'USDT', 'USDT Token'),
+    ],
+    [
+      new Token(ChainId.BSCTESTNET, FINIX_ADDRESS[ChainId.BSCTESTNET], 18, 'FINIX', 'FINIX Token'),
+      new Token(ChainId.BSCTESTNET, WBNB_ADDRESS[ChainId.BSCTESTNET], 18, 'WBNB', 'Wrapped BNB'),
+    ],
+    [
+      new Token(ChainId.BSCTESTNET, WBNB_ADDRESS[ChainId.BSCTESTNET], 18, 'WBNB', 'Wrapped BNB'),
+      new Token(ChainId.BSCTESTNET, BUSD_ADDRESS[ChainId.BSCTESTNET], 18, 'BUSD', 'BUSD Token'),
+    ],
+    [
+      new Token(ChainId.BSCTESTNET, WBNB_ADDRESS[ChainId.BSCTESTNET], 18, 'WBNB', 'Wrapped BNB'),
+      new Token(ChainId.BSCTESTNET, USDT_ADDRESS[ChainId.BSCTESTNET], 18, 'USDT', 'USDT Token'),
+    ],
+    [
+      new Token(ChainId.BSCTESTNET, BUSD_ADDRESS[ChainId.BSCTESTNET], 18, 'BUSD', 'BUSD BNB'),
+      new Token(ChainId.BSCTESTNET, USDT_ADDRESS[ChainId.BSCTESTNET], 18, 'USDT', 'USDT Token'),
+    ],
   ],
 }
 

@@ -2,6 +2,8 @@ import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
 import React, { Suspense, useEffect, useState } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
+import { useWeb3React } from '@web3-react/core'
+import { injected } from 'connectors'
 import Menu from '../components/Menu'
 import Popups from '../components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
@@ -16,39 +18,39 @@ import PoolFinder from './PoolFinder'
 import RemoveLiquidity from './RemoveLiquidity'
 import Swap from './Swap'
 import { RedirectPathToSwapOnly } from './Swap/redirects'
+// import WaitingPage from 'uikit-dev/components/WaitingPage'
 
 const AppWrapper = styled.div`
   display: flex;
   flex-flow: column;
   align-items: flex-start;
-  overflow-x: hidden;
+  // overflow-x: hidden;
+  height: 100%;
 `
 
 const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
-  padding: 32px 16px;
+  padding: 24px;
   align-items: center;
   justify-content: center;
   flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
   z-index: 1;
   justify-content: center;
-  // background-image: url('/images/group-pancake.svg');
+
+  // background-image: url('/images/group-definix.svg');
   // background-repeat: no-repeat;
   // background-position: bottom 24px center;
   // background-size: 90%;
 
-  ${({ theme }) => theme.mediaQueries.xs} {
-    background-size: auto;
-  }
+  // ${({ theme }) => theme.mediaQueries.xs} {
+  //   background-size: auto;
+  // }
 
   // ${({ theme }) => theme.mediaQueries.lg} {
   //   background-image: url('/images/arch-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg'),
-  //     url('/images/left-pancake.svg'), url('/images/right-pancake.svg');
+  //     url('/images/left-definix.svg'), url('/images/right-definix.svg');
   //   background-repeat: no-repeat;
   //   background-position: center 420px, 10% 230px, 90% 230px;
   //   background-size: contain, 266px, 266px;
@@ -81,7 +83,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    const storedLangCode = localStorage.getItem('pancakeSwapLanguage')
+    const storedLangCode = localStorage.getItem('definixSwapLanguage')
     if (storedLangCode) {
       const storedLang = getStoredLang(storedLangCode)
       setSelectedLanguage(storedLang)
@@ -107,6 +109,14 @@ export default function App() {
       })
   }
 
+  const { account, activate } = useWeb3React()
+
+  useEffect(() => {
+    if (!account && window.localStorage.getItem('accountStatus')) {
+      activate(injected)
+    }
+  }, [account, activate])
+
   useEffect(() => {
     if (selectedLanguage) {
       fetchTranslationsForSelectedLanguage()
@@ -129,9 +139,13 @@ export default function App() {
                     <Switch>
                       <Route exact strict path="/swap" component={Swap} />
                       <Route exact strict path="/find" component={PoolFinder} />
-                      <Route exact strict path="/pool" component={Pool} />
+                      <Route exact strict path="/liquidity" component={Pool} />
                       <Route exact path="/add" component={AddLiquidity} />
                       <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
+
+                      {/* <Route path="/xxx">
+                        <WaitingPage pageName="XXX" openDate="Tue Mar 30 2021 08:00:00 GMT+0700 (Indochina Time)" />
+                      </Route> */}
 
                       {/* Redirection: These old routes are still used in the code base */}
                       <Route exact path="/add/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />

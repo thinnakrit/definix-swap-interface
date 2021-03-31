@@ -5,12 +5,12 @@ import { TokenList } from '@uniswap/token-lists/dist/types'
 import { DEFAULT_LIST_OF_LISTS, DEFAULT_TOKEN_LIST_URL } from '../../constants/lists'
 import { updateVersion } from '../global/actions'
 import { acceptListUpdate, addList, fetchTokenList, removeList, selectList } from './actions'
-import DEFAULT_LIST from '../../constants/token/pancakeswap.json'
+import DEFAULT_LIST from '../../constants/token/definixswap'
 
 export interface ListsState {
   readonly byUrl: {
     readonly [url: string]: {
-      readonly current: TokenList | null
+      readonly current: any
       readonly pendingUpdate: TokenList | null
       readonly loadingRequestId: string | null
       readonly error: string | null
@@ -51,7 +51,7 @@ export default createReducer(initialState, (builder) =>
   builder
     .addCase(fetchTokenList.pending, (state, { payload: { requestId, url } }) => {
       state.byUrl[url] = {
-        current: null,
+        // current: null,
         pendingUpdate: null,
         ...state.byUrl[url],
         loadingRequestId: requestId,

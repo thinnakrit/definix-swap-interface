@@ -7,14 +7,17 @@ import useGetPriceData from 'hooks/useGetPriceData'
 import useTheme from 'hooks/useTheme'
 import React, { useContext } from 'react'
 import { ConnectorId, Menu as UikitMenu } from 'uikit-dev'
+import numeral from 'numeral'
 import links from './config'
+import useFinixPrice from '../../hooks/useFinixPrice'
 
 const Menu: React.FC = (props) => {
   const { account, activate, deactivate } = useWeb3React()
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
   const priceData = useGetPriceData()
-  const cakePriceUsd = priceData ? Number(priceData.prices.Cake) : undefined
+  const finixPrice = useFinixPrice()
+  const finixPriceUsd = priceData ? Number(priceData.prices.Finix) : undefined
   const profile = useGetLocalProfile()
 
   return (
@@ -38,8 +41,9 @@ const Menu: React.FC = (props) => {
       currentLang={selectedLanguage?.code || 'en'}
       langs={allLanguages}
       setLang={setSelectedLanguage}
-      cakePriceUsd={cakePriceUsd}
+      finixPriceUsd={finixPriceUsd}
       profile={profile}
+      price={numeral(finixPrice).format('0,0.0000')}
       {...props}
     />
   )

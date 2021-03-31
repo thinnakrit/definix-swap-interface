@@ -22,7 +22,7 @@ const getDisabledStyles = ({ isLoading, theme }: ThemedProps) => {
       background-color: ${theme.colors.backgroundDisabled};
       border-color: ${theme.colors.backgroundDisabled};
       box-shadow: none;
-      color: ${theme.colors.textDisabled};
+      color: ${theme.colors.white};
       cursor: not-allowed;
     }
   `
@@ -55,7 +55,7 @@ const StyledButton = styled.button<ButtonProps>`
   cursor: pointer;
   display: inline-flex;
   font-family: inherit;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   /* max-content instead of auto for Safari fix */
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'max-content')};
@@ -65,17 +65,22 @@ const StyledButton = styled.button<ButtonProps>`
   justify-content: center;
   outline: 0;
   padding: ${({ size }) => (size === 'sm' ? '0 16px' : '0 24px')};
-  transition: background-color 0.2s;
+  transition: background-color 0.1s;
   opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
 
   &:hover:not(:disabled):not(.button--disabled):not(:active) {
     background-color: ${getButtonVariantProp('backgroundHover')};
     border-color: ${getButtonVariantProp('borderColorHover')};
+    color: ${getButtonVariantProp('colorHover')};
+
+    svg {
+      fill: ${getButtonVariantProp('colorHover')};
+    }
   }
 
-  &:focus:not(:active) {
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.secondary};
-  }
+  // &:focus:not(:active) {
+  //   box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.secondary};
+  // }
 
   &:active {
     background-color: ${getButtonVariantProp('backgroundActive')};

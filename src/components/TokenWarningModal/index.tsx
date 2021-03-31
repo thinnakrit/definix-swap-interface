@@ -104,15 +104,15 @@ export default function TokenWarningModal({
             <StyledWarningIcon />
             <Text color="failure">Token imported</Text>
           </AutoRow>
-          <Text>
+          <Text small>
             Anyone can create an BEP20 token on BSC with <em>any</em> name, including creating fake versions of existing
             tokens and tokens that claim to represent projects that do not have a token.
           </Text>
-          <Text>
+          <Text small>
             This interface can load arbitrary tokens by token addresses. Please take extra caution and do your research
             when interacting with arbitrary BEP20 tokens.
           </Text>
-          <Text>
+          <Text small>
             If you purchase an arbitrary token, <strong>you may be unable to sell it back.</strong>
           </Text>
           {tokens.map((token) => {

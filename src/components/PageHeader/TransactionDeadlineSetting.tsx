@@ -57,7 +57,7 @@ const TransactionDeadlineSetting = () => {
   return (
     <StyledTransactionDeadlineSetting>
       <Label>
-        <Text style={{ fontWeight: 600 }}>
+        <Text small style={{ fontWeight: 600 }}>
           <TranslatedText translationId={90}>Transaction deadline</TranslatedText>
         </Text>
         <QuestionHelper text="Your transaction will revert if it is pending for more than this long." />
@@ -67,7 +67,7 @@ const TransactionDeadlineSetting = () => {
         <Text>Minutes</Text>
       </Field>
       {error && (
-        <Text mt="8px" color="failure">
+        <Text small mt="8px" color="failure">
           {error}
         </Text>
       )}

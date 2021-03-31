@@ -37,6 +37,23 @@ interface CurrencySearchProps {
   onChangeList: () => void
 }
 
+const SearchInputWithIcon = styled.div`
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 56px;
+    height: 56px;
+    padding: 16px;
+  }
+
+  input {
+    padding-right: 56px;
+  }
+`
+
 export function CurrencySearch({
   selectedCurrency,
   onCurrencySelect,
@@ -66,7 +83,7 @@ export function CurrencySearch({
 
   const tokenComparator = useTokenComparator(invertSearchOrder)
 
-  const audioPlay = useSelector<AppState, AppState['user']['audioPlay']>((state) => state.user.audioPlay)
+  // const audioPlay = useSelector<AppState, AppState['user']['audioPlay']>((state) => state.user.audioPlay)
 
   const filteredTokens: Token[] = useMemo(() => {
     if (isAddressSearch) return searchToken ? [searchToken] : []
@@ -94,14 +111,14 @@ export function CurrencySearch({
     (currency: Currency) => {
       onCurrencySelect(currency)
       onDismiss()
-      if (audioPlay) {
-        const audio = document.getElementById('bgMusic') as HTMLAudioElement
-        if (audio) {
-          audio.play()
-        }
-      }
+      // if (audioPlay) {
+      //   const audio = document.getElementById('bgMusic') as HTMLAudioElement
+      //   if (audio) {
+      //     audio.play()
+      //   }
+      // }
     },
-    [onDismiss, onCurrencySelect, audioPlay]
+    [onDismiss, onCurrencySelect] // , audioPlay]
   )
 
   // clear the input on open
@@ -138,23 +155,6 @@ export function CurrencySearch({
   )
 
   const selectedListInfo = useSelectedListInfo()
-
-  const SearchInputWithIcon = styled.div`
-    position: relative;
-
-    img {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 56px;
-      height: 56px;
-      padding: 16px;
-    }
-
-    input {
-      padding-right: 56px;
-    }
-  `
 
   return (
     <Column style={{ width: '100%', flex: '1 1' }}>
