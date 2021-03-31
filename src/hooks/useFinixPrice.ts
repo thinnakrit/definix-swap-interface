@@ -4,149 +4,166 @@ import { useActiveWeb3React } from './index'
 import multicall from '../utils/multicall'
 import {
   multicallAdress,
-  SIX_BUSD_LP,
+  FINIX_SIX_LP,
   FINIX_BUSD_LP,
-  SIX_ADDRESS,
-  BUSD_ADDRESS,
+  FINIX_BNB_LP,
+  SIX_BUSD_LP,
+  PANCAKE_BNB_BUSD_LP,
   FINIX_ADDRESS,
-  MASTERCHEF_ADDRESS
+  SIX_ADDRESS,
+  WBNB_ADDRESS,
+  BUSD_ADDRESS,
+  MASTERCHEF_ADDRESS,
+  PANCAKE_MASTERCHEF_ADDRESS
 } from '../constants'
 import erc20 from '../constants/abis/erc20.json'
 
-export function useSixPrice(): number {
-  const [currentPrice, setCurrentPrice] = useState(0)
-  const { chainId } = useActiveWeb3React()
-  useEffect(() => {
-    if (chainId) {
-      const multicallContractAddress = multicallAdress[chainId]
-      const busdAddressContract = BUSD_ADDRESS[chainId]
-      const sixAddressContract = SIX_ADDRESS[chainId]
-      const masterChefAddressContract = MASTERCHEF_ADDRESS[chainId]
-      const lpAdress = SIX_BUSD_LP[chainId]
-      const calls = [
-        {
-          address: busdAddressContract,
-          name: 'balanceOf',
-          params: [lpAdress]
-        },
-        {
-          address: sixAddressContract,
-          name: 'balanceOf',
-          params: [lpAdress]
-        },
-        {
-          address: lpAdress,
-          name: 'balanceOf',
-          params: [masterChefAddressContract]
-        },
-        {
-          address: lpAdress,
-          name: 'totalSupply'
-        },
-        {
-          address: busdAddressContract,
-          name: 'decimals'
-        },
-        {
-          address: sixAddressContract,
-          name: 'decimals'
-        }
-      ]
+const getTotalBalanceLp = async (input) => {
+  const { lpAddress, pair1, pair2, masterChefAddress, multicallAddress } = input
+  let pair1Amount = 0
+  let pair2Amount = 0
+  try {
+    const calls = [
+      {
+        address: pair1,
+        name: 'balanceOf',
+        params: [lpAddress]
+      },
+      {
+        address: pair2,
+        name: 'balanceOf',
+        params: [lpAddress]
+      },
+      {
+        address: pair1,
+        name: 'decimals'
+      },
+      {
+        address: pair2,
+        name: 'decimals'
+      }
+    ]
 
-      multicall(multicallContractAddress, erc20, calls).then(response => {
-        const [
-          tokenBalanceLP,
-          quoteTokenBlanceLP,
-          lpTokenBalanceMC,
-          lpTotalSupply,
-          tokenDecimals,
-          quoteTokenDecimals
-        ] = response
-        // Ratio in % a LP tokens that are in staking, vs the total number in circulation
-        const lpTokenRatio = new BigNumber(lpTokenBalanceMC).div(new BigNumber(lpTotalSupply))
-        // Amount of token in the LP that are considered staking (i.e amount of token * lp ratio)
-        const tokenAmount = new BigNumber(tokenBalanceLP).div(new BigNumber(10).pow(tokenDecimals)).times(lpTokenRatio)
-        const quoteTokenAmount = new BigNumber(quoteTokenBlanceLP)
-          .div(new BigNumber(10).pow(quoteTokenDecimals))
-          .times(lpTokenRatio)
-        setCurrentPrice(parseFloat(quoteTokenAmount.div(tokenAmount).toJSON()) || 0)
-      })
-    }
-  }, [chainId])
-  return currentPrice
+    const [pair1BalanceLP, pair2BalanceLP, pair1Decimals, pair2Decimals] = await multicall(
+      multicallAddress,
+      erc20,
+      calls
+    )
+
+    pair1Amount = new BigNumber(pair1BalanceLP).div(new BigNumber(10).pow(pair1Decimals)).toNumber()
+    pair2Amount = new BigNumber(pair2BalanceLP).div(new BigNumber(10).pow(pair2Decimals)).toNumber()
+  } catch (error) {
+    console.log(error)
+  }
+  return [pair1Amount, pair2Amount]
 }
 
 export default function useFinixPrice(): number {
   const [currentPrice, setCurrentPrice] = useState(0)
-  const { chainId } = useActiveWeb3React()
-  const sixPrice = useSixPrice()
+  const { account, chainId = process.env.REACT_APP_CHAIN_ID || '' } = useActiveWeb3React()
+  const multicallContractAddress = multicallAdress[chainId || process.env.REACT_APP_CHAIN_ID || '97']
   useEffect(() => {
-    if (chainId) {
-      const multicallContractAddress = multicallAdress[chainId]
-      const busdAddressContract = BUSD_ADDRESS[chainId]
-      const finixAddressContract = FINIX_ADDRESS[chainId]
-      const masterChefAddressContract = MASTERCHEF_ADDRESS[chainId]
-      const lpAdress = FINIX_BUSD_LP[chainId]
-      const calls = [
-        {
-          address: busdAddressContract,
-          name: 'balanceOf',
-          params: [lpAdress]
-        },
-        {
-          address: finixAddressContract,
-          name: 'balanceOf',
-          params: [lpAdress]
-        },
-        {
-          address: lpAdress,
-          name: 'balanceOf',
-          params: [masterChefAddressContract]
-        },
-        {
-          address: lpAdress,
-          name: 'totalSupply'
-        },
-        {
-          address: busdAddressContract,
-          name: 'decimals'
-        },
-        {
-          address: finixAddressContract,
-          name: 'decimals'
-        }
-      ]
-
-      multicall(multicallContractAddress, erc20, calls).then(response => {
-        const [
-          tokenBalanceLP,
-          quoteTokenBlanceLP,
-          lpTokenBalanceMC,
-          lpTotalSupply,
-          tokenDecimals,
-          quoteTokenDecimals
-        ] = response
-        // Ratio in % a LP tokens that are in staking, vs the total number in circulation
-        const lpTokenRatio = new BigNumber(lpTokenBalanceMC).div(new BigNumber(lpTotalSupply))
-        // Amount of token in the LP that are considered staking (i.e amount of token * lp ratio)
-        const tokenAmount = new BigNumber(tokenBalanceLP).div(new BigNumber(10).pow(tokenDecimals)).times(lpTokenRatio)
-        console.log('busd balance', tokenAmount.toNumber())
-        console.log('busd balance', tokenAmount.toNumber())
-        console.log('busd balance', tokenAmount.toNumber())
-        console.log('busd balance', tokenAmount.toNumber())
-        console.log('busd balance', tokenAmount.toNumber())
-        const quoteTokenAmount = new BigNumber(quoteTokenBlanceLP)
-          .div(new BigNumber(10).pow(quoteTokenDecimals))
-          .times(lpTokenRatio)
-        console.log('finix balance', quoteTokenAmount.toNumber())
-        console.log('finix balance', quoteTokenAmount.toNumber())
-        console.log('finix balance', quoteTokenAmount.toNumber())
-        console.log('finix balance', quoteTokenAmount.toNumber())
-        console.log('finix balance', quoteTokenAmount.toNumber())
-        console.log('finix balance', quoteTokenAmount.toNumber())
-        setCurrentPrice(sixPrice * parseFloat(quoteTokenAmount.div(tokenAmount).toJSON()) || 0)
+    console.log(account)
+    const fetchPromise = [
+      getTotalBalanceLp({
+        lpAddress: FINIX_SIX_LP[chainId],
+        pair1: FINIX_ADDRESS[chainId],
+        pair2: SIX_ADDRESS[chainId],
+        masterChefAddress: MASTERCHEF_ADDRESS[chainId],
+        multicallAddress: multicallContractAddress
+      }),
+      getTotalBalanceLp({
+        lpAddress: FINIX_BUSD_LP[chainId],
+        pair1: FINIX_ADDRESS[chainId],
+        pair2: BUSD_ADDRESS[chainId],
+        masterChefAddress: MASTERCHEF_ADDRESS[chainId],
+        multicallAddress: multicallContractAddress
+      }),
+      getTotalBalanceLp({
+        lpAddress: FINIX_BNB_LP[chainId],
+        pair1: FINIX_ADDRESS[chainId],
+        pair2: WBNB_ADDRESS[chainId],
+        masterChefAddress: MASTERCHEF_ADDRESS[chainId],
+        multicallAddress: multicallContractAddress
+      }),
+      getTotalBalanceLp({
+        lpAddress: SIX_BUSD_LP[chainId],
+        pair1: SIX_ADDRESS[chainId],
+        pair2: BUSD_ADDRESS[chainId],
+        masterChefAddress: MASTERCHEF_ADDRESS[chainId],
+        multicallAddress: multicallContractAddress
+      }),
+      getTotalBalanceLp({
+        lpAddress: PANCAKE_BNB_BUSD_LP[chainId],
+        pair1: WBNB_ADDRESS[chainId],
+        pair2: BUSD_ADDRESS[chainId],
+        masterChefAddress: PANCAKE_MASTERCHEF_ADDRESS[chainId],
+        multicallAddress: multicallContractAddress
       })
-    }
-  }, [chainId, sixPrice])
-  return currentPrice
+    ]
+    Promise.all(fetchPromise).then(response => {
+      const [
+        [totalFinixDefinixFinixSixPair, totalSixDefinixFinixSixPair],
+        [totalFinixDefinixFinixBusdPair, totalBusdDefinixFinixBusdPair],
+        [totalFinixDefinixFinixBnbPair, totalBnbDefinixFinixBnbPair],
+        [totalSixDefinixSixBusdPair, totalBnbDefinixSixBusdPair],
+        [totalBnbInPancakeBnbBusdPair, totalBusdInPancakeBnbBusdPair]
+      ] = response
+      // const totalFinixDefinixFinixSixPair = 10000000.0
+      // const totalSixDefinixFinixSixPair = 12820512.82
+      const finixSixRatio = totalSixDefinixFinixSixPair / totalFinixDefinixFinixSixPair || 0
+      // FINIX-BUSD
+      // const totalFinixDefinixFinixBusdPair = 10000000.0
+      // const totalBusdDefinixFinixBusdPair = 500000.0
+      const finixBusdRatio = totalBusdDefinixFinixBusdPair / totalFinixDefinixFinixBusdPair || 0
+      // FINIX-BNB
+      // const totalFinixDefinixFinixBnbPair = 10000000.0
+      // const totalBnbDefinixFinixBnbPair = 1824.82
+      const finixBnbRatio = totalBnbDefinixFinixBnbPair / totalFinixDefinixFinixBnbPair || 0
+      // SIX-BUSD
+      // const totalSixDefinixSixBusdPair = 12820512.82
+      // const totalBnbDefinixSixBusdPair = 500000.0
+      const sixBusdRatio = totalBnbDefinixSixBusdPair / totalSixDefinixSixBusdPair || 0
+      // PANCAKE BNB-BUSD
+      // const totalBnbInPancakeBnbBusdPair = 557985
+      // const totalBusdInPancakeBnbBusdPair = 152220163
+      const pancakeBnbBusdRatio = totalBusdInPancakeBnbBusdPair / totalBnbInPancakeBnbBusdPair || 0
+      // Price cal
+      const finixSixPrice = finixSixRatio * sixBusdRatio
+      const finixBnbPrice = finixBnbRatio * pancakeBnbBusdRatio
+      const averageFinixPrice =
+        (finixBusdRatio * totalFinixDefinixFinixBusdPair +
+          finixBnbPrice * totalFinixDefinixFinixBnbPair +
+          finixSixPrice * totalFinixDefinixFinixSixPair) /
+        (totalFinixDefinixFinixBusdPair + totalFinixDefinixFinixBnbPair + totalFinixDefinixFinixSixPair)
+
+      // console.log('FINIX-SIX LP Address : ', getFinixSixLPAddress())
+      // console.log('FINIX Address : ', getFinixAddress())
+      // console.log('Total FINIX in FINIX-SIX pair : ', totalFinixDefinixFinixSixPair)
+      // console.log('SIX Address : ', getSixAddress())
+      // console.log('Total SIX in FINIX-SIX pair : ', totalSixDefinixFinixSixPair)
+      // console.log('FINIX-BUSD LP Address : ', getFinixBusdLPAddress())
+      // console.log('FINIX Address : ', getFinixAddress())
+      // console.log('Total FINIX in FINIX-BUSD pair : ', totalFinixDefinixFinixBusdPair)
+      // console.log('BUSD Address : ', getBusdAddress())
+      // console.log('Total BUSD in FINIX-BUSD pair : ', totalBusdDefinixFinixBusdPair)
+      // console.log('FINIX-WBNB LP Address : ', getFinixBnbLPAddress())
+      // console.log('FINIX Address : ', getFinixAddress())
+      // console.log('Total FINIX in FINIX-WBNB pair : ', totalFinixDefinixFinixBnbPair)
+      // console.log('WBNB Address : ', getWbnbAddress())
+      // console.log('Total WBNB in FINIX-WBNB pair : ', totalBnbDefinixFinixBnbPair)
+      // console.log('SIX-BUSD LP Address : ', getSixBusdLPAddress())
+      // console.log('SIX Address : ', getSixAddress())
+      // console.log('Total SIX in SIX-BUSD pair : ', totalSixDefinixSixBusdPair)
+      // console.log('BUSD Address : ', getBusdAddress())
+      // console.log('Total BUSD in SIX-BUSD pair : ', totalBnbDefinixSixBusdPair)
+      // console.log('Pancake BNB-BUSD LP Address : ', getPancakeBnbBusdLPAddress())
+      // console.log('WBNB Address : ', getWbnbAddress())
+      // console.log('Total WBNB in Pancake BNB-BUSD pair : ', totalBnbInPancakeBnbBusdPair)
+      // console.log('BUSD Address : ', getBusdAddress())
+      // console.log('Total BUSD in Pancake BNB-BUSD pair : ', totalBusdInPancakeBnbBusdPair)
+      setCurrentPrice(averageFinixPrice)
+    })
+  }, [chainId, multicallContractAddress, account])
+  return currentPrice || 0
 }

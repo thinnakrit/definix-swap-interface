@@ -13,7 +13,7 @@
     {
       "name": "FINIX Token",
       "symbol": "FINIX",
-      "address": "0x136aF56aA2E2bF6114DA5F659B24456c60dDCB8e",
+      "address": "0x2ee2CEa14F245b0Bdb32EE3E4251fA50B6fc811b",
       "chainId": 97,
       "decimals": 18,
       "logoURI": "/images/coins/FINIX.png"
