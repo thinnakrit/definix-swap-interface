@@ -35,6 +35,14 @@ export default {
       logoURI: '/images/coins/BTC.png'
     },
     {
+      name: 'USDT Token',
+      symbol: 'USDT',
+      address: process.env.REACT_APP_USDT_ADDRESS_TESTNET,
+      chainId: 97,
+      decimals: 18,
+      logoURI: '/images/coins/USDT.png'
+    },
+    {
       name: 'FINIX Token',
       symbol: 'FINIX',
       address: process.env.REACT_APP_FINIX_ADDRESS_MAINNET,
@@ -57,6 +65,14 @@ export default {
       chainId: 56,
       decimals: 18,
       logoURI: '/images/coins/BTC.png'
-    }
+    },
+    {
+      name: 'USDT Token',
+      symbol: 'USDT',
+      address: process.env.REACT_APP_USDT_ADDRESS_MAINNET,
+      chainId: 56,
+      decimals: 18,
+      logoURI: '/images/coins/USDT.png'
+    },
   ]
 }
