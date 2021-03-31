@@ -43,7 +43,7 @@ const Menu: React.FC = (props) => {
       setLang={setSelectedLanguage}
       finixPriceUsd={finixPriceUsd}
       profile={profile}
-      price={finixPrice === 0 ? "N/A" : numeral(finixPrice).format('0,0.0000')}
+      price={finixPrice <= 0 ? "N/A" : numeral(finixPrice).format('0,0.0000')}
       {...props}
     />
   )
