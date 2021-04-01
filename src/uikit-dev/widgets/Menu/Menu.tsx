@@ -195,12 +195,42 @@ const Menu: React.FC<NavProps> = ({
   return (
     <Wrapper>
       <StyledNav showMenu={showMenu}>
-        <Logo
-          isPushed={isPushed}
-          togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
-          isDark={isDark}
-          href={homeLink?.href ?? '/'}
-        />
+        <Flex alignItems="center">
+          <Logo
+            isPushed={isPushed}
+            togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
+            isDark={isDark}
+            href={homeLink?.href ?? '/'}
+          />
+          {!isMobile && (
+            <Dropdown
+              position="bottom-right"
+              target={
+                <Button
+                  variant="text"
+                  size="sm"
+                  endIcon={<ChevronDownIcon className="ml-1" />}
+                  className="ml-4 color-text"
+                >
+                  Binance Smart Chain
+                </Button>
+              }
+            >
+              <MenuButton variant="text" fullWidth className="color-primary mb-2">
+                Binance Smart Chain
+              </MenuButton>
+              <MenuButton
+                variant="text"
+                fullWidth
+                disabled
+                className="color-disable"
+                style={{ background: 'transparent' }}
+              >
+                Klaytn
+              </MenuButton>
+            </Dropdown>
+          )}
+        </Flex>
         <Flex alignItems="center">
           <Price>
             <img src={FinixCoin} alt="" />

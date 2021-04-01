@@ -1,14 +1,20 @@
 import { MenuEntry } from 'uikit-dev'
 import dashboardClick from 'uikit-dev/images/Menu-Icon/dashboard-click.png'
 import dashboard from 'uikit-dev/images/Menu-Icon/dashboard.png'
+import exploreClick from 'uikit-dev/images/Menu-Icon/explore-click.png'
+import explore from 'uikit-dev/images/Menu-Icon/explore.png'
 import farmClick from 'uikit-dev/images/Menu-Icon/farm-click.png'
 import farm from 'uikit-dev/images/Menu-Icon/farm.png'
 import liquidityClick from 'uikit-dev/images/Menu-Icon/liquidity-click.png'
 import liquidity from 'uikit-dev/images/Menu-Icon/liquidity.png'
 import poolClick from 'uikit-dev/images/Menu-Icon/pool-click.png'
 import pool from 'uikit-dev/images/Menu-Icon/pool.png'
+import portfolioClick from 'uikit-dev/images/Menu-Icon/portfolio-click.png'
+import portfolio from 'uikit-dev/images/Menu-Icon/portfolio.png'
 import swapClick from 'uikit-dev/images/Menu-Icon/swap-click.png'
 import swap from 'uikit-dev/images/Menu-Icon/swap.png'
+import watchlistClick from 'uikit-dev/images/Menu-Icon/watchlist-click.png'
+import watchlist from 'uikit-dev/images/Menu-Icon/watchlist.png'
 
 const config: MenuEntry[] = [
   {
@@ -16,46 +22,65 @@ const config: MenuEntry[] = [
     icon: dashboardClick,
     iconActive: dashboard,
     href: 'https://bsc.definix.com/dashboard',
+    group: 'wallet',
+    notHighlight: false,
   },
   {
     label: 'Pool',
     icon: poolClick,
     iconActive: pool,
     href: 'https://bsc.definix.com/pool',
+    group: 'dex',
+    notHighlight: false,
   },
   {
     label: 'Swap',
     icon: swapClick,
     iconActive: swap,
     href: '/swap',
+    group: 'dex',
+    notHighlight: false,
   },
   {
     label: 'Liquidity',
     icon: liquidityClick,
     iconActive: liquidity,
     href: '/liquidity',
+    group: 'dex',
+    notHighlight: false,
   },
   {
     label: 'Farm',
     icon: farmClick,
     iconActive: farm,
     href: 'https://bsc.definix.com/farm',
+    group: 'dex',
+    notHighlight: false,
   },
-  // {
-  //   label: 'Investment',
-  //   icon: 'TradeIcon',
-  //   initialOpenState: false,
-  //   items: [
-  //     {
-  //       label: 'Exchange',
-  //       href: '/swap',
-  //     },
-  //     {
-  //       label: 'Liquidity',
-  //       href: '/pool',
-  //     },
-  //   ],
-  // },
+  {
+    label: 'Portfolio',
+    icon: portfolioClick,
+    iconActive: portfolio,
+    href: 'https://bsc.definix.com/info',
+    group: 'invest',
+    notHighlight: true,
+  },
+  {
+    label: 'Watchlist',
+    icon: watchlistClick,
+    iconActive: watchlist,
+    href: 'https://bsc.definix.com/info',
+    group: 'invest',
+    notHighlight: true,
+  },
+  {
+    label: 'Explore',
+    icon: exploreClick,
+    iconActive: explore,
+    href: 'https://bsc.definix.com/info',
+    group: 'invest',
+    notHighlight: true,
+  },
 ]
 
 // const config: MenuEntry[] = [
