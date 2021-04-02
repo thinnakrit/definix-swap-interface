@@ -5,6 +5,8 @@ import exploreClick from 'uikit-dev/images/Menu-Icon/explore-click.png'
 import explore from 'uikit-dev/images/Menu-Icon/explore.png'
 import farmClick from 'uikit-dev/images/Menu-Icon/farm-click.png'
 import farm from 'uikit-dev/images/Menu-Icon/farm.png'
+import bridgeClick from 'uikit-dev/images/Menu-Icon/bridge-click.png'
+import bridge from 'uikit-dev/images/Menu-Icon/bridge.png'
 import liquidityClick from 'uikit-dev/images/Menu-Icon/liquidity-click.png'
 import liquidity from 'uikit-dev/images/Menu-Icon/liquidity.png'
 import poolClick from 'uikit-dev/images/Menu-Icon/pool-click.png'
@@ -79,6 +81,14 @@ const config: MenuEntry[] = [
     iconActive: explore,
     href: 'https://bsc.definix.com/info',
     group: 'invest',
+    notHighlight: true,
+  },
+  {
+    label: 'Bridge',
+    icon: bridgeClick,
+    iconActive: bridge,
+    href: 'https://bridge.six.network',
+    group: 'tool',
     notHighlight: true,
   },
 ]
