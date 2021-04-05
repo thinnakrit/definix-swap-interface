@@ -61,7 +61,7 @@ const getTotalBalanceLp = async (input) => {
 export default function useFinixPrice(): number {
   const [currentPrice, setCurrentPrice] = useState(0)
   const { account, chainId = process.env.REACT_APP_CHAIN_ID || '' } = useActiveWeb3React()
-  const multicallContractAddress = multicallAdress[chainId || process.env.REACT_APP_CHAIN_ID || '97']
+  const multicallContractAddress = multicallAdress[chainId || process.env.REACT_APP_CHAIN_ID || '56']
   useEffect(() => {
     console.log(account)
     const fetchPromise = [

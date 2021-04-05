@@ -259,7 +259,7 @@ export function queryParametersToSwapState(parsedQs: ParsedQs, chainId: any): Sw
 export function useDefaultsFromURLSearch():
   | { inputCurrencyId: string | undefined; outputCurrencyId: string | undefined }
   | undefined {
-  const { chainId = process.env.REACT_APP_CHAIN_ID || '' } = useActiveWeb3React()
+  const { chainId = process.env.REACT_APP_CHAIN_ID || '56' } = useActiveWeb3React()
   const dispatch = useDispatch<AppDispatch>()
   const parsedQs = useParsedQueryString()
   const [result, setResult] = useState<

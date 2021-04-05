@@ -274,7 +274,7 @@ const Swap = () => {
   return (
     <>
       <TokenWarningModal
-        isOpen={urlLoadedTokens.filter(x => x.address !== SIX_ADDRESS[chainId]).length > 0 && !dismissTokenWarning}
+        isOpen={urlLoadedTokens.filter(x => x.address.toLowerCase() !== SIX_ADDRESS[chainId].toLowerCase()).length > 0 && !dismissTokenWarning}
         tokens={urlLoadedTokens}
         onConfirm={handleConfirmTokenWarning}
       />

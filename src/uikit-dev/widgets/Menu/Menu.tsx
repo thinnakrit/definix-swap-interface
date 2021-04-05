@@ -2,6 +2,7 @@ import throttle from 'lodash/throttle'
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import Button from '../../components/Button/Button'
+import Text from '../../components/Text/Text'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import { Flex } from '../../components/Flex'
 import Footer from '../../components/Footer'
@@ -10,6 +11,8 @@ import { SvgProps } from '../../components/Svg'
 import ChevronDownIcon from '../../components/Svg/Icons/ChevronDown'
 import { useMatchBreakpoints } from '../../hooks'
 import en from '../../images/en.png'
+import bsc from '../../images/Logo-BinanceSmartChain.png'
+import klaytn from '../../images/Logo-Klaytn.png'
 import th from '../../images/th.png'
 import { MENU_HEIGHT, SIDEBAR_WIDTH_FULL, SIDEBAR_WIDTH_REDUCED } from './config'
 import * as IconModule from './icons'
@@ -195,12 +198,49 @@ const Menu: React.FC<NavProps> = ({
   return (
     <Wrapper>
       <StyledNav showMenu={showMenu}>
-        <Logo
-          isPushed={isPushed}
-          togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
-          isDark={isDark}
-          href={homeLink?.href ?? '/'}
-        />
+        <Flex alignItems="center">
+          <Logo
+            isPushed={isPushed}
+            togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
+            isDark={isDark}
+            href={homeLink?.href ?? '/'}
+          />
+          {!isMobile && (
+            <Dropdown
+              position="bottom"
+              target={
+                <Button
+                  variant="text"
+                  size="sm"
+                  startIcon={<img src={bsc} alt="" width="24" className="mr-2" />}
+                  endIcon={<ChevronDownIcon className="ml-1" />}
+                  className="ml-4 color-text"
+                >
+                  <Text fontSize="12px" fontWeight="500">
+                    Binance Smart Chain
+                  </Text>
+                </Button>
+              }
+            >
+              <MenuButton
+                variant="text"
+                startIcon={<img src={bsc} alt="" width="24" className="mr-2" />}
+                className="color-primary mb-2"
+              >
+                Binance Smart Chain
+              </MenuButton>
+              <MenuButton
+                variant="text"
+                startIcon={<img src={klaytn} alt="" width="24" className="mr-2" />}
+                disabled
+                className="color-disable"
+                style={{ background: 'transparent' }}
+              >
+                Klaytn
+              </MenuButton>
+            </Dropdown>
+          )}
+        </Flex>
         <Flex alignItems="center">
           <Price>
             <img src={FinixCoin} alt="" />
@@ -219,7 +259,7 @@ const Menu: React.FC<NavProps> = ({
                 endIcon={<ChevronDownIcon className="ml-1" />}
                 style={{ borderRadius: '6px', padding: '0 8px 0 12px', boxShadow: '0 1px 2px rgba(0,0,0,0.16)' }}
               >
-                <Text color="textSubtle">{getLanguageName(currentLang)}</Text>
+              <Text color="textSubtle">{getLanguageName(currentLang)}</Text>
               </Button>
             }
           >
