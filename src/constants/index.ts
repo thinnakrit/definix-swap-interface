@@ -120,48 +120,6 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
-  [ChainId.MAINNET]: [
-    [
-      new Token(ChainId.BSCTESTNET, SIX_ADDRESS[ChainId.MAINNET], 18, 'SIX', 'SIX Token'),
-      new Token(ChainId.BSCTESTNET, FINIX_ADDRESS[ChainId.MAINNET], 18, 'FINIX', 'FINIX Token'),
-    ],
-    [
-      new Token(ChainId.BSCTESTNET, SIX_ADDRESS[ChainId.MAINNET], 18, 'SIX', 'SIX Token'),
-      new Token(ChainId.BSCTESTNET, BUSD_ADDRESS[ChainId.MAINNET], 18, 'BUSD', 'BUSD Token'),
-    ],
-    [
-      new Token(ChainId.BSCTESTNET, SIX_ADDRESS[ChainId.MAINNET], 18, 'SIX', 'SIX Token'),
-      new Token(ChainId.BSCTESTNET, USDT_ADDRESS[ChainId.MAINNET], 18, 'USDT', 'USDT Token'),
-    ],
-    [
-      new Token(ChainId.BSCTESTNET, SIX_ADDRESS[ChainId.MAINNET], 18, 'SIX', 'SIX Token'),
-      new Token(ChainId.BSCTESTNET, WBNB_ADDRESS[ChainId.MAINNET], 18, 'WBNB', 'Wrapped BNB'),
-    ],
-    [
-      new Token(ChainId.BSCTESTNET, FINIX_ADDRESS[ChainId.MAINNET], 18, 'FINIX', 'FINIX Token'),
-      new Token(ChainId.BSCTESTNET, BUSD_ADDRESS[ChainId.MAINNET], 18, 'BUSD', 'BUSD Token'),
-    ],
-    [
-      new Token(ChainId.BSCTESTNET, FINIX_ADDRESS[ChainId.MAINNET], 18, 'FINIX', 'FINIX Token'),
-      new Token(ChainId.BSCTESTNET, USDT_ADDRESS[ChainId.MAINNET], 18, 'USDT', 'USDT Token'),
-    ],
-    [
-      new Token(ChainId.BSCTESTNET, FINIX_ADDRESS[ChainId.MAINNET], 18, 'FINIX', 'FINIX Token'),
-      new Token(ChainId.BSCTESTNET, WBNB_ADDRESS[ChainId.MAINNET], 18, 'WBNB', 'Wrapped BNB'),
-    ],
-    [
-      new Token(ChainId.BSCTESTNET, WBNB_ADDRESS[ChainId.MAINNET], 18, 'WBNB', 'Wrapped BNB'),
-      new Token(ChainId.BSCTESTNET, BUSD_ADDRESS[ChainId.MAINNET], 18, 'BUSD', 'BUSD Token'),
-    ],
-    [
-      new Token(ChainId.BSCTESTNET, WBNB_ADDRESS[ChainId.MAINNET], 18, 'WBNB', 'Wrapped BNB'),
-      new Token(ChainId.BSCTESTNET, USDT_ADDRESS[ChainId.MAINNET], 18, 'USDT', 'USDT Token'),
-    ],
-    [
-      new Token(ChainId.BSCTESTNET, BUSD_ADDRESS[ChainId.MAINNET], 18, 'BUSD', 'BUSD BNB'),
-      new Token(ChainId.BSCTESTNET, USDT_ADDRESS[ChainId.MAINNET], 18, 'USDT', 'USDT Token'),
-    ],
-  ],
   [ChainId.BSCTESTNET]: [
     [
       new Token(ChainId.BSCTESTNET, SIX_ADDRESS[ChainId.BSCTESTNET], 18, 'SIX', 'SIX Token'),
