@@ -9,14 +9,14 @@ import React, { useContext } from 'react'
 import { ConnectorId, Menu as UikitMenu } from 'uikit-dev'
 import numeral from 'numeral'
 import links from './config'
-import useFinixPrice from '../../hooks/useFinixPrice'
+import { useFinixPriceApi } from '../../hooks/usePrice'
 
 const Menu: React.FC = (props) => {
   const { account, activate, deactivate } = useWeb3React()
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
   const priceData = useGetPriceData()
-  const finixPrice = useFinixPrice()
+  const finixPrice = useFinixPriceApi()
   const finixPriceUsd = priceData ? Number(priceData.prices.Finix) : undefined
   const profile = useGetLocalProfile()
 
